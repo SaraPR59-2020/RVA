@@ -1,0 +1,131 @@
+<Project>
+  <Name>FTN</Name>
+  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
+    <Name>Biblioteka</Name>
+    <Language>CSharp</Language>
+    <Entities>
+      <Entity type="Class">
+        <Name>Knjiga</Name>
+        <Access>Public</Access>
+        <Location left="454" top="33" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">int godinaIzdavanja</Member>
+        <Member type="Field">string naslov</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Autor</Name>
+        <Access>Public</Access>
+        <Location left="864" top="33" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">string kratakOpis</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Clan</Name>
+        <Access>Public</Access>
+        <Location left="42" top="33" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">string ime</Member>
+        <Member type="Field">string prezime</Member>
+        <Member type="Field">string username</Member>
+        <Member type="Field">string password</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Knjizara</Name>
+        <Access>Public</Access>
+        <Location left="864" top="287" />
+        <Size width="316" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">public Dictionary&lt;string, Clan&gt; Clanovi { get; set; }</Member>
+        <Member type="Property">public Dictionary&lt;string, Clan&gt; UlogovaniClanovi { get; set; }</Member>
+        <Member type="Method">public bool Prijava(Clan clan)</Member>
+        <Member type="Method">public bool Registracija(Clan clan)</Member>
+        <Member type="Method">public void Odjava(Clan clan)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Klijent</Name>
+        <Access>Public</Access>
+        <Location left="454" top="287" />
+        <Size width="288" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public void Prijava(string username, string password)</Member>
+        <Member type="Method">public void Odjava(string token)</Member>
+        <Member type="Property">public List&lt;Knjiga&gt; Knjige { get; set; }</Member>
+        <Member type="Method">public Knjiga IznajmiKnjigu(Knjiga knjiga)</Member>
+        <Member type="Method">public void VratiKnjigu(Knjiga knjiga)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Interface">
+        <Name>IKnjizaraService</Name>
+        <Access>Public</Access>
+        <Location left="454" top="547" />
+        <Size width="316" height="288" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">string Prijava(string username, string password)</Member>
+        <Member type="Method">void Odjava(string token)</Member>
+        <Member type="Method">List&lt;Knjige&gt; DobaviKnjige(string token)</Member>
+        <Member type="Method">void IzmeniClana(string ime, string prezime, string token)</Member>
+        <Member type="Method">Clan DobaviClana(string token)</Member>
+        <Member type="Method">void DodajKnjigu(Knjiga knjiga, string token)</Member>
+        <Member type="Method">void DuplirajKnjigu(Knjiga knjiga, string token)</Member>
+        <Member type="Method">void ObrisiKnjigu(Knjiga knjiga, string token)</Member>
+        <Member type="Method">void IznajmiKnjigu(Knjiga knjiga, string token)</Member>
+      </Entity>
+      <Entity type="Class">
+        <Name>DbContext</Name>
+        <Access>Public</Access>
+        <Location left="1352" top="33" />
+        <Size width="162" height="78" />
+        <Collapsed>False</Collapsed>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>BookstoreDbContext</Name>
+        <Access>Public</Access>
+        <Location left="1352" top="287" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">protected override void OnModelCreating()</Member>
+        <Member type="Property">public DbSet&lt;BookDTO&gt; Books { get; set; }</Member>
+        <Member type="Property">public DbSet&lt;AuthorDTO&gt; Authors { get; set; }</Member>
+        <Member type="Property">public DbSet&lt;MemberDTO&gt; Members { get; set; }</Member>
+        <Member type="Property">public DbSet&lt;MemberDTO&gt; Admins { get; set; }</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+    </Entities>
+    <Relationships>
+      <Relationship type="Association" first="1" second="0">
+        <Label>napisao</Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Aggregation</AssociationType>
+        <StartRole>autor</StartRole>
+        <EndRole>knjige</EndRole>
+        <StartMultiplicity>1</StartMultiplicity>
+        <EndMultiplicity>1..*</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Association" first="2" second="0">
+        <Label>iznajmio</Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Aggregation</AssociationType>
+        <StartRole>clan</StartRole>
+        <EndRole>knjige</EndRole>
+        <StartMultiplicity>0..1</StartMultiplicity>
+        <EndMultiplicity>0..*</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Generalization" first="7" second="6">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+      </Relationship>
+    </Relationships>
+  </ProjectItem>
+</Project>
