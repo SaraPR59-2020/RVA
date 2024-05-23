@@ -12,3 +12,17 @@ D:\SNIMANJA\FAKS JU\4GODINA\RAZVOJ_VISESLOJNIH_APLIKACIJA\RVA_PROJEKT\Bookstore\
 D:\SNIMANJA\FAKS JU\4GODINA\RAZVOJ_VISESLOJNIH_APLIKACIJA\RVA_PROJEKT\Bookstore\BookstoreBackend\obj\Debug\BookstoreBackend.csproj.CopyComplete
 D:\SNIMANJA\FAKS JU\4GODINA\RAZVOJ_VISESLOJNIH_APLIKACIJA\RVA_PROJEKT\Bookstore\BookstoreBackend\obj\Debug\BookstoreBackend.exe
 D:\SNIMANJA\FAKS JU\4GODINA\RAZVOJ_VISESLOJNIH_APLIKACIJA\RVA_PROJEKT\Bookstore\BookstoreBackend\obj\Debug\BookstoreBackend.pdb
+C:\Users\Korisnik\Documents\GitHub\RVA\Bookstore\BookstoreBackend\bin\Debug\BookstoreBackend.exe.config
+C:\Users\Korisnik\Documents\GitHub\RVA\Bookstore\BookstoreBackend\bin\Debug\BookstoreBackend.exe
+C:\Users\Korisnik\Documents\GitHub\RVA\Bookstore\BookstoreBackend\bin\Debug\BookstoreBackend.pdb
+C:\Users\Korisnik\Documents\GitHub\RVA\Bookstore\BookstoreBackend\bin\Debug\Common.dll
+C:\Users\Korisnik\Documents\GitHub\RVA\Bookstore\BookstoreBackend\bin\Debug\EntityFramework.dll
+C:\Users\Korisnik\Documents\GitHub\RVA\Bookstore\BookstoreBackend\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Korisnik\Documents\GitHub\RVA\Bookstore\BookstoreBackend\bin\Debug\Common.pdb
+C:\Users\Korisnik\Documents\GitHub\RVA\Bookstore\BookstoreBackend\bin\Debug\EntityFramework.xml
+C:\Users\Korisnik\Documents\GitHub\RVA\Bookstore\BookstoreBackend\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Korisnik\Documents\GitHub\RVA\Bookstore\BookstoreBackend\obj\Debug\BookstoreBackend.csproj.AssemblyReference.cache
+C:\Users\Korisnik\Documents\GitHub\RVA\Bookstore\BookstoreBackend\obj\Debug\BookstoreBackend.csproj.CoreCompileInputs.cache
+C:\Users\Korisnik\Documents\GitHub\RVA\Bookstore\BookstoreBackend\obj\Debug\Bookstor.679FC664.Up2Date
+C:\Users\Korisnik\Documents\GitHub\RVA\Bookstore\BookstoreBackend\obj\Debug\BookstoreBackend.exe
+C:\Users\Korisnik\Documents\GitHub\RVA\Bookstore\BookstoreBackend\obj\Debug\BookstoreBackend.pdb

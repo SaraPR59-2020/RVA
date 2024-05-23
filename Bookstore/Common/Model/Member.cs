@@ -6,9 +6,14 @@ using System.Threading.Tasks;
 
 namespace Common.Model
 {
-    public class Member
+    public class Member : IUser
     {
-        public string Username { get; set; }
-        public string Password { get; set; }
+        private string firstName;
+        private string lastName;
+
+        public string Username {  get; set; }
+        public string Password {  get; set; }
+        public string FirstName { get => firstName; set => firstName = value; }
+        public string LastName { get => lastName; set => lastName = value; }
     }
 }

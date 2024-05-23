@@ -8,7 +8,13 @@ namespace Common.Model
 {
     public class Author
     {
+        private string shortDesc;
+        private string firstName;
+        private string lastName;
+
         public int AuthorId { get; set; }
-        public string ShortDesc { get; set; }
+        public string ShortDesc { get => shortDesc; set => shortDesc = value; }
+        public string FirstName { get => firstName; set => firstName = value; }
+        public string LastName { get => lastName; set => lastName = value; }
     }
 }

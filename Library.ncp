@@ -25,6 +25,10 @@
         <Collapsed>False</Collapsed>
         <Member type="Field">string firstName</Member>
         <Member type="Field">string lastName</Member>
+        <Member type="Property">public string FirstName { get; set; }</Member>
+        <Member type="Property">public string LastName { get; set; }</Member>
+        <Member type="Property">public string Username { get; set; }</Member>
+        <Member type="Property">public string Password { get; set; }</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
@@ -47,6 +51,10 @@
         <Location left="22" top="362" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
+        <Member type="Property">public string FirstName { get; set; }</Member>
+        <Member type="Property">public string LastName { get; set; }</Member>
+        <Member type="Property">public string Username { get; set; }</Member>
+        <Member type="Property">public string Password { get; set; }</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Interface">
@@ -56,18 +64,6 @@
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Method">ICloneable Clone()</Member>
-      </Entity>
-      <Entity type="Class">
-        <Name>User</Name>
-        <Access>Public</Access>
-        <Location left="169" top="46" />
-        <Size width="162" height="216" />
-        <Collapsed>False</Collapsed>
-        <Member type="Property">public string FirstName { get; set; }</Member>
-        <Member type="Property">public string LastName { get; set; }</Member>
-        <Member type="Property">public string Username { get; set; }</Member>
-        <Member type="Property">public int Password { get; set; }</Member>
-        <Modifier>None</Modifier>
       </Entity>
       <Entity type="Comment">
         <Text>Prototip za kloniranje instanci knjige
@@ -159,6 +155,17 @@
         <Collapsed>False</Collapsed>
         <Modifier>None</Modifier>
       </Entity>
+      <Entity type="Interface">
+        <Name>IUser</Name>
+        <Access>Public</Access>
+        <Location left="173" top="49" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">string FirstName { get; set; }</Member>
+        <Member type="Property">string LastName { get; set; }</Member>
+        <Member type="Property">string Username { get; set; }</Member>
+        <Member type="Property">string Password { get; set; }</Member>
+      </Entity>
     </Entities>
     <Relationships>
       <Relationship type="Association" first="2" second="0">
@@ -187,29 +194,21 @@
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
       </Relationship>
-      <Relationship type="Generalization" first="3" second="5">
+      <Relationship type="Dependency" first="6" second="0">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
       </Relationship>
-      <Relationship type="Generalization" first="1" second="5">
+      <Relationship type="Realization" first="7" second="6">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
       </Relationship>
-      <Relationship type="Dependency" first="7" second="0">
+      <Relationship type="Generalization" first="12" second="11">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Association" first="11" second="15">
         <Label>
         </Label>
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-      </Relationship>
-      <Relationship type="Realization" first="8" second="7">
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-      </Relationship>
-      <Relationship type="Generalization" first="13" second="12">
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-      </Relationship>
-      <Relationship type="Association" first="12" second="16">
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
@@ -218,17 +217,27 @@
         <StartMultiplicity>1</StartMultiplicity>
         <EndMultiplicity>0..*</EndMultiplicity>
       </Relationship>
-      <Relationship type="Generalization" first="17" second="16">
+      <Relationship type="Generalization" first="16" second="15">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
       </Relationship>
-      <Relationship type="Association" first="17" second="13">
+      <Relationship type="Association" first="16" second="12">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
         <StartMultiplicity>1</StartMultiplicity>
         <EndMultiplicity>0..*</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Realization" first="3" second="17">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Realization" first="1" second="17">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
       </Relationship>
     </Relationships>
   </ProjectItem>
