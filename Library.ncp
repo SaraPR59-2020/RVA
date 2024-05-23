@@ -10,9 +10,9 @@
         <Location left="600" top="362" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
-        <Member type="Field">string name</Member>
+        <Member type="Field">string title</Member>
         <Member type="Field">int publishmentYear</Member>
-        <Member type="Property">public string Name { get; set; }</Member>
+        <Member type="Property">public string Title { get; set; }</Member>
         <Member type="Property">public int PublishmentYear { get; set; }</Member>
         <Member type="Method">public ICloneable Clone()</Member>
         <Modifier>None</Modifier>
@@ -72,24 +72,49 @@
         <Size width="160" height="75" />
       </Entity>
       <Entity type="Interface">
-        <Name>ILibraryService</Name>
+        <Name>IBookstoreService</Name>
         <Access>Public</Access>
-        <Location left="600" top="746" />
-        <Size width="162" height="216" />
+        <Location left="443" top="748" />
+        <Size width="487" height="265" />
         <Collapsed>False</Collapsed>
+        <Member type="Method">bool CreateBook(string title, int publishYear, int authorId)</Member>
+        <Member type="Method">bool CreateAuthor(string firstName, string lastName, string shortDesc)</Member>
+        <Member type="Method">bool CreateUser(string firstName, string lastName, string username, string password)</Member>
+        <Member type="Method">bool DeleteBook(int bookId)</Member>
+        <Member type="Method">void CloneBook(Book book)</Member>
+        <Member type="Method">bool EditBook(int bookId, string title, int publishYear, int authorId)</Member>
+        <Member type="Method">Dictionary&lt;int, Book&gt; GetBooks()</Member>
+        <Member type="Method">Member GetMemberInfo(string username)</Member>
+        <Member type="Method">bool EditMemberInfo(string username, string firstName, string lastName)</Member>
+        <Member type="Method">void NewMethod()</Member>
+        <Member type="Method">bool LogIn(string username, string password)</Member>
+        <Member type="Method">void LogOut(string username)</Member>
       </Entity>
       <Entity type="Class">
         <Name>LibraryService</Name>
         <Access>Public</Access>
-        <Location left="600" top="1054" />
-        <Size width="162" height="216" />
+        <Location left="438" top="1127" />
+        <Size width="492" height="298" />
         <Collapsed>False</Collapsed>
+        <Member type="Field">List&lt;string&gt; activeUsers</Member>
+        <Member type="Method">public bool CreateBook(string title, int publishYear, int authorId)</Member>
+        <Member type="Method">public bool CreateAuthor(string firstName, string lastName, string shortDesc)</Member>
+        <Member type="Method">public bool CreateUser(string firstName, string lastName, string username, string password)</Member>
+        <Member type="Method">public bool DeleteBook(int bookId)</Member>
+        <Member type="Method">public void CloneBook(Book book)</Member>
+        <Member type="Method">public bool EditBook(int bookId, string title, int publishYear, int authorId)</Member>
+        <Member type="Method">public Dictionary&lt;int, Book&gt; GetBooks()</Member>
+        <Member type="Method">public Member GetMemberInfo(string username)</Member>
+        <Member type="Method">public bool EditMemberInfo(string username, string firstName, string lastName)</Member>
+        <Member type="Method">public void NewMethod()</Member>
+        <Member type="Method">public bool LogIn(string username, string password)</Member>
+        <Member type="Method">public void LogOut(string username)</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Comment">
         <Text>Singleton da bi imali samo jednu instancu servisa
 </Text>
-        <Location left="461" top="618" />
+        <Location left="951" top="670" />
         <Size width="160" height="75" />
       </Entity>
       <Entity type="Class">
@@ -166,6 +191,18 @@
         <Member type="Property">string Username { get; set; }</Member>
         <Member type="Property">string Password { get; set; }</Member>
       </Entity>
+      <Entity type="Class">
+        <Name>Session</Name>
+        <Access>Public</Access>
+        <Location left="1113" top="775" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">Session instance</Member>
+        <Member type="Method">public void Close()</Member>
+        <Member type="Property">public Session Instance { get; set; }</Member>
+        <Member type="Property">public string ActiveUser { get; set; }</Member>
+        <Modifier>None</Modifier>
+      </Entity>
     </Entities>
     <Relationships>
       <Relationship type="Association" first="2" second="0">
@@ -195,6 +232,8 @@
         <EndOrientation>Vertical</EndOrientation>
       </Relationship>
       <Relationship type="Dependency" first="6" second="0">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
       </Relationship>
@@ -207,8 +246,6 @@
         <EndOrientation>Vertical</EndOrientation>
       </Relationship>
       <Relationship type="Association" first="11" second="15">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
@@ -222,8 +259,6 @@
         <EndOrientation>Vertical</EndOrientation>
       </Relationship>
       <Relationship type="Association" first="16" second="12">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
@@ -238,6 +273,14 @@
       <Relationship type="Realization" first="1" second="17">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Association" first="18" second="6">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <StartMultiplicity>0..*</StartMultiplicity>
+        <EndMultiplicity>1</EndMultiplicity>
       </Relationship>
     </Relationships>
   </ProjectItem>
