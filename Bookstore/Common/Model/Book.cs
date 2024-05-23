@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,9 +11,11 @@ namespace Common.Model
     {
         private string title;
         private int publishYear;
+
+        [Key]
         public int BookId { get; set; }
-        public Author Author { get; set; }
-        public Member Member { get; set; }
+        public int Author { get; set; }
+        public string Member { get; set; }
         public string Title { get => title; set => title = value; }
         public int PublishYear { get => publishYear; set => publishYear = value; }
 

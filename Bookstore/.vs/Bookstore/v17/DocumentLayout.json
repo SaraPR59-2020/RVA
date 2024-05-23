@@ -3,16 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\Korisnik\\Documents\\GitHub\\RVA\\Bookstore\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9C0A3D21-D5DB-45B4-B8AC-734BE82B53BE}|Common\\Common.csproj|C:\\Users\\Korisnik\\Documents\\GitHub\\RVA\\Bookstore\\common\\model\\author.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9C0A3D21-D5DB-45B4-B8AC-734BE82B53BE}|Common\\Common.csproj|solutionrelative:common\\model\\author.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A6BCF32A-1A0E-4F92-AAA8-AF5113BF49AD}|BookstoreBackend\\BookstoreBackend.csproj|C:\\Users\\Korisnik\\Documents\\GitHub\\RVA\\Bookstore\\bookstorebackend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A6BCF32A-1A0E-4F92-AAA8-AF5113BF49AD}|BookstoreBackend\\BookstoreBackend.csproj|solutionrelative:bookstorebackend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9C0A3D21-D5DB-45B4-B8AC-734BE82B53BE}|Common\\Common.csproj|c:\\users\\korisnik\\documents\\github\\rva\\bookstore\\common\\model\\admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9C0A3D21-D5DB-45B4-B8AC-734BE82B53BE}|Common\\Common.csproj|solutionrelative:common\\model\\admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A6BCF32A-1A0E-4F92-AAA8-AF5113BF49AD}|BookstoreBackend\\BookstoreBackend.csproj|c:\\users\\korisnik\\documents\\github\\rva\\bookstore\\bookstorebackend\\migrations\\configuration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A6BCF32A-1A0E-4F92-AAA8-AF5113BF49AD}|BookstoreBackend\\BookstoreBackend.csproj|solutionrelative:bookstorebackend\\migrations\\configuration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9C0A3D21-D5DB-45B4-B8AC-734BE82B53BE}|Common\\Common.csproj|C:\\Users\\Korisnik\\Documents\\GitHub\\RVA\\Bookstore\\common\\icloneable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9C0A3D21-D5DB-45B4-B8AC-734BE82B53BE}|Common\\Common.csproj|solutionrelative:common\\icloneable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A6BCF32A-1A0E-4F92-AAA8-AF5113BF49AD}|BookstoreBackend\\BookstoreBackend.csproj|c:\\users\\korisnik\\documents\\github\\rva\\bookstore\\bookstorebackend\\bookstoredbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A6BCF32A-1A0E-4F92-AAA8-AF5113BF49AD}|BookstoreBackend\\BookstoreBackend.csproj|solutionrelative:bookstorebackend\\bookstoredbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A6BCF32A-1A0E-4F92-AAA8-AF5113BF49AD}|BookstoreBackend\\BookstoreBackend.csproj|c:\\users\\korisnik\\documents\\github\\rva\\bookstore\\bookstorebackend\\migrations\\202405231637428_init.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A6BCF32A-1A0E-4F92-AAA8-AF5113BF49AD}|BookstoreBackend\\BookstoreBackend.csproj|solutionrelative:bookstorebackend\\migrations\\202405231637428_init.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9C0A3D21-D5DB-45B4-B8AC-734BE82B53BE}|Common\\Common.csproj|C:\\Users\\Korisnik\\Documents\\GitHub\\RVA\\Bookstore\\common\\model\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9C0A3D21-D5DB-45B4-B8AC-734BE82B53BE}|Common\\Common.csproj|solutionrelative:common\\model\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9C0A3D21-D5DB-45B4-B8AC-734BE82B53BE}|Common\\Common.csproj|C:\\Users\\Korisnik\\Documents\\GitHub\\RVA\\Bookstore\\common\\model\\member.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -23,12 +31,20 @@
       "RelativeMoniker": "D:0:0:{9C0A3D21-D5DB-45B4-B8AC-734BE82B53BE}|Common\\Common.csproj|solutionrelative:common\\model\\iuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9C0A3D21-D5DB-45B4-B8AC-734BE82B53BE}|Common\\Common.csproj|C:\\Users\\Korisnik\\Documents\\GitHub\\RVA\\Bookstore\\common\\model\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9C0A3D21-D5DB-45B4-B8AC-734BE82B53BE}|Common\\Common.csproj|solutionrelative:common\\model\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9C0A3D21-D5DB-45B4-B8AC-734BE82B53BE}|Common\\Common.csproj|C:\\Users\\Korisnik\\Documents\\GitHub\\RVA\\Bookstore\\common\\model\\author.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9C0A3D21-D5DB-45B4-B8AC-734BE82B53BE}|Common\\Common.csproj|solutionrelative:common\\model\\author.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A6BCF32A-1A0E-4F92-AAA8-AF5113BF49AD}|BookstoreBackend\\BookstoreBackend.csproj|C:\\Users\\Korisnik\\Documents\\GitHub\\RVA\\Bookstore\\bookstorebackend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A6BCF32A-1A0E-4F92-AAA8-AF5113BF49AD}|BookstoreBackend\\BookstoreBackend.csproj|solutionrelative:bookstorebackend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9C0A3D21-D5DB-45B4-B8AC-734BE82B53BE}|Common\\Common.csproj|C:\\Users\\Korisnik\\Documents\\GitHub\\RVA\\Bookstore\\common\\model\\admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9C0A3D21-D5DB-45B4-B8AC-734BE82B53BE}|Common\\Common.csproj|solutionrelative:common\\model\\admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A6BCF32A-1A0E-4F92-AAA8-AF5113BF49AD}|BookstoreBackend\\BookstoreBackend.csproj|c:\\users\\korisnik\\documents\\github\\rva\\bookstore\\bookstorebackend\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A6BCF32A-1A0E-4F92-AAA8-AF5113BF49AD}|BookstoreBackend\\BookstoreBackend.csproj|solutionrelative:bookstorebackend\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9C0A3D21-D5DB-45B4-B8AC-734BE82B53BE}|Common\\Common.csproj|c:\\users\\korisnik\\documents\\github\\rva\\bookstore\\common\\icloneable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9C0A3D21-D5DB-45B4-B8AC-734BE82B53BE}|Common\\Common.csproj|solutionrelative:common\\icloneable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,23 +54,141 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "202405231637428_init.cs",
+              "DocumentMoniker": "C:\\Users\\Korisnik\\Documents\\GitHub\\RVA\\Bookstore\\BookstoreBackend\\Migrations\\202405231637428_init.cs",
+              "RelativeDocumentMoniker": "BookstoreBackend\\Migrations\\202405231637428_init.cs",
+              "ToolTip": "C:\\Users\\Korisnik\\Documents\\GitHub\\RVA\\Bookstore\\BookstoreBackend\\Migrations\\202405231637428_init.cs",
+              "RelativeToolTip": "BookstoreBackend\\Migrations\\202405231637428_init.cs",
+              "ViewState": "AQIAAAcAAAAAAAAAAAA1wB8AAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-23T16:37:54.414Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "BookstoreDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Korisnik\\Documents\\GitHub\\RVA\\Bookstore\\BookstoreBackend\\BookstoreDbContext.cs",
+              "RelativeDocumentMoniker": "BookstoreBackend\\BookstoreDbContext.cs",
+              "ToolTip": "C:\\Users\\Korisnik\\Documents\\GitHub\\RVA\\Bookstore\\BookstoreBackend\\BookstoreDbContext.cs",
+              "RelativeToolTip": "BookstoreBackend\\BookstoreDbContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-23T16:04:58.479Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Configuration.cs",
+              "DocumentMoniker": "C:\\Users\\Korisnik\\Documents\\GitHub\\RVA\\Bookstore\\BookstoreBackend\\Migrations\\Configuration.cs",
+              "RelativeDocumentMoniker": "BookstoreBackend\\Migrations\\Configuration.cs",
+              "ToolTip": "C:\\Users\\Korisnik\\Documents\\GitHub\\RVA\\Bookstore\\BookstoreBackend\\Migrations\\Configuration.cs",
+              "RelativeToolTip": "BookstoreBackend\\Migrations\\Configuration.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAD4vykAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-23T16:16:36.951Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Book.cs",
+              "DocumentMoniker": "C:\\Users\\Korisnik\\Documents\\GitHub\\RVA\\Bookstore\\Common\\Model\\Book.cs",
+              "RelativeDocumentMoniker": "Common\\Model\\Book.cs",
+              "ToolTip": "C:\\Users\\Korisnik\\Documents\\GitHub\\RVA\\Bookstore\\Common\\Model\\Book.cs",
+              "RelativeToolTip": "Common\\Model\\Book.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-23T11:40:47.221Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Admin.cs",
+              "DocumentMoniker": "C:\\Users\\Korisnik\\Documents\\GitHub\\RVA\\Bookstore\\Common\\Model\\Admin.cs",
+              "RelativeDocumentMoniker": "Common\\Model\\Admin.cs",
+              "ToolTip": "C:\\Users\\Korisnik\\Documents\\GitHub\\RVA\\Bookstore\\Common\\Model\\Admin.cs",
+              "RelativeToolTip": "Common\\Model\\Admin.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-23T11:38:36.969Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Author.cs",
+              "DocumentMoniker": "C:\\Users\\Korisnik\\Documents\\GitHub\\RVA\\Bookstore\\Common\\Model\\Author.cs",
+              "RelativeDocumentMoniker": "Common\\Model\\Author.cs",
+              "ToolTip": "C:\\Users\\Korisnik\\Documents\\GitHub\\RVA\\Bookstore\\Common\\Model\\Author.cs",
+              "RelativeToolTip": "Common\\Model\\Author.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-23T11:39:14.472Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 6,
+              "Title": "IUser.cs",
+              "DocumentMoniker": "C:\\Users\\Korisnik\\Documents\\GitHub\\RVA\\Bookstore\\Common\\Model\\IUser.cs",
+              "RelativeDocumentMoniker": "Common\\Model\\IUser.cs",
+              "ToolTip": "C:\\Users\\Korisnik\\Documents\\GitHub\\RVA\\Bookstore\\Common\\Model\\IUser.cs",
+              "RelativeToolTip": "Common\\Model\\IUser.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-23T11:36:22.467Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Member.cs",
+              "DocumentMoniker": "C:\\Users\\Korisnik\\Documents\\GitHub\\RVA\\Bookstore\\Common\\Model\\Member.cs",
+              "RelativeDocumentMoniker": "Common\\Model\\Member.cs",
+              "ToolTip": "C:\\Users\\Korisnik\\Documents\\GitHub\\RVA\\Bookstore\\Common\\Model\\Member.cs",
+              "RelativeToolTip": "Common\\Model\\Member.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-23T11:24:20.909Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Korisnik\\Documents\\GitHub\\RVA\\Bookstore\\BookstoreBackend\\Program.cs",
               "RelativeDocumentMoniker": "BookstoreBackend\\Program.cs",
               "ToolTip": "C:\\Users\\Korisnik\\Documents\\GitHub\\RVA\\Bookstore\\BookstoreBackend\\Program.cs",
               "RelativeToolTip": "BookstoreBackend\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAeAAAA",
+              "ViewState": "AQIAAAcAAAAAAAAAAAD4vxUAAABEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-23T11:47:43.62Z"
+              "WhenOpened": "2024-05-23T11:47:43.62Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 9,
+              "Title": "App.config",
+              "DocumentMoniker": "C:\\Users\\Korisnik\\Documents\\GitHub\\RVA\\Bookstore\\BookstoreBackend\\App.config",
+              "RelativeDocumentMoniker": "BookstoreBackend\\App.config",
+              "ToolTip": "C:\\Users\\Korisnik\\Documents\\GitHub\\RVA\\Bookstore\\BookstoreBackend\\App.config",
+              "RelativeToolTip": "BookstoreBackend\\App.config",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2024-05-23T16:06:04.294Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "ICloneable.cs",
               "DocumentMoniker": "C:\\Users\\Korisnik\\Documents\\GitHub\\RVA\\Bookstore\\Common\\ICloneable.cs",
               "RelativeDocumentMoniker": "Common\\ICloneable.cs",
@@ -62,69 +196,8 @@
               "RelativeToolTip": "Common\\ICloneable.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-23T11:44:16.575Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Book.cs",
-              "DocumentMoniker": "C:\\Users\\Korisnik\\Documents\\GitHub\\RVA\\Bookstore\\Common\\Model\\Book.cs",
-              "RelativeDocumentMoniker": "Common\\Model\\Book.cs",
-              "ToolTip": "C:\\Users\\Korisnik\\Documents\\GitHub\\RVA\\Bookstore\\Common\\Model\\Book.cs",
-              "RelativeToolTip": "Common\\Model\\Book.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAABDAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-23T11:40:47.221Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Author.cs",
-              "DocumentMoniker": "C:\\Users\\Korisnik\\Documents\\GitHub\\RVA\\Bookstore\\Common\\Model\\Author.cs",
-              "RelativeDocumentMoniker": "Common\\Model\\Author.cs",
-              "ToolTip": "C:\\Users\\Korisnik\\Documents\\GitHub\\RVA\\Bookstore\\Common\\Model\\Author.cs",
-              "RelativeToolTip": "Common\\Model\\Author.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAABMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-23T11:39:14.472Z",
+              "WhenOpened": "2024-05-23T11:44:16.575Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Admin.cs",
-              "DocumentMoniker": "C:\\Users\\Korisnik\\Documents\\GitHub\\RVA\\Bookstore\\Common\\Model\\Admin.cs",
-              "RelativeDocumentMoniker": "Common\\Model\\Admin.cs",
-              "ToolTip": "C:\\Users\\Korisnik\\Documents\\GitHub\\RVA\\Bookstore\\Common\\Model\\Admin.cs",
-              "RelativeToolTip": "Common\\Model\\Admin.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-23T11:38:36.969Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "IUser.cs",
-              "DocumentMoniker": "C:\\Users\\Korisnik\\Documents\\GitHub\\RVA\\Bookstore\\Common\\Model\\IUser.cs",
-              "RelativeDocumentMoniker": "Common\\Model\\IUser.cs",
-              "ToolTip": "C:\\Users\\Korisnik\\Documents\\GitHub\\RVA\\Bookstore\\Common\\Model\\IUser.cs",
-              "RelativeToolTip": "Common\\Model\\IUser.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAmAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-23T11:36:22.467Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Member.cs",
-              "DocumentMoniker": "C:\\Users\\Korisnik\\Documents\\GitHub\\RVA\\Bookstore\\Common\\Model\\Member.cs",
-              "RelativeDocumentMoniker": "Common\\Model\\Member.cs",
-              "ToolTip": "C:\\Users\\Korisnik\\Documents\\GitHub\\RVA\\Bookstore\\Common\\Model\\Member.cs",
-              "RelativeToolTip": "Common\\Model\\Member.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAgAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-23T11:24:20.909Z"
             }
           ]
         }

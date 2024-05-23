@@ -86,15 +86,14 @@
         <Member type="Method">Dictionary&lt;int, Book&gt; GetBooks()</Member>
         <Member type="Method">Member GetMemberInfo(string username)</Member>
         <Member type="Method">bool EditMemberInfo(string username, string firstName, string lastName)</Member>
-        <Member type="Method">void NewMethod()</Member>
         <Member type="Method">bool LogIn(string username, string password)</Member>
         <Member type="Method">void LogOut(string username)</Member>
       </Entity>
       <Entity type="Class">
-        <Name>LibraryService</Name>
+        <Name>BookstoreService</Name>
         <Access>Public</Access>
-        <Location left="438" top="1127" />
-        <Size width="492" height="298" />
+        <Location left="1220" top="736" />
+        <Size width="492" height="349" />
         <Collapsed>False</Collapsed>
         <Member type="Field">List&lt;string&gt; activeUsers</Member>
         <Member type="Method">public bool CreateBook(string title, int publishYear, int authorId)</Member>
@@ -106,7 +105,6 @@
         <Member type="Method">public Dictionary&lt;int, Book&gt; GetBooks()</Member>
         <Member type="Method">public Member GetMemberInfo(string username)</Member>
         <Member type="Method">public bool EditMemberInfo(string username, string firstName, string lastName)</Member>
-        <Member type="Method">public void NewMethod()</Member>
         <Member type="Method">public bool LogIn(string username, string password)</Member>
         <Member type="Method">public void LogOut(string username)</Member>
         <Modifier>None</Modifier>
@@ -114,7 +112,7 @@
       <Entity type="Comment">
         <Text>Singleton da bi imali samo jednu instancu servisa
 </Text>
-        <Location left="951" top="670" />
+        <Location left="344" top="1052" />
         <Size width="160" height="75" />
       </Entity>
       <Entity type="Class">
@@ -135,7 +133,7 @@
       <Entity type="Class">
         <Name>Observable</Name>
         <Access>Public</Access>
-        <Location left="438" top="1666" />
+        <Location left="542" top="1596" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Method">public abstract void NotifyObservers()</Member>
@@ -143,18 +141,10 @@
         <Member type="Method">public abstract void Unregister(Observer observer)</Member>
         <Modifier>Abstract</Modifier>
       </Entity>
-      <Entity type="Class">
-        <Name>Repository</Name>
-        <Access>Public</Access>
-        <Location left="437" top="1997" />
-        <Size width="162" height="216" />
-        <Collapsed>False</Collapsed>
-        <Modifier>None</Modifier>
-      </Entity>
       <Entity type="Comment">
-        <Text>Observer da prati bazu i obavesti viewmodel dda se nesto promenilo pa da ovaj ponovo povuce podatke za prikaz
+        <Text>Observer da prati promene  i obavesti viewmodel da se nesto promenilo pa da ovaj ponovo povuce podatke za prikaz
 </Text>
-        <Location left="658" top="1531" />
+        <Location left="762" top="1449" />
         <Size width="160" height="106" />
       </Entity>
       <Entity type="Comment">
@@ -166,7 +156,7 @@
       <Entity type="Class">
         <Name>Observer</Name>
         <Access>Public</Access>
-        <Location left="745" top="1666" />
+        <Location left="970" top="1596" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Method">public abstract void Notify()</Member>
@@ -175,7 +165,7 @@
       <Entity type="Class">
         <Name>MainViewModel</Name>
         <Access>Public</Access>
-        <Location left="745" top="1997" />
+        <Location left="1310" top="1596" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Modifier>None</Modifier>
@@ -194,7 +184,7 @@
       <Entity type="Class">
         <Name>Session</Name>
         <Access>Public</Access>
-        <Location left="1113" top="775" />
+        <Location left="587" top="1142" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Field">Session instance</Member>
@@ -232,20 +222,24 @@
         <EndOrientation>Vertical</EndOrientation>
       </Relationship>
       <Relationship type="Dependency" first="6" second="0">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
       </Relationship>
       <Relationship type="Realization" first="7" second="6">
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1168</X>
+          <Y>888</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>980</X>
+          <Y>887</Y>
+        </BendPoint>
       </Relationship>
-      <Relationship type="Generalization" first="12" second="11">
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-      </Relationship>
-      <Relationship type="Association" first="11" second="15">
+      <Relationship type="Association" first="11" second="14">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
@@ -254,29 +248,39 @@
         <StartMultiplicity>1</StartMultiplicity>
         <EndMultiplicity>0..*</EndMultiplicity>
       </Relationship>
-      <Relationship type="Generalization" first="16" second="15">
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-      </Relationship>
-      <Relationship type="Association" first="16" second="12">
+      <Relationship type="Generalization" first="15" second="14">
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-        <StartMultiplicity>1</StartMultiplicity>
-        <EndMultiplicity>0..*</EndMultiplicity>
+        <BendPoint relativeToStartShape="True">
+          <X>1268</X>
+          <Y>1700</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>1189</X>
+          <Y>1700</Y>
+        </BendPoint>
       </Relationship>
-      <Relationship type="Realization" first="3" second="17">
+      <Relationship type="Realization" first="3" second="16">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
       </Relationship>
-      <Relationship type="Realization" first="1" second="17">
+      <Relationship type="Realization" first="1" second="16">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
       </Relationship>
-      <Relationship type="Association" first="18" second="6">
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
+      <Relationship type="Association" first="17" second="6">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>667</X>
+          <Y>1117</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>667</X>
+          <Y>1068</Y>
+        </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
         <StartMultiplicity>0..*</StartMultiplicity>

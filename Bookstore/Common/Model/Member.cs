@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,7 @@ namespace Common.Model
         private string firstName;
         private string lastName;
 
+        [Key]
         public string Username {  get; set; }
         public string Password {  get; set; }
         public string FirstName { get => firstName; set => firstName = value; }
