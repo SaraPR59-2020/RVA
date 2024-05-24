@@ -34,6 +34,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -43,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ICloneable.cs" />
+    <Compile Include="IBookstoreService.cs" />
     <Compile Include="Model\Admin.cs" />
     <Compile Include="Model\Author.cs" />
     <Compile Include="Model\Book.cs" />

@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BookstoreDbContext.cs" />
+    <Compile Include="BookstoreService.cs" />
     <Compile Include="Migrations\202405231637428_init.cs" />
     <Compile Include="Migrations\202405231637428_init.Designer.cs">
       <DependentUpon>202405231637428_init.cs</DependentUpon>
