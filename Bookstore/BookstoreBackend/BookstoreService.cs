@@ -9,7 +9,7 @@ namespace BookstoreBackend
     class BookstoreService : IBookstoreService
     {
         private static List<string> activeUsers = new List<string>();
-
+        //private static UserService = new UserService();
         public void CloneBook(Book book)
         {
             Dictionary<int, Book> books = GetBooks();

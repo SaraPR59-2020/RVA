@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="ICloneable.cs" />
     <Compile Include="IBookstoreService.cs" />
+    <Compile Include="INotificationService.cs" />
     <Compile Include="Model\Admin.cs" />
     <Compile Include="Model\Author.cs" />
     <Compile Include="Model\Book.cs" />
