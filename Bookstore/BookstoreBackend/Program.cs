@@ -1,10 +1,8 @@
-﻿using Common.Model;
+﻿using Common;
+using Common.Model;
 using Microsoft.Win32;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ServiceModel;
 
 namespace BookstoreBackend
 {
@@ -12,7 +10,7 @@ namespace BookstoreBackend
     {
         static void Main(string[] args)
         {
-            IUser user = new Member() { FirstName = "a", LastName = "b", Username = "a", Password = "b"};
+            /*IUser user = new Member() { FirstName = "a", LastName = "b", Username = "a", Password = "b"};
             Author author = new Author() { FirstName = "Ivo", LastName = "Andric", AuthorId = 5, ShortDesc = "da" };
             Book book = new Book() { BookId = 1, Author = author.AuthorId, PublishYear = 1939, Title = "Na Drini Cuprija", Member = user.Username};
 
@@ -28,8 +26,13 @@ namespace BookstoreBackend
                 {
                     Console.WriteLine($"{b.Title}, {b.PublishYear}");
                 }
-            }
+            }*/
 
+            ServiceHost host = new ServiceHost(typeof(BookstoreService));
+            host.AddServiceEndpoint(typeof(IBookstoreService), new NetTcpBinding(), "net.tcp://localhost:9000");
+            host.Open();
+
+            Console.WriteLine("Bookstore services are now online. Waiting for requests...");
 
 
             Console.ReadKey();

@@ -34,17 +34,21 @@ namespace BookstoreBackend
 
         public bool CreateAuthor(string firstName, string lastName, string shortDesc)
         {
-            throw new System.NotImplementedException();
+            using (var db = new BookstoreDbContext())
+            {
+                db.Authors.Add(new Author() { AuthorId = 0, FirstName = firstName, LastName = lastName, ShortDesc = shortDesc });
+                return true;
+            }
         }
 
         public bool CreateBook(string title, int publishmentYear, int authorId)
         {
             using (var db = new BookstoreDbContext())
             {
-                if (db.Books.Find(title) != null)
+                /*if (db.Books.Find(title) != null)
                 {
                     return false;
-                }
+                }*/
 
                 db.Books.Add(new Book() { BookId = 0, Title = title, Author = authorId, PublishYear = publishmentYear, Member = string.Empty });
                 db.SaveChanges();

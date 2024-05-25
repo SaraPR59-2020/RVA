@@ -1,0 +1,10 @@
+C:\rva\RVA\Bookstore\Client\bin\Debug\Client.exe.config
+C:\rva\RVA\Bookstore\Client\bin\Debug\Client.exe
+C:\rva\RVA\Bookstore\Client\bin\Debug\Client.pdb
+C:\rva\RVA\Bookstore\Client\bin\Debug\Common.dll
+C:\rva\RVA\Bookstore\Client\bin\Debug\Common.pdb
+C:\rva\RVA\Bookstore\Client\obj\Debug\Client.csproj.AssemblyReference.cache
+C:\rva\RVA\Bookstore\Client\obj\Debug\Client.csproj.CoreCompileInputs.cache
+C:\rva\RVA\Bookstore\Client\obj\Debug\Client.csproj.Up2Date
+C:\rva\RVA\Bookstore\Client\obj\Debug\Client.exe
+C:\rva\RVA\Bookstore\Client\obj\Debug\Client.pdb
