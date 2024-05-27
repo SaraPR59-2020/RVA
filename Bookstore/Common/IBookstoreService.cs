@@ -1,4 +1,5 @@
 ﻿using Common.Model;
+using System;
 using System.Collections.Generic;
 using System.ServiceModel;
 
@@ -8,37 +9,37 @@ namespace Common
     public interface IBookstoreService
     {
         [OperationContract]
-        bool CreateBook(string title, int publishmentYear, int authorId, string token);
+        bool CreateBook(string title, int publishmentYear, Guid authorId);
 
         [OperationContract]
-        bool CreateAuthor(string firstName, string lastName, string shortDesc, string token);
+        bool CreateAuthor(string firstName, string lastName, string shortDesc);
 
         [OperationContract]
         bool CreateUser(string firstName, string lastName, string username, string password);
 
         [OperationContract]
-        bool DeleteBook(int bookId, string token);
+        bool DeleteBook(Guid bookId);
 
         [OperationContract]
-        void CloneBook(Book book, string token);
+        void CloneBook(Book book);
 
         [OperationContract]
-        bool EditBook(int bookId, string title, int authorId, int publishmentYear, string token);
+        bool EditBook(Guid bookId, string title, Guid authorId, int publishmentYear);
 
         [OperationContract]
-        Dictionary<int, Book> GetBooks();
+        Dictionary<Guid, Book> GetBooks();
 
         [OperationContract]
-        Member GetMemberInfo(string username);
+        IUser GetMemberInfo(string username);
 
         [OperationContract]
-        bool EditMemberInfo(string token, string firstName, string lastName);
+        bool EditMemberInfo(string username, string firstName, string lastName);
 
         [OperationContract]
         string LogIn(string username, string password);
 
         [OperationContract]
-        void LogOut(string token);
+        void LogOut();
         
     }
 }

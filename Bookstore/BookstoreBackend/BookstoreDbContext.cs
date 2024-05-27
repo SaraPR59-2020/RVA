@@ -17,7 +17,7 @@ namespace BookstoreBackend
 
         protected override void OnModelCreating(DbModelBuilder dbModelBuilder)
         {
-            Database.SetInitializer<BookstoreDbContext>(new CreateDatabaseIfNotExists<BookstoreDbContext>()); // null instead of CreateIfNotExist?
+            Database.SetInitializer<BookstoreDbContext>(null); // null instead of CreateIfNotExist?
             base.OnModelCreating(dbModelBuilder);
         }
     }

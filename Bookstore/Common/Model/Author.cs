@@ -14,7 +14,7 @@ namespace Common.Model
         private string lastName;
 
         [Key]
-        public int AuthorId { get; set; }
+        public Guid AuthorId { get; set; } = Guid.NewGuid();
         public string ShortDesc { get => shortDesc; set => shortDesc = value; }
         public string FirstName { get => firstName; set => firstName = value; }
         public string LastName { get => lastName; set => lastName = value; }

@@ -13,8 +13,8 @@ namespace Common.Model
         private int publishYear;
 
         [Key]
-        public int BookId { get; set; }
-        public int Author { get; set; }
+        public Guid BookId { get; set; } = Guid.NewGuid();
+        public Guid Author { get; set; }
         public string Member { get; set; }
         public string Title { get => title; set => title = value; }
         public int PublishYear { get => publishYear; set => publishYear = value; }
@@ -26,7 +26,6 @@ namespace Common.Model
             clone.PublishYear = PublishYear;
             clone.Author = Author;
             clone.Member = Member;
-            clone.BookId = BookId;
 
             return clone;
         }
