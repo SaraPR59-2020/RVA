@@ -10,8 +10,8 @@ namespace BookstoreBackend
 {
     public class UserService
     {
+        private static UserService instance;
         Dictionary<string, IUser> LoggedInMembers;
-        static BookstoreDbContext DbContext; // Maybe using block? DEFINITELY USING BLCOK
 
         private string hashToken(string username)
         {
@@ -23,33 +23,62 @@ namespace BookstoreBackend
             }
         }
 
-        public UserService()
+        private UserService()
         {
             LoggedInMembers = new Dictionary<string, IUser>();
+        }
+
+        public static UserService GetInstance()
+        {
+            if (instance == null)
+            {
+                return new UserService();
+            }
+            return instance;
+        }
+
+        public IUser GetLoggedInUser(string token)
+        {
+            return LoggedInMembers[token];
         }
 
         public bool IsMemberLoggedIn(string token)
         {
             return LoggedInMembers.ContainsKey(token);
         }
+
         public bool IsMemberAdmin(IUser member)
         {
-            return DbContext.Admins.FirstOrDefault(m => m.Username == member.Username) != null;
+            using (var dbc = new BookstoreDbContext())
+            {
+                return dbc.Admins.FirstOrDefault(m => m.Username == member.Username) != null;
+            }
         }
 
         public string LoginUser(string username, string password)
         {
-            IUser user = DbContext.Admins.FirstOrDefault(m => m.Username == username);
-            if (user != null)
+            using (var dbc = new BookstoreDbContext())
             {
-                if (user.Password == password)
+                IUser user = dbc.Admins.FirstOrDefault(m => m.Username == username);
+                if (user != null)
                 {
-                    string token = hashToken(user.Username);
-                    if (IsMemberLoggedIn(token)) throw new Exception("User already logged in!");
-                    LoggedInMembers[token] = user;
-                    return token;
-                } else throw new Exception("Wrong Password!");
-            } throw new Exception("Wrong Username!");
+                    if (user.Password == password)
+                    {
+                        string token = hashToken(user.Username);
+                        if (IsMemberLoggedIn(token)) throw new Exception("User already logged in!");
+                        LoggedInMembers[token] = user;
+                        return token;
+                    } else throw new Exception("Wrong Password!");
+                } throw new Exception("Wrong Username!");
+            }
+        }
+
+        public void LogoutUser(string token)
+        {
+            if (LoggedInMembers.ContainsKey(token))
+            {
+                LoggedInMembers.Remove(token);
+            }
         }
     }
 }

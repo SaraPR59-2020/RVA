@@ -1,5 +1,6 @@
 ﻿using Common;
 using Common.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -8,40 +9,46 @@ namespace BookstoreBackend
     // verovatno treba izmeniti neke metode i dodati logger
     class BookstoreService : IBookstoreService
     {
-        private static List<string> activeUsers = new List<string>();
-        //private static UserService = new UserService();
-        public void CloneBook(Book book)
+        //private static List<string> activeUsers = new List<string>();
+        private static UserService userService = UserService.GetInstance();
+        public void CloneBook(Book book, string token)
         {
-            Dictionary<int, Book> books = GetBooks();
-
-            Book toClone = books.Values.FirstOrDefault(b => b.BookId == book.BookId);
-            if (toClone == null)
+            if(userService.IsMemberLoggedIn(token) && userService.IsMemberAdmin(userService.GetLoggedInUser(token)))
             {
-                return;
-            }
+                Dictionary<int, Book> books = GetBooks();
 
-            Book clone = (Book)toClone.Clone();
+                Book toClone = books.Values.FirstOrDefault(b => b.BookId == book.BookId);
+                if (toClone == null)
+                {
+                    return;
+                }
 
-            using (var db = new BookstoreDbContext())
-            {
-                clone.Title += " (Copy)";
-                clone.BookId = 0;
+                Book clone = (Book)toClone.Clone();
 
-                db.Books.Add(clone);
-                db.SaveChanges();
+                using (var db = new BookstoreDbContext())
+                {
+                    clone.Title += " (Copy)";
+                    clone.BookId = 0;
+
+                    db.Books.Add(clone);
+                    db.SaveChanges();
+                }
             }
         }
 
-        public bool CreateAuthor(string firstName, string lastName, string shortDesc)
+        public bool CreateAuthor(string firstName, string lastName, string shortDesc, string token)
         {
-            using (var db = new BookstoreDbContext())
+            if(userService.IsMemberLoggedIn(token) && userService.IsMemberAdmin(userService.GetLoggedInUser(token)))
             {
-                db.Authors.Add(new Author() { AuthorId = 0, FirstName = firstName, LastName = lastName, ShortDesc = shortDesc });
-                return true;
-            }
+                using (var db = new BookstoreDbContext())
+                {
+                    db.Authors.Add(new Author() { AuthorId = 0, FirstName = firstName, LastName = lastName, ShortDesc = shortDesc });
+                    return true;
+                }
+            } return false;
         }
 
-        public bool CreateBook(string title, int publishmentYear, int authorId)
+        public bool CreateBook(string title, int publishmentYear, int authorId, string token)
         {
             using (var db = new BookstoreDbContext())
             {
@@ -157,35 +164,21 @@ namespace BookstoreBackend
             return new Member() { Username = user.Username, FirstName = user.FirstName, LastName = user.LastName };
         }
 
-        public bool LogIn(string username, string password)
+        public string LogIn(string username, string password)
         {
-            using (var db = new BookstoreDbContext())
+            try
             {
-                IUser user = db.Members.FirstOrDefault(u => u.Username.Equals(username));
-
-                if (user == null)
-                    user = db.Admins.FirstOrDefault(a => a.Username.Equals(username));
-
-                if (user == null)
-                    return false;
-
-                if (activeUsers.Contains(username))
-                    return false;
-
-                if (user.Password == password)
-                {
-                    activeUsers.Add(username);
-
-                    return true;
-                }
-
-                return false;
+                return userService.LoginUser(username, password);
+            } catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
             }
         }
 
-        public void LogOut(string username)
+        public void LogOut(string token)
         {
-            activeUsers.Remove(username);
+            userService.LogoutUser(token);
         }
     }
 }
