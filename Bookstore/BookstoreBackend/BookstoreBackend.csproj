@@ -56,9 +56,9 @@
   <ItemGroup>
     <Compile Include="BookstoreDbContext.cs" />
     <Compile Include="BookstoreService.cs" />
-    <Compile Include="Migrations\202405231637428_init.cs" />
-    <Compile Include="Migrations\202405231637428_init.Designer.cs">
-      <DependentUpon>202405231637428_init.cs</DependentUpon>
+    <Compile Include="Migrations\202405281248412_init.cs" />
+    <Compile Include="Migrations\202405281248412_init.designer.cs">
+      <DependentUpon>202405281248412_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
@@ -79,8 +79,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202405231637428_init.resx">
-      <DependentUpon>202405231637428_init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202405281248412_init.resx">
+      <DependentUpon>202405281248412_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

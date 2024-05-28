@@ -1,17 +1,3 @@
-D:\SNIMANJA\FAKS JU\4GODINA\RAZVOJ_VISESLOJNIH_APLIKACIJA\RVA_PROJEKT\Bookstore\BookstoreBackend\bin\Debug\BookstoreBackend.exe.config
-D:\SNIMANJA\FAKS JU\4GODINA\RAZVOJ_VISESLOJNIH_APLIKACIJA\RVA_PROJEKT\Bookstore\BookstoreBackend\bin\Debug\BookstoreBackend.exe
-D:\SNIMANJA\FAKS JU\4GODINA\RAZVOJ_VISESLOJNIH_APLIKACIJA\RVA_PROJEKT\Bookstore\BookstoreBackend\bin\Debug\BookstoreBackend.pdb
-D:\SNIMANJA\FAKS JU\4GODINA\RAZVOJ_VISESLOJNIH_APLIKACIJA\RVA_PROJEKT\Bookstore\BookstoreBackend\bin\Debug\Common.dll
-D:\SNIMANJA\FAKS JU\4GODINA\RAZVOJ_VISESLOJNIH_APLIKACIJA\RVA_PROJEKT\Bookstore\BookstoreBackend\bin\Debug\EntityFramework.dll
-D:\SNIMANJA\FAKS JU\4GODINA\RAZVOJ_VISESLOJNIH_APLIKACIJA\RVA_PROJEKT\Bookstore\BookstoreBackend\bin\Debug\EntityFramework.SqlServer.dll
-D:\SNIMANJA\FAKS JU\4GODINA\RAZVOJ_VISESLOJNIH_APLIKACIJA\RVA_PROJEKT\Bookstore\BookstoreBackend\bin\Debug\Common.pdb
-D:\SNIMANJA\FAKS JU\4GODINA\RAZVOJ_VISESLOJNIH_APLIKACIJA\RVA_PROJEKT\Bookstore\BookstoreBackend\bin\Debug\EntityFramework.xml
-D:\SNIMANJA\FAKS JU\4GODINA\RAZVOJ_VISESLOJNIH_APLIKACIJA\RVA_PROJEKT\Bookstore\BookstoreBackend\bin\Debug\EntityFramework.SqlServer.xml
-D:\SNIMANJA\FAKS JU\4GODINA\RAZVOJ_VISESLOJNIH_APLIKACIJA\RVA_PROJEKT\Bookstore\BookstoreBackend\obj\Debug\BookstoreBackend.csproj.AssemblyReference.cache
-D:\SNIMANJA\FAKS JU\4GODINA\RAZVOJ_VISESLOJNIH_APLIKACIJA\RVA_PROJEKT\Bookstore\BookstoreBackend\obj\Debug\BookstoreBackend.csproj.CoreCompileInputs.cache
-D:\SNIMANJA\FAKS JU\4GODINA\RAZVOJ_VISESLOJNIH_APLIKACIJA\RVA_PROJEKT\Bookstore\BookstoreBackend\obj\Debug\BookstoreBackend.csproj.CopyComplete
-D:\SNIMANJA\FAKS JU\4GODINA\RAZVOJ_VISESLOJNIH_APLIKACIJA\RVA_PROJEKT\Bookstore\BookstoreBackend\obj\Debug\BookstoreBackend.exe
-D:\SNIMANJA\FAKS JU\4GODINA\RAZVOJ_VISESLOJNIH_APLIKACIJA\RVA_PROJEKT\Bookstore\BookstoreBackend\obj\Debug\BookstoreBackend.pdb
 C:\Users\Korisnik\Documents\GitHub\RVA\Bookstore\BookstoreBackend\bin\Debug\BookstoreBackend.exe.config
 C:\Users\Korisnik\Documents\GitHub\RVA\Bookstore\BookstoreBackend\bin\Debug\BookstoreBackend.exe
 C:\Users\Korisnik\Documents\GitHub\RVA\Bookstore\BookstoreBackend\bin\Debug\BookstoreBackend.pdb

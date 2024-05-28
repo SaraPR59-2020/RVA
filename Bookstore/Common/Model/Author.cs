@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,14 +10,11 @@ namespace Common.Model
 {
     public class Author
     {
-        private string shortDesc;
-        private string firstName;
-        private string lastName;
-
         [Key]
-        public Guid AuthorId { get; set; } = Guid.NewGuid();
-        public string ShortDesc { get => shortDesc; set => shortDesc = value; }
-        public string FirstName { get => firstName; set => firstName = value; }
-        public string LastName { get => lastName; set => lastName = value; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int AuthorId { get; set; }
+        public string ShortDesc { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
     }
 }

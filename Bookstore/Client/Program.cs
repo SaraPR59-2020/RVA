@@ -12,6 +12,9 @@ namespace Client
         {
             ChannelFactory<IBookstoreService> cf = new ChannelFactory<IBookstoreService>(new NetTcpBinding(), "net.tcp://localhost:9000");
             IBookstoreService proxy = cf.CreateChannel();
+
+            Console.ReadKey();
+            proxy.LogIn("moco26", "moco26");
         }
     }
 }

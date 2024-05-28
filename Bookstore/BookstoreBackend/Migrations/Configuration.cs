@@ -17,9 +17,9 @@ namespace BookstoreBackend.Migrations
 
         protected override void Seed(BookstoreBackend.BookstoreDbContext context)
         {
-            context.Admins.AddOrUpdate(new Admin() { FirstName = "", LastName = "", Username = "admin", Password = "admin" });
+            context.Members.AddOrUpdate(new Member() { FirstName = "", LastName = "", Username = "admin", Password = "admin", IsAdmin = true });
 
-            context.Members.AddOrUpdate(new Member() { FirstName = "Testni", LastName = "Klijent", Username = "test", Password = "test" });
+            context.Members.AddOrUpdate(new Member() { FirstName = "Testni", LastName = "Klijent", Username = "test", Password = "test", IsAdmin = false });
 
             IList<Author> Authors = new List<Author>();
             //Authors.Add(new Author() { AuthorId = 1, FirstName = "Ivo", LastName = "Andrić", ShortDesc = "Ivo Andrić bio je srpski književnik i diplomata Kraljevine Jugoslavije. Godine 1961. dobio je Nobelovu nagradu za književnost „za epsku snagu kojom je oblikovao teme i prikazao sudbine ljudi tokom istorije svoje zemlje”" });

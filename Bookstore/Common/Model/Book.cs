@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,15 +10,17 @@ namespace Common.Model
 {
     public class Book : ICloneable
     {
-        private string title;
-        private int publishYear;
-
         [Key]
-        public Guid BookId { get; set; } = Guid.NewGuid();
-        public Guid Author { get; set; }
-        public string Member { get; set; }
-        public string Title { get => title; set => title = value; }
-        public int PublishYear { get => publishYear; set => publishYear = value; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int BookId { get; set; }
+        public int AuthorId { get; set; }
+        [ForeignKey("AuthorId")]
+        public Author Author { get; set; }
+        public string Username { get; set; }
+        [ForeignKey("Username")]
+        public Member Member { get; set; }
+        public string Title { get; set; }
+        public int PublishYear { get; set; }
 
         public ICloneable Clone()
         {

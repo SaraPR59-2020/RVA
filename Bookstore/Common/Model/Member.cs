@@ -7,15 +7,13 @@ using System.Threading.Tasks;
 
 namespace Common.Model
 {
-    public class Member : IUser
+    public class Member
     {
-        private string firstName;
-        private string lastName;
-
         [Key]
         public string Username {  get; set; }
         public string Password {  get; set; }
-        public string FirstName { get => firstName; set => firstName = value; }
-        public string LastName { get => lastName; set => lastName = value; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public bool IsAdmin { get; set; }
     }
 }

@@ -9,37 +9,37 @@ namespace Common
     public interface IBookstoreService
     {
         [OperationContract]
-        bool CreateBook(string title, int publishmentYear, Guid authorId);
+        bool CreateBook(string title, int publishmentYear, Author author, string token);
 
         [OperationContract]
-        bool CreateAuthor(string firstName, string lastName, string shortDesc);
+        Author CreateAuthor(string firstName, string lastName, string shortDesc, string token);
 
         [OperationContract]
-        bool CreateUser(string firstName, string lastName, string username, string password);
+        bool CreateUser(string firstName, string lastName, string username, string password, string token);
 
         [OperationContract]
-        bool DeleteBook(Guid bookId);
+        bool DeleteBook(Book book, string token);
 
         [OperationContract]
-        void CloneBook(Book book);
+        void CloneBook(Book book, string token);
 
         [OperationContract]
-        bool EditBook(Guid bookId, string title, Guid authorId, int publishmentYear);
+        bool EditBook(Book book, string token);
 
         [OperationContract]
-        Dictionary<Guid, Book> GetBooks();
+        Dictionary<int, Book> GetBooks();
 
         [OperationContract]
-        IUser GetMemberInfo(string username);
+        Member GetMemberInfo(string token);
 
         [OperationContract]
-        bool EditMemberInfo(string username, string firstName, string lastName);
+        bool EditMemberInfo(string firstName, string lastName, string token);
 
         [OperationContract]
         string LogIn(string username, string password);
 
         [OperationContract]
-        void LogOut();
+        void LogOut(string token);
         
     }
 }

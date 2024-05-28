@@ -9,63 +9,46 @@ namespace BookstoreBackend
     // verovatno treba izmeniti neke metode i dodati logger
     class BookstoreService : IBookstoreService
     {
-        //private static List<string> activeUsers = new List<string>();
         private static UserService userService = UserService.GetInstance();
 
-        public bool CreateBook(string title, int publishmentYear, Guid authorId)
+        #region BOOK
+        public Dictionary<int, Book> GetBooks()
         {
             using (var db = new BookstoreDbContext())
             {
-                if (db.Books.FirstOrDefault(b => b.Title == title && b.Author == authorId) != null)
+                return db.Books.Include("Author").ToDictionary(b => b.BookId); //.Include("Member");
+            }
+        }
+
+        public bool CreateBook(string title, int publishmentYear, Author author, string token)
+        {
+            Member member = userService.GetLoggedInUser(token);
+            if (member == null) return false;
+            if (!member.IsAdmin) return false;
+
+            using (var db = new BookstoreDbContext())
+            {
+                if (db.Books.FirstOrDefault(b => b.Title == title && b.AuthorId == author.AuthorId) != null)
                 {
                     return false;
                 }
 
-                db.Books.Add(new Book() { Title = title, Author = authorId, PublishYear = publishmentYear, Member = string.Empty });
+                db.Books.Add(new Book() { Title = title, Author = author, PublishYear = publishmentYear });
                 db.SaveChanges();
 
                 return true;
             }
         }
 
-        public bool CreateAuthor(string firstName, string lastName, string shortDesc)
+        public bool DeleteBook(Book book, string token)
         {
+            Member member = userService.GetLoggedInUser(token);
+            if (member == null) return false;
+            if (!member.IsAdmin) return false;
+
             using (var db = new BookstoreDbContext())
             {
-                if (db.Authors.FirstOrDefault(a => a.FirstName == firstName && a.LastName == lastName) != null)
-                {
-                    return false;
-                }
-
-                db.Authors.Add(new Author() { FirstName = firstName, LastName = lastName, ShortDesc = shortDesc });
-                db.SaveChanges();
-
-                return true;
-            }
-        }
-
-        public bool CreateUser(string firstName, string lastName, string username, string password)
-        {
-            using (var db = new BookstoreDbContext())
-            {
-                if (db.Members.Find(username) != null)
-                {
-                    return false;
-                }
-
-                Member m = new Member() { Username = username, Password = password, FirstName = firstName, LastName = lastName };
-                db.Members.Add(m);
-                db.SaveChanges();
-
-                return true;
-            }
-        }
-
-        public bool DeleteBook(Guid bookId)
-        {
-            using (var db = new BookstoreDbContext())
-            {
-                Book b = db.Books.Find(bookId);
+                Book b = db.Books.Find(book.BookId);
 
                 if (b == null)
                 {
@@ -79,11 +62,15 @@ namespace BookstoreBackend
             }
         }
 
-        public void CloneBook(Book book)
+        public void CloneBook(Book book, string token)
         {
+            Member member = userService.GetLoggedInUser(token);
+            if (member == null) return;
+            if (!member.IsAdmin) return;
+
             using (var db = new BookstoreDbContext())
             {
-                Dictionary<Guid, Book> books = GetBooks();
+                Dictionary<int, Book> books = GetBooks();
 
                 Book toClone = books.Values.FirstOrDefault(b => b.BookId == book.BookId);
                 if (toClone == null)
@@ -99,71 +86,64 @@ namespace BookstoreBackend
             }
         }
 
-        public bool EditBook(Guid bookId, string title, Guid authorId, int publishmentYear)
+        public bool EditBook(Book book, string token)
         {
+            Member member = userService.GetLoggedInUser(token);
+            if (member == null) return false;
+            if (!member.IsAdmin) return false;
+
             using (var db = new BookstoreDbContext())
             {
-                Book b = db.Books.Find(bookId);
+                Book b = db.Books.Find(book.BookId);
 
                 if (b == null)
                 {
                     return false;
                 }
 
-                b.Title = title;
-                b.PublishYear = publishmentYear;
-                b.Author = authorId;
+                Author author = db.Authors.Find(book.Author.AuthorId);
+                if (author == null)
+                {
+                    author = new Author() { FirstName = book.Author.FirstName, LastName = book.Author.LastName, ShortDesc = book.Author.ShortDesc };
+                }
+
+                b.Title = book.Title;
+                b.PublishYear = book.PublishYear;
+                b.Author = author;
                 db.SaveChanges();
 
                 return true;
             }
         }
 
-        public Dictionary<Guid, Book> GetBooks()
+        #endregion
+
+        #region AUTHOR
+        public Author CreateAuthor(string firstName, string lastName, string shortDesc, string token)
         {
+            Member member = userService.GetLoggedInUser(token);
+            if (member == null) return null;
+            if (!member.IsAdmin) return null;
+
             using (var db = new BookstoreDbContext())
             {
-                return db.Books.ToDictionary(b => b.BookId);
-            }
-        }
-
-        public IUser GetMemberInfo(string username)
-        {
-            using (var db = new BookstoreDbContext())
-            {
-                IUser user = db.Members.FirstOrDefault(m => m.Username == username);
-
-                if (user == null)
+                if (db.Authors.FirstOrDefault(a => a.FirstName == firstName && a.LastName == lastName) != null)
                 {
-                    user = db.Admins.FirstOrDefault(m => m.Username == username);
+                    return null;
                 }
 
-                return user;
-            }
-        }
+                Author author = new Author() { FirstName = firstName, LastName = lastName, ShortDesc = shortDesc };
 
-        public bool EditMemberInfo(string username, string firstName, string lastName)
-        {
-            using (var db = new BookstoreDbContext())
-            {
-                IUser user = db.Members.FirstOrDefault(m => m.Username == username);
-
-                if (user == null)
-                {
-                    user = db.Admins.FirstOrDefault(m => m.Username == username);
-                }
-                if (user == null)
-                {
-                    return false;
-                }
-
-                user.FirstName = firstName;
-                user.LastName = lastName;
+                db.Authors.Add(author);
                 db.SaveChanges();
 
-                return true;
+                return author;
             }
         }
+
+        #endregion
+
+        #region USER
 
         public string LogIn(string username, string password)
         {
@@ -178,9 +158,68 @@ namespace BookstoreBackend
             }
         }
 
-        public void LogOut()
+        public void LogOut(string token)
         {
-            return;
+            if (userService.IsMemberLoggedIn(token))
+            {
+                userService.LogoutUser(token);
+            }
         }
+
+        public bool CreateUser(string firstName, string lastName, string username, string password, string token)
+        {
+            Member member = userService.GetLoggedInUser(token);
+            if (member == null) return false;
+            if (!member.IsAdmin) return false;
+
+            using (var db = new BookstoreDbContext())
+            {
+                if (db.Members.Find(username) != null)
+                {
+                    return false;
+                }
+
+                Member m = new Member() { Username = username, Password = password, FirstName = firstName, LastName = lastName };
+                db.Members.Add(m);
+                db.SaveChanges();
+
+                return true;
+            }
+        }
+
+        public bool EditMemberInfo(string firstName, string lastName, string token)
+        {
+            var member = userService.GetLoggedInUser(token);
+            if (member == null) return false;
+
+            using (var db = new BookstoreDbContext())
+            {
+                Member user = db.Members.FirstOrDefault(m => m.Username == member.Username);
+                if (user == null)
+                {
+                    return false;
+                }
+
+                user.FirstName = firstName;
+                user.LastName = lastName;
+                db.SaveChanges();
+
+                return true;
+            }
+        }
+
+        public Member GetMemberInfo(string token)
+        {
+            var member = userService.GetLoggedInUser(token);
+            if (member == null) return null;
+
+            using (var db = new BookstoreDbContext())
+            {
+                Member user = db.Members.FirstOrDefault(m => m.Username == member.Username);
+                return user;
+            }
+        }
+
+        #endregion
     }
 }

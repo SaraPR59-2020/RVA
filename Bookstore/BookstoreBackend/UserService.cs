@@ -11,7 +11,7 @@ namespace BookstoreBackend
     public class UserService
     {
         private static UserService instance;
-        Dictionary<string, IUser> LoggedInMembers;
+        Dictionary<string, Member> LoggedInMembers;
 
         private string hashToken(string username)
         {
@@ -25,7 +25,8 @@ namespace BookstoreBackend
 
         private UserService()
         {
-            LoggedInMembers = new Dictionary<string, IUser>();
+            LoggedInMembers = new Dictionary<string, Member>();
+            instance = this;
         }
 
         public static UserService GetInstance()
@@ -37,7 +38,7 @@ namespace BookstoreBackend
             return instance;
         }
 
-        public IUser GetLoggedInUser(string token)
+        public Member GetLoggedInUser(string token)
         {
             return LoggedInMembers[token];
         }
@@ -47,19 +48,11 @@ namespace BookstoreBackend
             return LoggedInMembers.ContainsKey(token);
         }
 
-        public bool IsMemberAdmin(IUser member)
-        {
-            using (var dbc = new BookstoreDbContext())
-            {
-                return dbc.Admins.FirstOrDefault(m => m.Username == member.Username) != null;
-            }
-        }
-
         public string LoginUser(string username, string password)
         {
             using (var dbc = new BookstoreDbContext())
             {
-                IUser user = dbc.Admins.FirstOrDefault(m => m.Username == username);
+                Member user = dbc.Members.FirstOrDefault(m => m.Username == username); // ADMINS AS WELL
                 if (user != null)
                 {
                     if (user.Password == password)
@@ -75,10 +68,7 @@ namespace BookstoreBackend
 
         public void LogoutUser(string token)
         {
-            if (LoggedInMembers.ContainsKey(token))
-            {
-                LoggedInMembers.Remove(token);
-            }
+            LoggedInMembers.Remove(token);
         }
     }
 }

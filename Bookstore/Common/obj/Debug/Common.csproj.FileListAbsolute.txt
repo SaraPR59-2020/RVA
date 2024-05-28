@@ -1,9 +1,3 @@
-D:\SNIMANJA\FAKS JU\4GODINA\RAZVOJ_VISESLOJNIH_APLIKACIJA\RVA_PROJEKT\Bookstore\Common\bin\Debug\Common.dll
-D:\SNIMANJA\FAKS JU\4GODINA\RAZVOJ_VISESLOJNIH_APLIKACIJA\RVA_PROJEKT\Bookstore\Common\bin\Debug\Common.pdb
-D:\SNIMANJA\FAKS JU\4GODINA\RAZVOJ_VISESLOJNIH_APLIKACIJA\RVA_PROJEKT\Bookstore\Common\obj\Debug\Common.csproj.AssemblyReference.cache
-D:\SNIMANJA\FAKS JU\4GODINA\RAZVOJ_VISESLOJNIH_APLIKACIJA\RVA_PROJEKT\Bookstore\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
-D:\SNIMANJA\FAKS JU\4GODINA\RAZVOJ_VISESLOJNIH_APLIKACIJA\RVA_PROJEKT\Bookstore\Common\obj\Debug\Common.dll
-D:\SNIMANJA\FAKS JU\4GODINA\RAZVOJ_VISESLOJNIH_APLIKACIJA\RVA_PROJEKT\Bookstore\Common\obj\Debug\Common.pdb
 C:\Users\Korisnik\Documents\GitHub\RVA\Bookstore\Common\bin\Debug\Common.dll
 C:\Users\Korisnik\Documents\GitHub\RVA\Bookstore\Common\bin\Debug\Common.pdb
 C:\Users\Korisnik\Documents\GitHub\RVA\Bookstore\Common\obj\Debug\Common.csproj.AssemblyReference.cache
