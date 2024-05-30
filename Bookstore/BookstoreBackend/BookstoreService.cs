@@ -20,7 +20,7 @@ namespace BookstoreBackend
             }
         }
 
-        public bool CreateBook(string title, int publishmentYear, Author author, string token)
+        public bool CreateBookAndAuthor(string title, int publishmentYear, Author author, string token)
         {
             Member member = userService.GetLoggedInUser(token);
             if (member == null) return false;
@@ -33,7 +33,27 @@ namespace BookstoreBackend
                     return false;
                 }
 
-                db.Books.Add(new Book() { Title = title, Author = author, PublishYear = publishmentYear });
+                db.Books.Add(new Book() { Title = title, Author = author, PublishYear = publishmentYear }); // When you assign Author instance, it automatically creates new
+                db.SaveChanges();
+
+                return true;
+            }
+        }
+
+        public bool CreateBook(string title, int publishmentYear, int authorId, string token)
+        {
+            Member member = userService.GetLoggedInUser(token);
+            if (member == null) return false;
+            if (!member.IsAdmin) return false;
+
+            using (var db = new BookstoreDbContext())
+            {
+                if (db.Books.FirstOrDefault(b => b.Title == title && b.AuthorId == authorId) != null)
+                {
+                    return false;
+                }
+
+                db.Books.Add(new Book() { Title = title, AuthorId = authorId, PublishYear = publishmentYear }); // When you assign an ID it automatically connects it to the existing author
                 db.SaveChanges();
 
                 return true;

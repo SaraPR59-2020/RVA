@@ -34,9 +34,7 @@ namespace BookstoreBackend
 
             Console.WriteLine("Bookstore services are now online. Waiting for requests...");
 
-
             Console.ReadKey();
-
         }
     }
 }

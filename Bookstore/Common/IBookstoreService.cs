@@ -9,7 +9,26 @@ namespace Common
     public interface IBookstoreService
     {
         [OperationContract]
-        bool CreateBook(string title, int publishmentYear, Author author, string token);
+        /// <summary>
+        /// Creates a book and automatically creates and assigns a new author.
+        /// </summary>
+        /// <param name="title"></param>
+        /// <param name="publishmentYear"></param>
+        /// <param name="author"></param>
+        /// <param name="token"></param>
+        /// <returns></returns>
+        bool CreateBookAndAuthor(string title, int publishmentYear, Author author, string token);
+
+        [OperationContract]
+        /// <summary>
+        /// Creates a book and assigns an authorId for an existing author.
+        /// </summary>
+        /// <param name="title"></param>
+        /// <param name="publishmentYear"></param>
+        /// <param name="authorId"></param>
+        /// <param name="token"></param>
+        /// <returns></returns>
+        bool CreateBook(string title, int publishmentYear, int authorId, string token);
 
         [OperationContract]
         Author CreateAuthor(string firstName, string lastName, string shortDesc, string token);
