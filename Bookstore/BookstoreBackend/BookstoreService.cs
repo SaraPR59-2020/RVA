@@ -20,23 +20,11 @@ namespace BookstoreBackend
             }
         }
 
-        public bool CreateBookAndAuthor(string title, int publishmentYear, Author author, string token)
+        public Dictionary<int, Book> GetAvailableBooks()
         {
-            Member member = userService.GetLoggedInUser(token);
-            if (member == null) return false;
-            if (!member.IsAdmin) return false;
-
             using (var db = new BookstoreDbContext())
             {
-                if (db.Books.FirstOrDefault(b => b.Title == title && b.AuthorId == author.AuthorId) != null)
-                {
-                    return false;
-                }
-
-                db.Books.Add(new Book() { Title = title, Author = author, PublishYear = publishmentYear }); // When you assign Author instance, it automatically creates new
-                db.SaveChanges();
-
-                return true;
+                return db.Books.Include("Author").Where(b => b.Member == null).ToDictionary(b => b.BookId);
             }
         }
 
@@ -70,7 +58,7 @@ namespace BookstoreBackend
             {
                 Book b = db.Books.Find(book.BookId);
 
-                if (b == null)
+                if (b == null || b.Member != null)
                 {
                     return false;
                 }
@@ -136,6 +124,50 @@ namespace BookstoreBackend
             }
         }
 
+        public bool LeaseBook(Book book, string token)
+        {
+            if(book.Member != null) return false;
+
+            Member member = userService.GetLoggedInUser(token);
+            if (member == null) return false;
+
+            using (var db = new BookstoreDbContext())
+            {
+                Book b = db.Books.Find(book.BookId);
+
+                if (b == null)
+                {
+                    return false;
+                }
+
+                b.Member = member;
+                db.SaveChanges();
+
+                return true;
+            }
+        }
+
+        public bool ReturnBook(Book book, string token)
+        {
+            Member member = userService.GetLoggedInUser(token);
+            if (member == null) return false;
+
+            using (var db = new BookstoreDbContext())
+            {
+                Book b = db.Books.Find(book.BookId);
+
+                if (b == null)
+                {
+                    return false;
+                }
+
+                b.Member = null;
+                db.SaveChanges();
+
+                return true;
+            }
+        }
+
         #endregion
 
         #region AUTHOR
@@ -158,6 +190,14 @@ namespace BookstoreBackend
                 db.SaveChanges();
 
                 return author;
+            }
+        }
+
+        public List<Author> GetAuthors()
+        {
+            using (var db = new BookstoreDbContext())
+            {
+                return db.Authors.ToList();
             }
         }
 
@@ -186,7 +226,7 @@ namespace BookstoreBackend
             }
         }
 
-        public bool CreateUser(string firstName, string lastName, string username, string password, string token)
+        public bool CreateUser(string firstName, string lastName, string username, string password, bool admin, string token)
         {
             Member member = userService.GetLoggedInUser(token);
             if (member == null) return false;
@@ -199,7 +239,7 @@ namespace BookstoreBackend
                     return false;
                 }
 
-                Member m = new Member() { Username = username, Password = password, FirstName = firstName, LastName = lastName };
+                Member m = new Member() { Username = username, Password = password, FirstName = firstName, LastName = lastName, IsAdmin = admin };
                 db.Members.Add(m);
                 db.SaveChanges();
 

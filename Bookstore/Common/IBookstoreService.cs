@@ -8,7 +8,7 @@ namespace Common
     [ServiceContract]
     public interface IBookstoreService
     {
-        [OperationContract]
+        //[OperationContract]
         /// <summary>
         /// Creates a book and automatically creates and assigns a new author.
         /// </summary>
@@ -17,7 +17,7 @@ namespace Common
         /// <param name="author"></param>
         /// <param name="token"></param>
         /// <returns></returns>
-        bool CreateBookAndAuthor(string title, int publishmentYear, Author author, string token);
+        //bool CreateBookAndAuthor(string title, int publishmentYear, Author author, string token);
 
         [OperationContract]
         /// <summary>
@@ -34,7 +34,7 @@ namespace Common
         Author CreateAuthor(string firstName, string lastName, string shortDesc, string token);
 
         [OperationContract]
-        bool CreateUser(string firstName, string lastName, string username, string password, string token);
+        bool CreateUser(string firstName, string lastName, string username, string password, bool admin, string token);
 
         [OperationContract]
         bool DeleteBook(Book book, string token);
@@ -59,6 +59,15 @@ namespace Common
 
         [OperationContract]
         void LogOut(string token);
-        
+
+        [OperationContract]
+        bool LeaseBook(Book book, string token);
+
+        [OperationContract]
+        bool ReturnBook(Book book, string token);
+
+        [OperationContract]
+        List<Author> GetAuthors();
+
     }
 }

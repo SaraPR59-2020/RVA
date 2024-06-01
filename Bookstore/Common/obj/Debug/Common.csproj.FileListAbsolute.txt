@@ -10,3 +10,9 @@ C:\rva\RVA\Bookstore\Common\obj\Debug\Common.csproj.AssemblyReference.cache
 C:\rva\RVA\Bookstore\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
 C:\rva\RVA\Bookstore\Common\obj\Debug\Common.dll
 C:\rva\RVA\Bookstore\Common\obj\Debug\Common.pdb
+D:\rva\RVA\Bookstore\Common\bin\Debug\Common.dll
+D:\rva\RVA\Bookstore\Common\bin\Debug\Common.pdb
+D:\rva\RVA\Bookstore\Common\obj\Debug\Common.csproj.AssemblyReference.cache
+D:\rva\RVA\Bookstore\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
+D:\rva\RVA\Bookstore\Common\obj\Debug\Common.dll
+D:\rva\RVA\Bookstore\Common\obj\Debug\Common.pdb
