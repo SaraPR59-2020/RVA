@@ -50,6 +50,11 @@ namespace WpfClient.ViewModels
             if(token != null)
             {
                 sessionService.Token = token;
+                BookstoreWindow bookstore = new BookstoreWindow();
+                bookstore.Show();
+
+                Application.Current.MainWindow.Close();
+                Application.Current.MainWindow = bookstore;
             }
             else
             {

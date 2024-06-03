@@ -85,10 +85,10 @@
                 <StackPanel>
                     <Label Content="Author info:" FontWeight="Bold"/>
                     <TextBlock 
-					Text="{Binding SelectedBook.Author.AuthorName, StringFormat='Author name: {0}'}"
+					Text="{Binding SelectedBook.Author, StringFormat='Author name: {0}'}"
 					Margin="10, 0, 0, 0"/>
                     <TextBlock 
-					Text="{Binding SelectedBook.Author.Summary, StringFormat='Author summary: {0}'}"
+					Text="{Binding SelectedBook.Author, StringFormat='Author summary: {0}'}"
 					Margin="10, 0, 0, 0"
 					TextWrapping="Wrap"/>
                     <Label Content="Leased to:" FontWeight="Bold"/>

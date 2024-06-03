@@ -20,7 +20,7 @@
             <Label FontSize="11" FontWeight="Bold" Padding="auto" Margin="10, 10, 10, 2">Password</Label>
             <PasswordBox Padding="auto" Margin="10, 2, 10, 2"  Name="passwordBox" />
             <Button Margin="10" Padding="auto" Background="BlanchedAlmond" Foreground="Gray" FontFamily="Open Sans" BorderBrush="Gray" FontWeight="DemiBold" Command="{Binding LoginCommand}" CommandParameter="{Binding ElementName=passwordBox}" Width="70">LOG IN</Button>
-            <Label Foreground="Red" Content="{Binding ErrorText}"/>
+            <Label Foreground="Red" FontSize="8" Content="{Binding ErrorText}"/>
         </StackPanel>
         
     </Grid>
