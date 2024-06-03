@@ -6,8 +6,14 @@
         xmlns:local="clr-namespace:WpfClient"
         xmlns:views="clr-namespace:WpfClient.Views"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Title="Bookstore" Height="450" Width="800"
+        FontFamily="{StaticResource OpenSans}">
+    <Grid >
+        <Grid.Background>
+            <ImageBrush ImageSource="pack://application:,,,/Accessories/background.jpg" Stretch="UniformToFill" Opacity=".6"/>
+        </Grid.Background>
         <views:LoginView/>
     </Grid>
 </Window>

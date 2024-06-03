@@ -100,6 +100,48 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Resource Include="Fonts\OpenSans-Bold.ttf" />
+    <Resource Include="Fonts\OpenSans-BoldItalic.ttf" />
+    <Resource Include="Fonts\OpenSans-ExtraBold.ttf" />
+    <Resource Include="Accessories\bookstore-logo.png" />
+    <Resource Include="Accessories\background.jpg" />
+    <Content Include="Fonts\OpenSans-ExtraBoldItalic.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Fonts\OpenSans-Italic.ttf" />
+    <Resource Include="Fonts\OpenSans-Light.ttf" />
+    <Resource Include="Fonts\OpenSans-LightItalic.ttf" />
+    <Resource Include="Fonts\OpenSans-Medium.ttf" />
+    <Resource Include="Fonts\OpenSans-MediumItalic.ttf" />
+    <Content Include="Fonts\OpenSans-Regular.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Fonts\OpenSans-SemiBold.ttf" />
+    <Resource Include="Fonts\OpenSans-SemiBoldItalic.ttf" />
+    <Resource Include="Fonts\OpenSans_Condensed-Bold.ttf" />
+    <Resource Include="Fonts\OpenSans_Condensed-BoldItalic.ttf" />
+    <Resource Include="Fonts\OpenSans_Condensed-ExtraBold.ttf" />
+    <Resource Include="Fonts\OpenSans_Condensed-ExtraBoldItalic.ttf" />
+    <Resource Include="Fonts\OpenSans_Condensed-Italic.ttf" />
+    <Resource Include="Fonts\OpenSans_Condensed-Light.ttf" />
+    <Resource Include="Fonts\OpenSans_Condensed-LightItalic.ttf" />
+    <Resource Include="Fonts\OpenSans_Condensed-Medium.ttf" />
+    <Resource Include="Fonts\OpenSans_Condensed-MediumItalic.ttf" />
+    <Resource Include="Fonts\OpenSans_Condensed-Regular.ttf" />
+    <Resource Include="Fonts\OpenSans_Condensed-SemiBold.ttf" />
+    <Resource Include="Fonts\OpenSans_Condensed-SemiBoldItalic.ttf" />
+    <Resource Include="Fonts\OpenSans_SemiCondensed-Bold.ttf" />
+    <Resource Include="Fonts\OpenSans_SemiCondensed-BoldItalic.ttf" />
+    <Resource Include="Fonts\OpenSans_SemiCondensed-ExtraBold.ttf" />
+    <Resource Include="Fonts\OpenSans_SemiCondensed-ExtraBoldItalic.ttf" />
+    <Resource Include="Fonts\OpenSans_SemiCondensed-Italic.ttf" />
+    <Resource Include="Fonts\OpenSans_SemiCondensed-Light.ttf" />
+    <Resource Include="Fonts\OpenSans_SemiCondensed-LightItalic.ttf" />
+    <Resource Include="Fonts\OpenSans_SemiCondensed-Medium.ttf" />
+    <Resource Include="Fonts\OpenSans_SemiCondensed-MediumItalic.ttf" />
+    <Resource Include="Fonts\OpenSans_SemiCondensed-Regular.ttf" />
+    <Resource Include="Fonts\OpenSans_SemiCondensed-SemiBold.ttf" />
+    <Resource Include="Fonts\OpenSans_SemiCondensed-SemiBoldItalic.ttf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -114,5 +156,6 @@
       <Name>Common</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

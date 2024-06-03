@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:WpfClient"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <FontFamily x:Key="OpenSans">pack://application:,,,/Fonts/#Noto Sans</FontFamily>
     </Application.Resources>
 </Application>
