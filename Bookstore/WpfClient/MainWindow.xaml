@@ -6,8 +6,6 @@
         xmlns:local="clr-namespace:WpfClient"
         xmlns:views="clr-namespace:WpfClient.Views"
         mc:Ignorable="d"
-        WindowStyle="None"
-        AllowsTransparency="True"
         Title="Bookstore" Height="450" Width="800"
         FontFamily="{StaticResource OpenSans}">
     <Grid >
