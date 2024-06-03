@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Common.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,17 +19,22 @@ namespace WpfClient.ViewModels
 
         public AccountViewModel()
         {
-            //UserInfo ui = Session.Current.LibraryProxy.GetUserInfo(Session.Current.LoggedInUser);
-            //FirstNameTextBox = ui.FirstName;
-            //LastNameTextBox = ui.LastName;
+            var sessionService = SessionService.Instance;
+            string token = sessionService.Token;
+            Session session = new Session();
+            Member user = session.BookstoreService.GetMemberInfo(token);
+            FirstNameTextBox = user.FirstName;
+            LastNameTextBox = user.LastName;
 
-            //SaveCommand = new Command(SaveAccountChanges);
+            SaveCommand = new Command(SaveAccountChanges);
         }
 
         private void SaveAccountChanges()
         {
-            //Session.Current.LibraryProxy.EditUserInfo(Session.Current.LoggedInUser, FirstNameTextBox, LastNameTextBox);
-            //ClientLogger.Log($"Account {Session.Current.LoggedInUser} successfully edited.", Common.LogLevel.Info);
+            var sessionService = SessionService.Instance;
+            string token = sessionService.Token;
+            Session session = new Session();
+            session.BookstoreService.EditMemberInfo(FirstNameTextBox, LastNameTextBox, token);
         }
     }
 }
