@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
+using System.Windows;
 using System.Windows.Controls;
 using WpfClient.Misc;
 
@@ -20,6 +22,16 @@ namespace WpfClient.ViewModels
             {
                 errorText = value;
                 OnPropertyChanged("ErrorText");
+            }
+        }
+        private bool isLoggedIn = false;
+        public bool IsLoggedIn
+        {
+            get { return isLoggedIn; }
+            set
+            {
+                isLoggedIn = value;
+                OnPropertyChanged(nameof(IsLoggedIn));
             }
         }
 
