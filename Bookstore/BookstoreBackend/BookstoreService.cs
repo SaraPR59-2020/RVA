@@ -89,7 +89,7 @@ namespace BookstoreBackend
             }
         }
 
-        public bool EditBook(Book book, string token)
+        public bool EditBook(int bookId, string title, int publishYear, int authorId, string token)
         {
             Member member = userService.GetLoggedInUser(token);
             if (member == null) return false;
@@ -97,22 +97,16 @@ namespace BookstoreBackend
 
             using (var db = new BookstoreDbContext())
             {
-                Book b = db.Books.Find(book.BookId);
+                Book b = db.Books.Find(bookId);
 
                 if (b == null)
                 {
                     return false;
                 }
 
-                Author author = db.Authors.Find(book.Author.AuthorId);
-                if (author == null)
-                {
-                    author = new Author() { FirstName = book.Author.FirstName, LastName = book.Author.LastName, ShortDesc = book.Author.ShortDesc };
-                }
-
-                b.Title = book.Title;
-                b.PublishYear = book.PublishYear;
-                b.Author = author;
+                b.Title = title;
+                b.PublishYear = publishYear;
+                b.AuthorId = authorId;
                 db.SaveChanges();
 
                 return true;

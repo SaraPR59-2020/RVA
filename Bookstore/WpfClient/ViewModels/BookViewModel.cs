@@ -118,20 +118,18 @@ namespace WpfClient.ViewModels
 
         private void EditBook()
         {
-            /*var win = new NewBookWindow();
+            var win = new NewBookWindow(AuthorList);
             NewBookViewModel vm = (NewBookViewModel)win.DataContext;
-            vm.BookName = selectedBook.Title;
-            vm.Author = selectedBook.Author.FirstName;
-            vm.PublicationYear = selectedBook.PublishYear.ToString();
 
             win.ShowDialog();
+
             var sessionService = SessionService.Instance;
-            string token = sessionService.Token;*/
+            sessionService.Session.BookstoreService.EditBook(selectedBook.BookId, vm.BookName, int.Parse(vm.PublicationYear), vm.SelectedAuthor.AuthorId, sessionService.Token);
 
             //if (Classes.Session.Current.LibraryProxy.EditBook(selectedBook, token))
-                //ClientLogger.Log($"Book {vm.BookName} successfully edited.", LogLevel.INFO);
+            //ClientLogger.Log($"Book {vm.BookName} successfully edited.", LogLevel.INFO);
             //else
-                //ClientLogger.Log($"Book {vm.BookName} could not be edited.", LogLevel.ERROR);
+            //ClientLogger.Log($"Book {vm.BookName} could not be edited.", LogLevel.ERROR);
 
             RefreshList();
         }

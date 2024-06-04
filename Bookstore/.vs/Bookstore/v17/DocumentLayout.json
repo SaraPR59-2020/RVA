@@ -7,28 +7,32 @@
       "RelativeMoniker": "D:0:0:{5BFA52CB-73C1-443C-9EBF-A19A54E4CC23}|WpfClient\\WpfClient.csproj|solutionrelative:wpfclient\\viewmodels\\bookviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5BFA52CB-73C1-443C-9EBF-A19A54E4CC23}|WpfClient\\WpfClient.csproj|D:\\rva\\RVA\\Bookstore\\wpfclient\\viewmodels\\newbookviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5BFA52CB-73C1-443C-9EBF-A19A54E4CC23}|WpfClient\\WpfClient.csproj|solutionrelative:wpfclient\\viewmodels\\newbookviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A6BCF32A-1A0E-4F92-AAA8-AF5113BF49AD}|BookstoreBackend\\BookstoreBackend.csproj|D:\\rva\\RVA\\Bookstore\\bookstorebackend\\bookstoreservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A6BCF32A-1A0E-4F92-AAA8-AF5113BF49AD}|BookstoreBackend\\BookstoreBackend.csproj|solutionrelative:bookstorebackend\\bookstoreservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5BFA52CB-73C1-443C-9EBF-A19A54E4CC23}|WpfClient\\WpfClient.csproj|D:\\rva\\RVA\\Bookstore\\wpfclient\\newbookwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{5BFA52CB-73C1-443C-9EBF-A19A54E4CC23}|WpfClient\\WpfClient.csproj|solutionrelative:wpfclient\\newbookwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5BFA52CB-73C1-443C-9EBF-A19A54E4CC23}|WpfClient\\WpfClient.csproj|d:\\rva\\rva\\bookstore\\wpfclient\\newbookwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5BFA52CB-73C1-443C-9EBF-A19A54E4CC23}|WpfClient\\WpfClient.csproj|solutionrelative:wpfclient\\newbookwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5BFA52CB-73C1-443C-9EBF-A19A54E4CC23}|WpfClient\\WpfClient.csproj|D:\\rva\\RVA\\Bookstore\\wpfclient\\viewmodels\\newauthorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5BFA52CB-73C1-443C-9EBF-A19A54E4CC23}|WpfClient\\WpfClient.csproj|solutionrelative:wpfclient\\viewmodels\\newauthorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9C0A3D21-D5DB-45B4-B8AC-734BE82B53BE}|Common\\Common.csproj|d:\\rva\\rva\\bookstore\\common\\ibookstoreservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9C0A3D21-D5DB-45B4-B8AC-734BE82B53BE}|Common\\Common.csproj|solutionrelative:common\\ibookstoreservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5BFA52CB-73C1-443C-9EBF-A19A54E4CC23}|WpfClient\\WpfClient.csproj|D:\\rva\\RVA\\Bookstore\\wpfclient\\views\\bookview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{5BFA52CB-73C1-443C-9EBF-A19A54E4CC23}|WpfClient\\WpfClient.csproj|solutionrelative:wpfclient\\views\\bookview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A6BCF32A-1A0E-4F92-AAA8-AF5113BF49AD}|BookstoreBackend\\BookstoreBackend.csproj|D:\\rva\\RVA\\Bookstore\\bookstorebackend\\bookstoreservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A6BCF32A-1A0E-4F92-AAA8-AF5113BF49AD}|BookstoreBackend\\BookstoreBackend.csproj|solutionrelative:bookstorebackend\\bookstoreservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5BFA52CB-73C1-443C-9EBF-A19A54E4CC23}|WpfClient\\WpfClient.csproj|D:\\rva\\RVA\\Bookstore\\wpfclient\\viewmodels\\newbookviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5BFA52CB-73C1-443C-9EBF-A19A54E4CC23}|WpfClient\\WpfClient.csproj|solutionrelative:wpfclient\\viewmodels\\newbookviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5BFA52CB-73C1-443C-9EBF-A19A54E4CC23}|WpfClient\\WpfClient.csproj|D:\\rva\\RVA\\Bookstore\\wpfclient\\viewmodels\\newauthorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5BFA52CB-73C1-443C-9EBF-A19A54E4CC23}|WpfClient\\WpfClient.csproj|solutionrelative:wpfclient\\viewmodels\\newauthorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5BFA52CB-73C1-443C-9EBF-A19A54E4CC23}|WpfClient\\WpfClient.csproj|D:\\rva\\RVA\\Bookstore\\wpfclient\\newbookwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{5BFA52CB-73C1-443C-9EBF-A19A54E4CC23}|WpfClient\\WpfClient.csproj|solutionrelative:wpfclient\\newbookwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5BFA52CB-73C1-443C-9EBF-A19A54E4CC23}|WpfClient\\WpfClient.csproj|D:\\rva\\RVA\\Bookstore\\wpfclient\\newbookwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5BFA52CB-73C1-443C-9EBF-A19A54E4CC23}|WpfClient\\WpfClient.csproj|solutionrelative:wpfclient\\newbookwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9C0A3D21-D5DB-45B4-B8AC-734BE82B53BE}|Common\\Common.csproj|D:\\rva\\RVA\\Bookstore\\common\\model\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -70,15 +74,15 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "NewBookWindow.xaml.cs",
-              "DocumentMoniker": "D:\\rva\\RVA\\Bookstore\\WpfClient\\NewBookWindow.xaml.cs",
-              "RelativeDocumentMoniker": "WpfClient\\NewBookWindow.xaml.cs",
-              "ToolTip": "D:\\rva\\RVA\\Bookstore\\WpfClient\\NewBookWindow.xaml.cs",
-              "RelativeToolTip": "WpfClient\\NewBookWindow.xaml.cs",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAAAB8AAAA7AAAA",
+              "DocumentIndex": 2,
+              "Title": "IBookstoreService.cs",
+              "DocumentMoniker": "D:\\rva\\RVA\\Bookstore\\Common\\IBookstoreService.cs",
+              "RelativeDocumentMoniker": "Common\\IBookstoreService.cs",
+              "ToolTip": "D:\\rva\\RVA\\Bookstore\\Common\\IBookstoreService.cs",
+              "RelativeToolTip": "Common\\IBookstoreService.cs",
+              "ViewState": "AQIAAB0AAAAAAAAAAAAAwC0AAABbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-04T22:08:53.509Z",
+              "WhenOpened": "2024-06-04T22:40:11.292Z",
               "EditorCaption": ""
             },
             {
@@ -89,14 +93,14 @@
               "RelativeDocumentMoniker": "WpfClient\\ViewModels\\BookViewModel.cs",
               "ToolTip": "D:\\rva\\RVA\\Bookstore\\WpfClient\\ViewModels\\BookViewModel.cs",
               "RelativeToolTip": "WpfClient\\ViewModels\\BookViewModel.cs",
-              "ViewState": "AQIAAF8AAAAAAAAAAAD4v2wAAABpAAAA",
+              "ViewState": "AQIAAGoAAAAAAAAAAAAMwHkAAABEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-04T17:22:45.012Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "NewBookWindow.xaml",
               "DocumentMoniker": "D:\\rva\\RVA\\Bookstore\\WpfClient\\NewBookWindow.xaml",
               "RelativeDocumentMoniker": "WpfClient\\NewBookWindow.xaml",
@@ -108,7 +112,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "NewAuthorViewModel.cs",
               "DocumentMoniker": "D:\\rva\\RVA\\Bookstore\\WpfClient\\ViewModels\\NewAuthorViewModel.cs",
               "RelativeDocumentMoniker": "WpfClient\\ViewModels\\NewAuthorViewModel.cs",
@@ -121,7 +125,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "NewBookViewModel.cs",
               "DocumentMoniker": "D:\\rva\\RVA\\Bookstore\\WpfClient\\ViewModels\\NewBookViewModel.cs",
               "RelativeDocumentMoniker": "WpfClient\\ViewModels\\NewBookViewModel.cs",
@@ -134,7 +138,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 3,
               "Title": "BookView.xaml",
               "DocumentMoniker": "D:\\rva\\RVA\\Bookstore\\WpfClient\\Views\\BookView.xaml",
               "RelativeDocumentMoniker": "WpfClient\\Views\\BookView.xaml",
@@ -146,13 +150,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 1,
               "Title": "BookstoreService.cs",
               "DocumentMoniker": "D:\\rva\\RVA\\Bookstore\\BookstoreBackend\\BookstoreService.cs",
               "RelativeDocumentMoniker": "BookstoreBackend\\BookstoreService.cs",
               "ToolTip": "D:\\rva\\RVA\\Bookstore\\BookstoreBackend\\BookstoreService.cs",
               "RelativeToolTip": "BookstoreBackend\\BookstoreService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAIAAAA",
+              "ViewState": "AQIAAFcAAAAAAAAAAAAowFsAAABiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-04T17:34:59.779Z",
               "EditorCaption": ""
@@ -160,6 +164,18 @@
             {
               "$type": "Document",
               "DocumentIndex": 7,
+              "Title": "NewBookWindow.xaml.cs",
+              "DocumentMoniker": "D:\\rva\\RVA\\Bookstore\\WpfClient\\NewBookWindow.xaml.cs",
+              "RelativeDocumentMoniker": "WpfClient\\NewBookWindow.xaml.cs",
+              "ToolTip": "D:\\rva\\RVA\\Bookstore\\WpfClient\\NewBookWindow.xaml.cs",
+              "RelativeToolTip": "WpfClient\\NewBookWindow.xaml.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAAB8AAAA7AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-04T22:08:53.509Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "Book.cs",
               "DocumentMoniker": "D:\\rva\\RVA\\Bookstore\\Common\\Model\\Book.cs",
               "RelativeDocumentMoniker": "Common\\Model\\Book.cs",
@@ -167,24 +183,22 @@
               "RelativeToolTip": "Common\\Model\\Book.cs",
               "ViewState": "AQIAAAsAAAAAAAAAAAAAwBQAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-04T17:59:51.824Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-04T17:59:51.824Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "NewAuthorWindow.xaml",
               "DocumentMoniker": "D:\\rva\\RVA\\Bookstore\\WpfClient\\NewAuthorWindow.xaml",
               "RelativeDocumentMoniker": "WpfClient\\NewAuthorWindow.xaml",
               "ToolTip": "D:\\rva\\RVA\\Bookstore\\WpfClient\\NewAuthorWindow.xaml",
               "RelativeToolTip": "WpfClient\\NewAuthorWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-06-04T20:23:09.69Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-04T20:23:09.69Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "Member.cs",
               "DocumentMoniker": "D:\\rva\\RVA\\Bookstore\\Common\\Model\\Member.cs",
               "RelativeDocumentMoniker": "Common\\Model\\Member.cs",
@@ -196,7 +210,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\rva\\RVA\\Bookstore\\Client\\Program.cs",
               "RelativeDocumentMoniker": "Client\\Program.cs",
@@ -208,7 +222,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "LoginViewModel.cs",
               "DocumentMoniker": "D:\\rva\\RVA\\Bookstore\\WpfClient\\ViewModels\\LoginViewModel.cs",
               "RelativeDocumentMoniker": "WpfClient\\ViewModels\\LoginViewModel.cs",
@@ -220,7 +234,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "SessionService.cs",
               "DocumentMoniker": "D:\\rva\\RVA\\Bookstore\\WpfClient\\Misc\\SessionService.cs",
               "RelativeDocumentMoniker": "WpfClient\\Misc\\SessionService.cs",
@@ -232,7 +246,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "Configuration.cs",
               "DocumentMoniker": "D:\\rva\\RVA\\Bookstore\\BookstoreBackend\\Migrations\\Configuration.cs",
               "RelativeDocumentMoniker": "BookstoreBackend\\Migrations\\Configuration.cs",

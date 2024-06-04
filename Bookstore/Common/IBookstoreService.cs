@@ -43,7 +43,7 @@ namespace Common
         void CloneBook(Book book, string token);
 
         [OperationContract]
-        bool EditBook(Book book, string token);
+        bool EditBook(int bookId, string title, int publishYear, int authorId, string token);
 
         [OperationContract]
         Dictionary<int, Book> GetBooks();
