@@ -19,6 +19,9 @@
         <ToolBarTray IsLocked="True">
             <ToolBar>
                 <Button 
+                Content="New Author"
+                Command="{Binding NewAuthorCommand}"/>
+                <Button 
 				Content="New Book"
 				Command="{Binding NewBookCommand}"/>
                 <Button 

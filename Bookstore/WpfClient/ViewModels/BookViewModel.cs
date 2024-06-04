@@ -22,10 +22,12 @@ namespace WpfClient.ViewModels
     internal class BookViewModel : ViewModelBase
     {
         public ICollectionView BookList { get; set; }
+        public ICollectionView AuthorList { get; set; }
         public string BookNameTextBox { get; set; }
         public string AuthorTextBox { get; set; }
 
         // Commands
+        public Command NewAuthorCommand { get; set; }
         public Command NewBookCommand { get; set; }
         public Command EditBookCommand { get; set; }
         public Command<Book> DuplicateCommand { get; set; }
@@ -50,6 +52,7 @@ namespace WpfClient.ViewModels
         {
             history = new Classes.ActionHistory();
 
+            NewAuthorCommand = new Command(NewAuthor);
             NewBookCommand = new Command(NewBook);
             EditBookCommand = new Command(EditBook);
             DuplicateCommand = new Command<Book>(DuplicateBook, CanDuplicate);
@@ -67,8 +70,12 @@ namespace WpfClient.ViewModels
                 books = booksDictionary.Values.ToList();
                 localBookDB = new List<Book>(books);
 
+                List<Author> authors = Classes.Session.Current.LibraryProxy.GetAuthors();
+
                 CollectionViewSource itemSourceList = new CollectionViewSource() { Source = books };
+                CollectionViewSource itemSourceListAuthors = new CollectionViewSource() { Source = authors };
                 BookList = itemSourceList.View;
+                AuthorList = itemSourceListAuthors.View;
             }
 
         }
@@ -83,6 +90,15 @@ namespace WpfClient.ViewModels
                 LeaseCommand.RaiseCanExecuteChanged();
                 OnPropertyChanged("SelectedBook");
             }
+        }
+
+        public void NewAuthor()
+        {
+            var win = new NewAuthorWindow();
+            NewAuthorViewModel vm = (NewAuthorViewModel)win.DataContext;
+            win.ShowDialog();
+            var sessionService = SessionService.Instance;
+            sessionService.Session.BookstoreService.CreateAuthor(vm.FirstName, vm.LastName, vm.ShortDesc, sessionService.Token);
         }
 
         private void NewBook()
