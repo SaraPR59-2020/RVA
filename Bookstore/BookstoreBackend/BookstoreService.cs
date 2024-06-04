@@ -80,16 +80,12 @@ namespace BookstoreBackend
             {
                 Dictionary<int, Book> books = GetBooks();
 
-                Book toClone = books.Values.FirstOrDefault(b => b.BookId == book.BookId);
-                if (toClone == null)
+                if (books.Values.FirstOrDefault(b => b.BookId == book.BookId) == null)
                 {
                     return;
                 }
 
-                Book clone = (Book)toClone.Clone();
-                clone.Title += " (Copy)";
-
-                db.Books.Add(clone);
+                db.Books.Add(new Book() { Title = book.Title, AuthorId = book.AuthorId, PublishYear = book.PublishYear }); // When you assign an ID it automatically connects it to the existing author
                 db.SaveChanges();
             }
         }
