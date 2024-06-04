@@ -30,7 +30,7 @@ namespace WpfClient.ViewModels
         public Command NewAuthorCommand { get; set; }
         public Command NewBookCommand { get; set; }
         public Command EditBookCommand { get; set; }
-        public Command<Book> DuplicateCommand { get; set; }
+        public Command DuplicateCommand { get; set; }
         public Command DeleteCommand { get; set; }
         public Command RefreshCommand { get; set; }
         public Command LeaseCommand { get; set; }
@@ -55,7 +55,7 @@ namespace WpfClient.ViewModels
             NewAuthorCommand = new Command(NewAuthor);
             NewBookCommand = new Command(NewBook);
             EditBookCommand = new Command(EditBook);
-            DuplicateCommand = new Command<Book>(DuplicateBook, CanDuplicate);
+            DuplicateCommand = new Command(DuplicateBook, CanDuplicate);
             DeleteCommand = new Command(DeleteBook);
             RefreshCommand = new Command(RefreshList);
             LeaseCommand = new Command(LeaseBook, CanLease);
@@ -134,8 +134,10 @@ namespace WpfClient.ViewModels
             RefreshList();
         }
 
-        private void DuplicateBook(Book b)
+        private void DuplicateBook()
         {
+            var sessionService = SessionService.Instance;
+            sessionService.Session.BookstoreService.CloneBook(SelectedBook, sessionService.Token);
             //                                                              izvuci username iz sesije
             //ClientLogger.Log($"Book {b.Title} duplicated.", LogLevel.INFO, );
             //Classes.Session.Current.LibraryProxy.DuplicateBook(b);
@@ -146,10 +148,11 @@ namespace WpfClient.ViewModels
         {
             var sessionService = SessionService.Instance;
             string token = sessionService.Token;
+            sessionService.Session.BookstoreService.DeleteBook(SelectedBook, sessionService.Token);
             //if (Classes.Session.Current.LibraryProxy.DeleteBook(selectedBook, token))
-                //ClientLogger.Log($"Book {selectedBook.Title} deleted successfully.", Common.LogLevel.INFO);
+            //ClientLogger.Log($"Book {selectedBook.Title} deleted successfully.", Common.LogLevel.INFO);
             //else
-                //ClientLogger.Log($"Book {selectedBook.BookName} could not be deleted.", Common.LogLevel.ERROR);
+            //ClientLogger.Log($"Book {selectedBook.BookName} could not be deleted.", Common.LogLevel.ERROR);
 
             RefreshList();
         }

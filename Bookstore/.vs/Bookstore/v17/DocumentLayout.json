@@ -11,7 +11,7 @@
       "RelativeMoniker": "D:0:0:{A6BCF32A-1A0E-4F92-AAA8-AF5113BF49AD}|BookstoreBackend\\BookstoreBackend.csproj|solutionrelative:bookstorebackend\\bookstoreservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9C0A3D21-D5DB-45B4-B8AC-734BE82B53BE}|Common\\Common.csproj|d:\\rva\\rva\\bookstore\\common\\ibookstoreservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{9C0A3D21-D5DB-45B4-B8AC-734BE82B53BE}|Common\\Common.csproj|D:\\rva\\RVA\\Bookstore\\common\\ibookstoreservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9C0A3D21-D5DB-45B4-B8AC-734BE82B53BE}|Common\\Common.csproj|solutionrelative:common\\ibookstoreservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -82,8 +82,7 @@
               "RelativeToolTip": "Common\\IBookstoreService.cs",
               "ViewState": "AQIAAB0AAAAAAAAAAAAAwC0AAABbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-04T22:40:11.292Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-04T22:40:11.292Z"
             },
             {
               "$type": "Document",
@@ -93,7 +92,7 @@
               "RelativeDocumentMoniker": "WpfClient\\ViewModels\\BookViewModel.cs",
               "ToolTip": "D:\\rva\\RVA\\Bookstore\\WpfClient\\ViewModels\\BookViewModel.cs",
               "RelativeToolTip": "WpfClient\\ViewModels\\BookViewModel.cs",
-              "ViewState": "AQIAAGoAAAAAAAAAAAAMwHkAAABEAAAA",
+              "ViewState": "AQIAAIQAAAAAAAAAAAAmwJYAAAA6AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-04T17:22:45.012Z",
               "EditorCaption": ""
@@ -107,8 +106,7 @@
               "ToolTip": "D:\\rva\\RVA\\Bookstore\\WpfClient\\NewBookWindow.xaml",
               "RelativeToolTip": "WpfClient\\NewBookWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-06-04T20:13:17.774Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-04T20:13:17.774Z"
             },
             {
               "$type": "Document",
@@ -120,8 +118,7 @@
               "RelativeToolTip": "WpfClient\\ViewModels\\NewAuthorViewModel.cs",
               "ViewState": "AQIAAC8AAAAAAAAAAAAgwDwAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-04T20:15:22.46Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-04T20:15:22.46Z"
             },
             {
               "$type": "Document",
@@ -133,8 +130,7 @@
               "RelativeToolTip": "WpfClient\\ViewModels\\NewBookViewModel.cs",
               "ViewState": "AQIAAFIAAAAAAAAAAAAwwHYAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-04T20:11:17.037Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-04T20:11:17.037Z"
             },
             {
               "$type": "Document",
@@ -145,8 +141,7 @@
               "ToolTip": "D:\\rva\\RVA\\Bookstore\\WpfClient\\Views\\BookView.xaml",
               "RelativeToolTip": "WpfClient\\Views\\BookView.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-06-04T17:56:04.567Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-04T17:56:04.567Z"
             },
             {
               "$type": "Document",
@@ -156,7 +151,7 @@
               "RelativeDocumentMoniker": "BookstoreBackend\\BookstoreService.cs",
               "ToolTip": "D:\\rva\\RVA\\Bookstore\\BookstoreBackend\\BookstoreService.cs",
               "RelativeToolTip": "BookstoreBackend\\BookstoreService.cs",
-              "ViewState": "AQIAAFcAAAAAAAAAAAAowFsAAABiAAAA",
+              "ViewState": "AQIAAEMAAAAAAAAAAAAcwFsAAABiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-04T17:34:59.779Z",
               "EditorCaption": ""
