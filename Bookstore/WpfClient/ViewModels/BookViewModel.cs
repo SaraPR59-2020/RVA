@@ -1,108 +1,201 @@
-﻿using System;
+﻿using Common.Model;
+using Common.Log;
+using Common;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 using System.Windows;
+using System.Windows.Data;
 using WpfClient.Misc;
 
 namespace WpfClient.ViewModels
 {
     internal class BookViewModel : ViewModelBase
     {
-        private string bookName;
-        private string author;
-        private string publicationYear;
-        private string errorMessage;
+        public ICollectionView BookList { get; set; }
+        public string BookNameTextBox { get; set; }
+        public string AuthorTextBox { get; set; }
 
-        #region Properties
-        public string BookName
-        {
-            get { return bookName; }
-            set
-            {
-                bookName = value;
-                OnPropertyChanged("BookName");
-            }
-        }
+        // Commands
+        public Command NewBookCommand { get; set; }
+        public Command EditBookCommand { get; set; }
+        public Command<Book> DuplicateCommand { get; set; }
+        public Command DeleteCommand { get; set; }
+        public Command RefreshCommand { get; set; }
+        public Command LeaseCommand { get; set; }
+        public Command SearchCommand { get; set; }
 
-        public string Author
-        {
-            get { return author; }
-            set
-            {
-                author = value;
-                OnPropertyChanged("Author");
-            }
-        }
+        // Undo/redo
+        public Command UndoCommand { get; set; }
+        public Command RedoCommand { get; set; }
+        private Classes.ActionHistory history;
 
-        public string PublicationYear
-        {
-            get { return publicationYear; }
-            set
-            {
-                publicationYear = value;
-                OnPropertyChanged("PublicationYear");
-            }
-        }
-
-        public string ErrorMessage
-        {
-            get { return errorMessage; }
-            set
-            {
-                errorMessage = value;
-                OnPropertyChanged("ErrorMessage");
-            }
-        }
-        #endregion
-
-        public Command<Window> NewBookCommand { get; set; }
+        private Book selectedBook;
+        private List<Book> books; // for display
+        private List<Book> localBookDB; // for tracking changes
 
 
 
         public BookViewModel()
         {
-            BookName = string.Empty;
-            Author = string.Empty;
-            PublicationYear = string.Empty;
-            ErrorMessage = string.Empty;
+            history = new Classes.ActionHistory();
 
-            NewBookCommand = new Command<Window>(NewBook);
+            NewBookCommand = new Command(NewBook);
+            EditBookCommand = new Command(EditBook);
+            DuplicateCommand = new Command<Book>(DuplicateBook, CanDuplicate);
+            DeleteCommand = new Command(DeleteBook);
+            RefreshCommand = new Command(RefreshList);
+            LeaseCommand = new Command(LeaseBook, CanLease);
+            SearchCommand = new Command(FilterBooks);
+            UndoCommand = new Command(Undo, history.CanUndo);
+            RedoCommand = new Command(Redo, history.CanRedo);
+
+            using (var c = new Classes.WaitCursor())
+            {
+                Dictionary<int, Book >booksDictionary = Classes.Session.Current.LibraryProxy.GetBooks();
+                books = booksDictionary.Values.ToList();
+                localBookDB = new List<Book>(books);
+
+                CollectionViewSource itemSourceList = new CollectionViewSource() { Source = books };
+                BookList = itemSourceList.View;
+            }
         }
 
-        private void NewBook(Window window)
+        public Book SelectedBook
         {
-            if (!ValidateBook())
-                return;
-
-            window.Close();
+            get { return selectedBook; }
+            set
+            {
+                selectedBook = value;
+                DuplicateCommand.RaiseCanExecuteChanged();
+                LeaseCommand.RaiseCanExecuteChanged();
+                OnPropertyChanged("SelectedBook");
+            }
         }
 
-        private bool ValidateBook()
+        private void NewBook()
         {
-            if (BookName == string.Empty)
+            //var win = new NewBookWindow();
+            //NewBookViewModel vm = (NewBookViewModel)win.DataContext;
+
+            //win.ShowDialog();
+
+            //if (Classes.Session.Current.LibraryProxy.CreateBook(vm.BookName, vm.Author, int.Parse(vm.PublicationYear)))
+            //    ClientLogger.Log($"Book {vm.BookName} successfully created.", LogLevel.INFO);
+            //else
+            //    ClientLogger.Log($"Book {vm.BookName} could not be created.", LogLevel.ERROR);
+
+            RefreshList();
+        }
+
+        private void EditBook()
+        {
+            var win = new NewBookWindow();
+            NewBookViewModel vm = (NewBookViewModel)win.DataContext;
+            vm.BookName = selectedBook.Title;
+            vm.Author = selectedBook.Author.FirstName;
+            vm.PublicationYear = selectedBook.PublishYear.ToString();
+
+            win.ShowDialog();
+            var sessionService = SessionService.Instance;
+            string token = sessionService.Token;
+
+            //if (Classes.Session.Current.LibraryProxy.EditBook(selectedBook, token))
+                //ClientLogger.Log($"Book {vm.BookName} successfully edited.", LogLevel.INFO);
+            //else
+                //ClientLogger.Log($"Book {vm.BookName} could not be edited.", LogLevel.ERROR);
+
+            RefreshList();
+        }
+
+        private void DuplicateBook(Book b)
+        {
+            //                                                              izvuci username iz sesije
+            //ClientLogger.Log($"Book {b.Title} duplicated.", LogLevel.INFO, );
+            //Classes.Session.Current.LibraryProxy.DuplicateBook(b);
+            RefreshList();
+        }
+
+        private void DeleteBook()
+        {
+            var sessionService = SessionService.Instance;
+            string token = sessionService.Token;
+            //if (Classes.Session.Current.LibraryProxy.DeleteBook(selectedBook, token))
+                //ClientLogger.Log($"Book {selectedBook.Title} deleted successfully.", Common.LogLevel.INFO);
+            //else
+                //ClientLogger.Log($"Book {selectedBook.BookName} could not be deleted.", Common.LogLevel.ERROR);
+
+            RefreshList();
+        }
+
+        private bool CanDuplicate()
+        {
+            return SelectedBook != null;
+        }
+
+        private void RefreshList()
+        {
+            books.Clear();
+        }
+
+ 
+        private void LeaseBook()
+        {
+            Action redo = () =>
             {
-                ErrorMessage = "Book name cannot be empty.";
-                return false;
-            }
+                //SelectedBook.LeasedTo = Session.Current.LoggedInUser;
 
-            if (Author == string.Empty)
+                LeaseCommand.RaiseCanExecuteChanged();
+                OnPropertyChanged("SelectedBook");
+                BookList.Refresh();
+            };
+            Action undo = () =>
             {
-                ErrorMessage = "Author name cannot be empty.";
-                return false;
-            }
+                //SelectedBook.LeasedTo = string.Empty;
 
-            if (!Regex.IsMatch(PublicationYear, @"^[1-9][0-9]{3}$"))
-            {
-                ErrorMessage = "Publication year must be a valid year.";
-                return false;
-            }
+                LeaseCommand.RaiseCanExecuteChanged();
+                OnPropertyChanged("SelectedBook");
+                BookList.Refresh();
+            };
 
-            ErrorMessage = string.Empty;
+            history.AddAndExecute(new Classes.RevertableCommand(redo, undo));
+            UndoCommand.RaiseCanExecuteChanged();
+            RedoCommand.RaiseCanExecuteChanged();
 
-            return true;
+            //ClientLogger.Log($"{Classes.Session.Current.LoggedInUser} leased book {selectedBook.Title}", Common.LogLevel.INFO);
+        }
+
+        private bool CanLease()
+        {
+            //return selectedBook != null && selectedBook. == string.Empty;
+            return false;
+        }
+
+        private void FilterBooks()
+        {
+            BookList.Filter = new Predicate<object>(b =>
+                ((Book)b).Title.Contains(BookNameTextBox == null ? "" : BookNameTextBox) &&
+                ((Book)b).Author.FirstName.Contains(AuthorTextBox == null ? "" : AuthorTextBox)
+            );
+        }
+
+        private void Undo()
+        {
+            history.Undo();
+            UndoCommand.RaiseCanExecuteChanged();
+            RedoCommand.RaiseCanExecuteChanged();
+        }
+
+        private void Redo()
+        {
+            history.Redo();
+            UndoCommand.RaiseCanExecuteChanged();
+            RedoCommand.RaiseCanExecuteChanged();
         }
     }
 }
