@@ -12,6 +12,10 @@ using System.Web.UI.WebControls;
 using System.Windows;
 using System.Windows.Data;
 using WpfClient.Misc;
+using System.Windows;
+using System.Windows.Controls;
+using WpfClient.Properties;
+using System.Windows.Input;
 
 namespace WpfClient.ViewModels
 {
@@ -29,6 +33,7 @@ namespace WpfClient.ViewModels
         public Command RefreshCommand { get; set; }
         public Command LeaseCommand { get; set; }
         public Command SearchCommand { get; set; }
+        public Command ReturnCommand { get; set; }
 
         // Undo/redo
         public Command UndoCommand { get; set; }
@@ -51,6 +56,7 @@ namespace WpfClient.ViewModels
             DeleteCommand = new Command(DeleteBook);
             RefreshCommand = new Command(RefreshList);
             LeaseCommand = new Command(LeaseBook, CanLease);
+            ReturnCommand = new Command(ReturnBook, CanReturn);
             SearchCommand = new Command(FilterBooks);
             UndoCommand = new Command(Undo, history.CanUndo);
             RedoCommand = new Command(Redo, history.CanRedo);
@@ -64,6 +70,7 @@ namespace WpfClient.ViewModels
                 CollectionViewSource itemSourceList = new CollectionViewSource() { Source = books };
                 BookList = itemSourceList.View;
             }
+
         }
 
         public Book SelectedBook
@@ -80,10 +87,10 @@ namespace WpfClient.ViewModels
 
         private void NewBook()
         {
-            //var win = new NewBookWindow();
-            //NewBookViewModel vm = (NewBookViewModel)win.DataContext;
+            var win = new NewBookWindow();
+            NewBookViewModel vm = (NewBookViewModel)win.DataContext;
 
-            //win.ShowDialog();
+            win.ShowDialog();
 
             //if (Classes.Session.Current.LibraryProxy.CreateBook(vm.BookName, vm.Author, int.Parse(vm.PublicationYear)))
             //    ClientLogger.Log($"Book {vm.BookName} successfully created.", LogLevel.INFO);
@@ -95,7 +102,7 @@ namespace WpfClient.ViewModels
 
         private void EditBook()
         {
-            var win = new NewBookWindow();
+            /*var win = new NewBookWindow();
             NewBookViewModel vm = (NewBookViewModel)win.DataContext;
             vm.BookName = selectedBook.Title;
             vm.Author = selectedBook.Author.FirstName;
@@ -103,7 +110,7 @@ namespace WpfClient.ViewModels
 
             win.ShowDialog();
             var sessionService = SessionService.Instance;
-            string token = sessionService.Token;
+            string token = sessionService.Token;*/
 
             //if (Classes.Session.Current.LibraryProxy.EditBook(selectedBook, token))
                 //ClientLogger.Log($"Book {vm.BookName} successfully edited.", LogLevel.INFO);
@@ -146,7 +153,14 @@ namespace WpfClient.ViewModels
  
         private void LeaseBook()
         {
-            Action redo = () =>
+            var sessionService = SessionService.Instance;
+            if(sessionService.Session.BookstoreService.LeaseBook(selectedBook, sessionService.Token))
+            {
+                RefreshList();
+                LeaseCommand.RaiseCanExecuteChanged();
+            }
+
+            /*Action redo = () =>
             {
                 //SelectedBook.LeasedTo = Session.Current.LoggedInUser;
 
@@ -165,14 +179,34 @@ namespace WpfClient.ViewModels
 
             history.AddAndExecute(new Classes.RevertableCommand(redo, undo));
             UndoCommand.RaiseCanExecuteChanged();
-            RedoCommand.RaiseCanExecuteChanged();
+            RedoCommand.RaiseCanExecuteChanged();*/
 
             //ClientLogger.Log($"{Classes.Session.Current.LoggedInUser} leased book {selectedBook.Title}", Common.LogLevel.INFO);
         }
 
         private bool CanLease()
         {
-            //return selectedBook != null && selectedBook. == string.Empty;
+            return selectedBook != null && selectedBook.Username == null;
+        }
+
+        private void ReturnBook()
+        {
+            var sessionService = SessionService.Instance;
+            if(sessionService.Session.BookstoreService.ReturnBook(selectedBook, sessionService.Token))
+            {
+                RefreshList();
+                LeaseCommand.RaiseCanExecuteChanged();
+            }
+            
+        }
+
+        private bool CanReturn()
+        {
+            var sessionService = SessionService.Instance;
+            if(selectedBook.Username != null)
+            {
+                return selectedBook != null && selectedBook.Username.Equals(sessionService.Session.BookstoreService.GetMemberInfo(sessionService.Token).Username);
+            }
             return false;
         }
 

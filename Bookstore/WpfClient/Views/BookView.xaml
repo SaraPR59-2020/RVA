@@ -56,19 +56,15 @@
             <DataGrid.Columns>
                 <DataGridTextColumn 
 				Header="Book name"
-				Binding="{Binding BookName}"
+				Binding="{Binding Title}"
 				Width="1*"/>
                 <DataGridTextColumn
 				Header="Author"
-				Binding="{Binding Author.AuthorName}"
+				Binding="{Binding Author.FirstName}"
 				Width="1*"/>
                 <DataGridTextColumn
 				Header="Publication year"
-				Binding="{Binding PublicationYear}"
-				Width="1*"/>
-                <DataGridTextColumn
-				Header="Leased to"
-				Binding="{Binding LeasedTo}"
+				Binding="{Binding PublishYear}"
 				Width="1*"/>
             </DataGrid.Columns>
         </DataGrid>
@@ -93,12 +89,16 @@
 					TextWrapping="Wrap"/>
                     <Label Content="Leased to:" FontWeight="Bold"/>
                     <TextBlock 
-					Text="{Binding SelectedBook.LeasedTo}"
+					Text="{Binding SelectedBook.Member.Username}"
 					Margin="10, 0, 0, 0"/>
                     <Button 
 					Content="Lease" 
 					Margin="10, 20"
 					Command="{Binding LeaseCommand}"/>
+                    <Button 
+                    Content="Return" 
+                    Margin="10, 0"
+                    Command="{Binding ReturnCommand}"/>
                 </StackPanel>
             </ScrollViewer>
 

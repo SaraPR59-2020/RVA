@@ -27,14 +27,6 @@ namespace BookstoreBackend
             }
         }
 
-        public Dictionary<int, Book> GetAvailableBooks()
-        {
-            using (var db = new BookstoreDbContext())
-            {
-                return db.Books.Include("Author").Where(b => b.Member == null).ToDictionary(b => b.BookId);
-            }
-        }
-
         public bool CreateBook(string title, int publishmentYear, int authorId, string token)
         {
             Member member = userService.GetLoggedInUser(token);
@@ -143,7 +135,7 @@ namespace BookstoreBackend
                     return false;
                 }
 
-                b.Member = member;
+                b.Username = member.Username;
                 db.SaveChanges();
 
                 return true;
@@ -164,7 +156,7 @@ namespace BookstoreBackend
                     return false;
                 }
 
-                b.Member = null;
+                b.Username = null;
                 db.SaveChanges();
 
                 return true;

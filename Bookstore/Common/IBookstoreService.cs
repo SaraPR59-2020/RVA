@@ -49,9 +49,6 @@ namespace Common
         Dictionary<int, Book> GetBooks();
 
         [OperationContract]
-        Dictionary<int, Book> GetAvailableBooks();
-
-        [OperationContract]
         Member GetMemberInfo(string token);
 
         [OperationContract]
