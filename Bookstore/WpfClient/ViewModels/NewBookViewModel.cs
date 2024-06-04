@@ -1,10 +1,14 @@
-﻿using System;
+﻿using Common.Model;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Data;
 using WpfClient.Classes;
 
 namespace WpfClient.ViewModels
@@ -12,9 +16,10 @@ namespace WpfClient.ViewModels
     public class NewBookViewModel : ViewModelBase
     {
         private string bookName;
-        private string author;
         private string publicationYear;
         private string errorMessage;
+        private ICollectionView authorList;
+        private Author selectedAuthor;
 
         #region Properties
         public string BookName
@@ -24,16 +29,6 @@ namespace WpfClient.ViewModels
             {
                 bookName = value;
                 OnPropertyChanged("BookName");
-            }
-        }
-
-        public string Author
-        {
-            get { return author; }
-            set
-            {
-                author = value;
-                OnPropertyChanged("Author");
             }
         }
 
@@ -56,16 +51,45 @@ namespace WpfClient.ViewModels
                 OnPropertyChanged("ErrorMessage");
             }
         }
+
+        public ICollectionView AuthorList
+        {
+            get { return authorList; }
+            set
+            {
+                authorList = value;
+                OnPropertyChanged("AuthorList");
+            }
+        }
+
+        public Author SelectedAuthor
+        {
+            get { return selectedAuthor; }
+            set
+            {
+                selectedAuthor = value;
+                OnPropertyChanged("SelectedAuthor");
+            }
+        }
         #endregion
 
         public Command<Window> NewBookCommand { get; set; }
 
-
-
         public NewBookViewModel()
         {
             BookName = string.Empty;
-            Author = string.Empty;
+            AuthorList = new CollectionView(new ObservableCollection<Author>());
+            PublicationYear = string.Empty;
+            ErrorMessage = string.Empty;
+
+            NewBookCommand = new Command<Window>(NewBook);
+        }
+
+
+        public NewBookViewModel(ICollectionView authors)
+        {
+            BookName = string.Empty;
+            AuthorList = authors;
             PublicationYear = string.Empty;
             ErrorMessage = string.Empty;
 
@@ -88,9 +112,9 @@ namespace WpfClient.ViewModels
                 return false;
             }
 
-            if (Author == string.Empty)
+            if (SelectedAuthor == null)
             {
-                ErrorMessage = "Author name cannot be empty.";
+                ErrorMessage = "Author must be selected.";
                 return false;
             }
 

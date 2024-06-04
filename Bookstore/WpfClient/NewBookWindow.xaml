@@ -7,13 +7,13 @@
         xmlns:viewModels="clr-namespace:WpfClient.ViewModels"
         mc:Ignorable="d"
         Title="New/Edit book"
-		Name="newBookWindow"
-		Height="330" 
-		Width="270" 
-		MinHeight="330"
-		MinWidth="270" 
-		WindowStyle="ToolWindow" 
-		ResizeMode="NoResize">
+        Name="newBookWindow"
+        Height="330" 
+        Width="270" 
+        MinHeight="330"
+        MinWidth="270" 
+        WindowStyle="ToolWindow" 
+        ResizeMode="NoResize">
     <Window.DataContext>
         <viewModels:NewBookViewModel/>
     </Window.DataContext>
@@ -22,32 +22,43 @@
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
             <Label Content="Book name: "/>
             <TextBox
-				Width="200"
-				HorizontalAlignment="Left"
-				Margin="5, 0"
-				Text="{Binding Path=BookName, Mode=TwoWay}"/>
+                Width="200"
+                HorizontalAlignment="Left"
+                Margin="5, 0"
+                Text="{Binding Path=BookName, Mode=TwoWay}"/>
             <Label Content="Author: "/>
-            <TextBox
-				Width="200"
-				HorizontalAlignment="Left"
-				Margin="5, 0"
-				Text="{Binding Path=Author, Mode=TwoWay}"/>
+            <ListBox
+                Width="200"
+                Height="80"
+                HorizontalAlignment="Left"
+                Margin="5, 0"
+                ItemsSource="{Binding Path=AuthorList}"
+                SelectedItem="{Binding Path=SelectedAuthor, Mode=TwoWay}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding FirstName}" Margin="0,0,5,0"/>
+                            <TextBlock Text="{Binding LastName}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
             <Label Content="Publication year: "/>
             <TextBox
-				Width="200"
-				HorizontalAlignment="Left"
-				Margin="5, 0"
-				Text="{Binding Path=PublicationYear, Mode=TwoWay}"/>
+                Width="200"
+                HorizontalAlignment="Left"
+                Margin="5, 0"
+                Text="{Binding Path=PublicationYear, Mode=TwoWay}"/>
             <Button 
-				Content="Save book"
-				Width="200"
-				HorizontalAlignment="Left"
-				Margin="5"
-				Command="{Binding NewBookCommand}"
-				CommandParameter="{Binding ElementName=newBookWindow}"/>
+                Content="Save book"
+                Width="200"
+                HorizontalAlignment="Left"
+                Margin="5"
+                Command="{Binding NewBookCommand}"
+                CommandParameter="{Binding ElementName=newBookWindow}"/>
             <Label
-				Content="{Binding ErrorMessage}"
-				Foreground="Red"/>
+                Content="{Binding ErrorMessage}"
+                Foreground="Red"/>
         </StackPanel>
     </Grid>
 </Window>

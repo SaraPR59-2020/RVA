@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Common.Model;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfClient.ViewModels;
 
 namespace WpfClient.Properties
 {
@@ -19,9 +23,13 @@ namespace WpfClient.Properties
     /// </summary>
     public partial class NewBookWindow : Window
     {
-        public NewBookWindow()
+        public NewBookWindow(List<Author> authors)
         {
             InitializeComponent();
+
+            ObservableCollection<Author> authorCollection = new ObservableCollection<Author>(authors);
+            ICollectionView authorView = CollectionViewSource.GetDefaultView(authorCollection);
+            DataContext = new NewBookViewModel(authorView);
         }
     }
 }

@@ -22,7 +22,7 @@ namespace WpfClient.ViewModels
     internal class BookViewModel : ViewModelBase
     {
         public ICollectionView BookList { get; set; }
-        public ICollectionView AuthorList { get; set; }
+        public List<Author> AuthorList { get; set; }
         public string BookNameTextBox { get; set; }
         public string AuthorTextBox { get; set; }
 
@@ -70,12 +70,10 @@ namespace WpfClient.ViewModels
                 books = booksDictionary.Values.ToList();
                 localBookDB = new List<Book>(books);
 
-                List<Author> authors = Classes.Session.Current.LibraryProxy.GetAuthors();
+                AuthorList = Classes.Session.Current.LibraryProxy.GetAuthors();
 
                 CollectionViewSource itemSourceList = new CollectionViewSource() { Source = books };
-                CollectionViewSource itemSourceListAuthors = new CollectionViewSource() { Source = authors };
                 BookList = itemSourceList.View;
-                AuthorList = itemSourceListAuthors.View;
             }
 
         }
@@ -103,10 +101,12 @@ namespace WpfClient.ViewModels
 
         private void NewBook()
         {
-            var win = new NewBookWindow();
+            var win = new NewBookWindow(AuthorList);
             NewBookViewModel vm = (NewBookViewModel)win.DataContext;
 
             win.ShowDialog();
+            var sessionService = SessionService.Instance;
+            sessionService.Session.BookstoreService.CreateBook(vm.BookName, int.Parse(vm.PublicationYear), vm.SelectedAuthor.AuthorId, sessionService.Token);
 
             //if (Classes.Session.Current.LibraryProxy.CreateBook(vm.BookName, vm.Author, int.Parse(vm.PublicationYear)))
             //    ClientLogger.Log($"Book {vm.BookName} successfully created.", LogLevel.INFO);
