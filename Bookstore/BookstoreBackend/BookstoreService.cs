@@ -1,4 +1,5 @@
 ﻿using Common;
+using Common.Log;
 using Common.Model;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,12 @@ namespace BookstoreBackend
     class BookstoreService : IBookstoreService
     {
         private static UserService userService = UserService.GetInstance();
+        private Logger logger;
+
+        public BookstoreService()
+        {
+            logger = new Logger("LogData.txt");
+        }
 
         #region BOOK
         public Dictionary<int, Book> GetBooks()
@@ -205,11 +212,14 @@ namespace BookstoreBackend
         {
             try
             {
-                return userService.LoginUser(username, password);
+                string user = userService.LoginUser(username, password);
+                logger.Log("User " + username + " connected.", LogLevel.INFO, username);
+                return user;
             } 
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
+                logger.Log("Failed login attempt for user " + username, LogLevel.WARN, username);
                 return null;
             }
         }
@@ -218,7 +228,9 @@ namespace BookstoreBackend
         {
             if (userService.IsMemberLoggedIn(token))
             {
+                Member user = userService.GetLoggedInUser(token);
                 userService.LogoutUser(token);
+                logger.Log("User " + user.Username + " has disconnected.", LogLevel.INFO, user.Username);
             }
         }
 
@@ -238,6 +250,8 @@ namespace BookstoreBackend
                 Member m = new Member() { Username = username, Password = password, FirstName = firstName, LastName = lastName, IsAdmin = admin };
                 db.Members.Add(m);
                 db.SaveChanges();
+
+                logger.Log("User " + username + " created.", LogLevel.INFO, username);
 
                 return true;
             }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Common.Log;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -9,9 +10,14 @@ namespace WpfClient.ViewModels
 {
     public class ViewModelBase : INotifyPropertyChanged
     {
+        protected static Logger ClientLogger;
+
         public ViewModelBase()
         {
-        
+            if (ClientLogger == null)
+            {
+                ClientLogger = new Logger("ClientActionsLog.txt");
+            }
         }
 
         protected virtual void OnPropertyChanged(string propertyName)

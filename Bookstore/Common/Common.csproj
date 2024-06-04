@@ -46,6 +46,8 @@
     <Compile Include="ICloneable.cs" />
     <Compile Include="IBookstoreService.cs" />
     <Compile Include="INotificationService.cs" />
+    <Compile Include="Log\Logger.cs" />
+    <Compile Include="Log\LogLevel.cs" />
     <Compile Include="Model\Author.cs" />
     <Compile Include="Model\Book.cs" />
     <Compile Include="Model\Member.cs" />
