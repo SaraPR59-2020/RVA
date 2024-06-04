@@ -15,6 +15,7 @@ namespace WpfClient.ViewModels
         public string UsernameTextBox { get; set; }
         public string FirstNameTextBox { get; set; }
         public string LastNameTextBox { get; set; }
+        public bool IsAdminCheckBox { get; set; }
 
         public Command<object> CreateUserCommand { get; set; }
 
@@ -27,6 +28,7 @@ namespace WpfClient.ViewModels
             UsernameTextBox = string.Empty;
             FirstNameTextBox = string.Empty;
             LastNameTextBox = string.Empty;
+            IsAdminCheckBox = false;
             CreateUserCommand = new Command<object>(CreateUser);
         }
 
@@ -51,8 +53,7 @@ namespace WpfClient.ViewModels
             string token = sessionService.Token;
             Session session = new Session();
 
-            //stavila sam da je admin false jer ne znam kako da proverim da li je admin ili ne - tj. da li cemo imati opciju da admin dodaje admine
-            if (!session.BookstoreService.CreateUser(FirstNameTextBox, LastNameTextBox, UsernameTextBox, pw.Password, false, token))
+            if (!session.BookstoreService.CreateUser(FirstNameTextBox, LastNameTextBox, UsernameTextBox, pw.Password, IsAdminCheckBox, token))
             {
                 ErrorText = "User already exists.";
                 return;
@@ -61,6 +62,7 @@ namespace WpfClient.ViewModels
             UsernameTextBox = string.Empty;
             FirstNameTextBox = string.Empty;
             LastNameTextBox = string.Empty;
+            IsAdminCheckBox = false;
             pw.Password = string.Empty;
             ErrorText = string.Empty;
             OnPropertyChanged("UsernameTextBox");

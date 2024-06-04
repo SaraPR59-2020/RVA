@@ -3,40 +3,24 @@
   "WorkspaceRootPath": "D:\\rva\\RVA\\Bookstore\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{5BFA52CB-73C1-443C-9EBF-A19A54E4CC23}|WpfClient\\WpfClient.csproj|d:\\rva\\rva\\bookstore\\wpfclient\\viewmodels\\adminviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5BFA52CB-73C1-443C-9EBF-A19A54E4CC23}|WpfClient\\WpfClient.csproj|solutionrelative:wpfclient\\viewmodels\\adminviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5BFA52CB-73C1-443C-9EBF-A19A54E4CC23}|WpfClient\\WpfClient.csproj|D:\\rva\\RVA\\Bookstore\\wpfclient\\views\\adminview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{5BFA52CB-73C1-443C-9EBF-A19A54E4CC23}|WpfClient\\WpfClient.csproj|solutionrelative:wpfclient\\views\\adminview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A6BCF32A-1A0E-4F92-AAA8-AF5113BF49AD}|BookstoreBackend\\BookstoreBackend.csproj|D:\\rva\\RVA\\Bookstore\\bookstorebackend\\bookstoreservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A6BCF32A-1A0E-4F92-AAA8-AF5113BF49AD}|BookstoreBackend\\BookstoreBackend.csproj|solutionrelative:bookstorebackend\\bookstoreservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A6BCF32A-1A0E-4F92-AAA8-AF5113BF49AD}|BookstoreBackend\\BookstoreBackend.csproj|d:\\rva\\rva\\bookstore\\bookstorebackend\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A6BCF32A-1A0E-4F92-AAA8-AF5113BF49AD}|BookstoreBackend\\BookstoreBackend.csproj|solutionrelative:bookstorebackend\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5BFA52CB-73C1-443C-9EBF-A19A54E4CC23}|WpfClient\\WpfClient.csproj|D:\\rva\\RVA\\Bookstore\\wpfclient\\viewmodels\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5BFA52CB-73C1-443C-9EBF-A19A54E4CC23}|WpfClient\\WpfClient.csproj|solutionrelative:wpfclient\\viewmodels\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A6BCF32A-1A0E-4F92-AAA8-AF5113BF49AD}|BookstoreBackend\\BookstoreBackend.csproj|d:\\rva\\rva\\bookstore\\bookstorebackend\\migrations\\configuration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A6BCF32A-1A0E-4F92-AAA8-AF5113BF49AD}|BookstoreBackend\\BookstoreBackend.csproj|solutionrelative:bookstorebackend\\migrations\\configuration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A6BCF32A-1A0E-4F92-AAA8-AF5113BF49AD}|BookstoreBackend\\BookstoreBackend.csproj|d:\\rva\\rva\\bookstore\\bookstorebackend\\migrations\\202405281248412_init.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A6BCF32A-1A0E-4F92-AAA8-AF5113BF49AD}|BookstoreBackend\\BookstoreBackend.csproj|solutionrelative:bookstorebackend\\migrations\\202405281248412_init.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{01C78B2A-3720-41E9-8EBC-6228319522AD}|Client\\Client.csproj|D:\\rva\\RVA\\Bookstore\\client\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{01C78B2A-3720-41E9-8EBC-6228319522AD}|Client\\Client.csproj|solutionrelative:client\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9C0A3D21-D5DB-45B4-B8AC-734BE82B53BE}|Common\\Common.csproj|D:\\rva\\RVA\\Bookstore\\common\\model\\author.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9C0A3D21-D5DB-45B4-B8AC-734BE82B53BE}|Common\\Common.csproj|solutionrelative:common\\model\\author.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9C0A3D21-D5DB-45B4-B8AC-734BE82B53BE}|Common\\Common.csproj|D:\\rva\\RVA\\Bookstore\\common\\model\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9C0A3D21-D5DB-45B4-B8AC-734BE82B53BE}|Common\\Common.csproj|solutionrelative:common\\model\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9C0A3D21-D5DB-45B4-B8AC-734BE82B53BE}|Common\\Common.csproj|D:\\rva\\RVA\\Bookstore\\common\\ibookstoreservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9C0A3D21-D5DB-45B4-B8AC-734BE82B53BE}|Common\\Common.csproj|solutionrelative:common\\ibookstoreservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9C0A3D21-D5DB-45B4-B8AC-734BE82B53BE}|Common\\Common.csproj|D:\\rva\\RVA\\Bookstore\\common\\model\\member.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9C0A3D21-D5DB-45B4-B8AC-734BE82B53BE}|Common\\Common.csproj|solutionrelative:common\\model\\member.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5BFA52CB-73C1-443C-9EBF-A19A54E4CC23}|WpfClient\\WpfClient.csproj|D:\\rva\\RVA\\Bookstore\\wpfclient\\viewmodels\\accountviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5BFA52CB-73C1-443C-9EBF-A19A54E4CC23}|WpfClient\\WpfClient.csproj|solutionrelative:wpfclient\\viewmodels\\accountviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,120 +30,67 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Configuration.cs",
-              "DocumentMoniker": "D:\\rva\\RVA\\Bookstore\\BookstoreBackend\\Migrations\\Configuration.cs",
-              "RelativeDocumentMoniker": "BookstoreBackend\\Migrations\\Configuration.cs",
-              "ToolTip": "D:\\rva\\RVA\\Bookstore\\BookstoreBackend\\Migrations\\Configuration.cs",
-              "RelativeToolTip": "BookstoreBackend\\Migrations\\Configuration.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-04T07:28:11.61Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "202405281248412_init.cs",
-              "DocumentMoniker": "D:\\rva\\RVA\\Bookstore\\BookstoreBackend\\Migrations\\202405281248412_init.cs",
-              "RelativeDocumentMoniker": "BookstoreBackend\\Migrations\\202405281248412_init.cs",
-              "ToolTip": "D:\\rva\\RVA\\Bookstore\\BookstoreBackend\\Migrations\\202405281248412_init.cs",
-              "RelativeToolTip": "BookstoreBackend\\Migrations\\202405281248412_init.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-04T07:28:06.669Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\rva\\RVA\\Bookstore\\Client\\Program.cs",
-              "RelativeDocumentMoniker": "Client\\Program.cs",
-              "ToolTip": "D:\\rva\\RVA\\Bookstore\\Client\\Program.cs",
-              "RelativeToolTip": "Client\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-01T15:32:11.413Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "UserService.cs",
-              "DocumentMoniker": "D:\\rva\\RVA\\Bookstore\\BookstoreBackend\\UserService.cs",
-              "RelativeDocumentMoniker": "BookstoreBackend\\UserService.cs",
-              "ToolTip": "D:\\rva\\RVA\\Bookstore\\BookstoreBackend\\UserService.cs",
-              "RelativeToolTip": "BookstoreBackend\\UserService.cs",
-              "ViewState": "AQIAACwAAAAAAAAAAAAjwDIAAAAWAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-01T15:32:49.046Z",
-              "EditorCaption": ""
+              "Title": "AdminView.xaml",
+              "DocumentMoniker": "D:\\rva\\RVA\\Bookstore\\WpfClient\\Views\\AdminView.xaml",
+              "RelativeDocumentMoniker": "WpfClient\\Views\\AdminView.xaml",
+              "ToolTip": "D:\\rva\\RVA\\Bookstore\\WpfClient\\Views\\AdminView.xaml",
+              "RelativeToolTip": "WpfClient\\Views\\AdminView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-06-04T13:11:47.888Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Author.cs",
-              "DocumentMoniker": "D:\\rva\\RVA\\Bookstore\\Common\\Model\\Author.cs",
-              "RelativeDocumentMoniker": "Common\\Model\\Author.cs",
-              "ToolTip": "D:\\rva\\RVA\\Bookstore\\Common\\Model\\Author.cs",
-              "RelativeToolTip": "Common\\Model\\Author.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-01T15:41:18.393Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Book.cs",
-              "DocumentMoniker": "D:\\rva\\RVA\\Bookstore\\Common\\Model\\Book.cs",
-              "RelativeDocumentMoniker": "Common\\Model\\Book.cs",
-              "ToolTip": "D:\\rva\\RVA\\Bookstore\\Common\\Model\\Book.cs",
-              "RelativeToolTip": "Common\\Model\\Book.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAdAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-01T15:34:55.015Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Member.cs",
-              "DocumentMoniker": "D:\\rva\\RVA\\Bookstore\\Common\\Model\\Member.cs",
-              "RelativeDocumentMoniker": "Common\\Model\\Member.cs",
-              "ToolTip": "D:\\rva\\RVA\\Bookstore\\Common\\Model\\Member.cs",
-              "RelativeToolTip": "Common\\Model\\Member.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-01T15:12:13.691Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "BookstoreService.cs",
               "DocumentMoniker": "D:\\rva\\RVA\\Bookstore\\BookstoreBackend\\BookstoreService.cs",
               "RelativeDocumentMoniker": "BookstoreBackend\\BookstoreService.cs",
               "ToolTip": "D:\\rva\\RVA\\Bookstore\\BookstoreBackend\\BookstoreService.cs",
               "RelativeToolTip": "BookstoreBackend\\BookstoreService.cs",
-              "ViewState": "AQIAAEYAAAAAAAAAAAAkwFEAAAAAAAAA",
+              "ViewState": "AQIAAMoAAAAAAAAAAAArwM8AAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-01T15:09:19.579Z",
+              "WhenOpened": "2024-06-04T13:05:15.843Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AdminViewModel.cs",
+              "DocumentMoniker": "D:\\rva\\RVA\\Bookstore\\WpfClient\\ViewModels\\AdminViewModel.cs",
+              "RelativeDocumentMoniker": "WpfClient\\ViewModels\\AdminViewModel.cs",
+              "ToolTip": "D:\\rva\\RVA\\Bookstore\\WpfClient\\ViewModels\\AdminViewModel.cs",
+              "RelativeToolTip": "WpfClient\\ViewModels\\AdminViewModel.cs",
+              "ViewState": "AQIAACsAAAAAAAAAAAAgwEoAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-04T12:59:08.712Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "IBookstoreService.cs",
-              "DocumentMoniker": "D:\\rva\\RVA\\Bookstore\\Common\\IBookstoreService.cs",
-              "RelativeDocumentMoniker": "Common\\IBookstoreService.cs",
-              "ToolTip": "D:\\rva\\RVA\\Bookstore\\Common\\IBookstoreService.cs",
-              "RelativeToolTip": "Common\\IBookstoreService.cs",
-              "ViewState": "AQIAADkAAAAAAAAAAAAywEUAAAAgAAAA",
+              "DocumentIndex": 4,
+              "Title": "AccountViewModel.cs",
+              "DocumentMoniker": "D:\\rva\\RVA\\Bookstore\\WpfClient\\ViewModels\\AccountViewModel.cs",
+              "RelativeDocumentMoniker": "WpfClient\\ViewModels\\AccountViewModel.cs",
+              "ToolTip": "D:\\rva\\RVA\\Bookstore\\WpfClient\\ViewModels\\AccountViewModel.cs",
+              "RelativeToolTip": "WpfClient\\ViewModels\\AccountViewModel.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-01T15:56:57.144Z"
+              "WhenOpened": "2024-06-04T12:59:03.796Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "LoginViewModel.cs",
+              "DocumentMoniker": "D:\\rva\\RVA\\Bookstore\\WpfClient\\ViewModels\\LoginViewModel.cs",
+              "RelativeDocumentMoniker": "WpfClient\\ViewModels\\LoginViewModel.cs",
+              "ToolTip": "D:\\rva\\RVA\\Bookstore\\WpfClient\\ViewModels\\LoginViewModel.cs",
+              "RelativeToolTip": "WpfClient\\ViewModels\\LoginViewModel.cs",
+              "ViewState": "AQIAACoAAAAAAAAAAAAowDAAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-04T12:57:54.243Z"
             }
           ]
         }
