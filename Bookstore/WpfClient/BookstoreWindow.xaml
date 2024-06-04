@@ -20,8 +20,10 @@
                 <views:AccountView/>
             </TabItem>
             <TabItem Header="Log">
+                <views:LogView/>
             </TabItem>
             <TabItem Header="Admin">
+                <views:AdminView/>
             </TabItem>
         </TabControl>
     </Grid>

@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\rva\RVA\Bookstore\WpfClient\obj\Debug\
+C:\Users\stame\Source\Repos\RVA\Bookstore\WpfClient\obj\Debug\
 WpfClient
 none
 false
 DEBUG;TRACE
-D:\rva\RVA\Bookstore\WpfClient\App.xaml
-5747461531
+C:\Users\stame\Source\Repos\RVA\Bookstore\WpfClient\App.xaml
+751226438
 21091490761
-17-1420115704
-16667805841
-BookstoreWindow.xaml;MainWindow.xaml;Views\AccountView.xaml;Views\BookView.xaml;Views\LoginView.xaml;
+21-918211250
+16839293759
+BookstoreWindow.xaml;MainWindow.xaml;Views\AccountView.xaml;Views\AdminView.xaml;Views\BookView.xaml;Views\LoginView.xaml;Views\LogView.xaml;
 
 False
 

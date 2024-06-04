@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\stame\Source\Repos\RVA\Bookstore\WpfClient\App.xaml
-4-2076077243
+751226438
 21091490761
-16-244103488
+221294667428
 16839293759
-BookstoreWindow.xaml;MainWindow.xaml;Views\BookView.xaml;Views\LoginView.xaml;
+BookstoreWindow.xaml;MainWindow.xaml;Views\AccountView.xaml;Views\AdminView.xaml;Views\BookView.xaml;Views\LoginView.xaml;Views\LogView.xaml;
 
 False
 
