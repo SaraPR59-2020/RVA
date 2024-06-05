@@ -77,6 +77,7 @@ namespace WpfClient.ViewModels
             if (!ValidateAuthor())
                 return;
 
+            window.DialogResult = true;
             window.Close();
         }
 

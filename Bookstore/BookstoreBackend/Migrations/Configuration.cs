@@ -17,7 +17,7 @@ namespace BookstoreBackend.Migrations
 
         protected override void Seed(BookstoreBackend.BookstoreDbContext context)
         {
-            context.Members.AddOrUpdate(new Member() { FirstName = "", LastName = "", Username = "admin", Password = "admin", IsAdmin = true });
+            context.Members.AddOrUpdate(new Member() { FirstName = "Admin", LastName = "Adminic", Username = "admin", Password = "admin", IsAdmin = true });
 
             context.Members.AddOrUpdate(new Member() { FirstName = "Testni", LastName = "Klijent", Username = "test", Password = "test", IsAdmin = false });
 

@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfClient.Misc;
 
 namespace WpfClient
 {
@@ -22,6 +23,11 @@ namespace WpfClient
         public BookstoreWindow()
         {
             InitializeComponent();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            SessionService.Instance.Session.BookstoreService.LogOut(SessionService.Instance.Token);
         }
     }
 }

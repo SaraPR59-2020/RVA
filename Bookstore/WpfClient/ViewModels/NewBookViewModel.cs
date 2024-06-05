@@ -101,6 +101,7 @@ namespace WpfClient.ViewModels
             if (!ValidateBook())
                 return;
 
+            window.DialogResult = true;
             window.Close();
         }
 

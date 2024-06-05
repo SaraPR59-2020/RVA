@@ -44,19 +44,17 @@ namespace WpfClient.ViewModels
 
         private Book selectedBook;
         private List<Book> books; // for display
-        private List<Book> localBookDB; // for tracking changes
-
-
+        private bool isAdmin = false;
 
         public BookViewModel()
         {
             history = new Classes.ActionHistory();
 
-            NewAuthorCommand = new Command(NewAuthor);
-            NewBookCommand = new Command(NewBook);
-            EditBookCommand = new Command(EditBook);
+            NewAuthorCommand = new Command(NewAuthor, IsAdmin);
+            NewBookCommand = new Command(NewBook, IsAdmin);
+            EditBookCommand = new Command(EditBook, IsAdmin);
             DuplicateCommand = new Command(DuplicateBook, CanDuplicate);
-            DeleteCommand = new Command(DeleteBook);
+            DeleteCommand = new Command(DeleteBook, IsAdmin);
             RefreshCommand = new Command(RefreshList);
             LeaseCommand = new Command(LeaseBook, CanLease);
             ReturnCommand = new Command(ReturnBook, CanReturn);
@@ -64,18 +62,7 @@ namespace WpfClient.ViewModels
             UndoCommand = new Command(Undo, history.CanUndo);
             RedoCommand = new Command(Redo, history.CanRedo);
 
-            using (var c = new Classes.WaitCursor())
-            {
-                Dictionary<int, Book >booksDictionary = Classes.Session.Current.LibraryProxy.GetBooks();
-                books = booksDictionary.Values.ToList();
-                localBookDB = new List<Book>(books);
-
-                AuthorList = Classes.Session.Current.LibraryProxy.GetAuthors();
-
-                CollectionViewSource itemSourceList = new CollectionViewSource() { Source = books };
-                BookList = itemSourceList.View;
-            }
-
+            RefreshList();
         }
 
         public Book SelectedBook
@@ -86,6 +73,7 @@ namespace WpfClient.ViewModels
                 selectedBook = value;
                 DuplicateCommand.RaiseCanExecuteChanged();
                 LeaseCommand.RaiseCanExecuteChanged();
+                ReturnCommand.RaiseCanExecuteChanged();
                 OnPropertyChanged("SelectedBook");
             }
         }
@@ -94,9 +82,12 @@ namespace WpfClient.ViewModels
         {
             var win = new NewAuthorWindow();
             NewAuthorViewModel vm = (NewAuthorViewModel)win.DataContext;
-            win.ShowDialog();
-            var sessionService = SessionService.Instance;
-            sessionService.Session.BookstoreService.CreateAuthor(vm.FirstName, vm.LastName, vm.ShortDesc, sessionService.Token);
+            bool? result = win.ShowDialog();
+            if (result == true)
+            {
+                var sessionService = SessionService.Instance;
+                sessionService.Session.BookstoreService.CreateAuthor(vm.FirstName, vm.LastName, vm.ShortDesc, sessionService.Token);
+            }
         }
 
         private void NewBook()
@@ -104,9 +95,12 @@ namespace WpfClient.ViewModels
             var win = new NewBookWindow(AuthorList);
             NewBookViewModel vm = (NewBookViewModel)win.DataContext;
 
-            win.ShowDialog();
-            var sessionService = SessionService.Instance;
-            sessionService.Session.BookstoreService.CreateBook(vm.BookName, int.Parse(vm.PublicationYear), vm.SelectedAuthor.AuthorId, sessionService.Token);
+            bool? result = win.ShowDialog();
+            if(result == true)
+            {
+                var sessionService = SessionService.Instance;
+                sessionService.Session.BookstoreService.CreateBook(vm.BookName, int.Parse(vm.PublicationYear), vm.SelectedAuthor.AuthorId, sessionService.Token);
+            }
 
             //if (Classes.Session.Current.LibraryProxy.CreateBook(vm.BookName, vm.Author, int.Parse(vm.PublicationYear)))
             //    ClientLogger.Log($"Book {vm.BookName} successfully created.", LogLevel.INFO);
@@ -121,10 +115,13 @@ namespace WpfClient.ViewModels
             var win = new NewBookWindow(AuthorList);
             NewBookViewModel vm = (NewBookViewModel)win.DataContext;
 
-            win.ShowDialog();
+            bool? result = win.ShowDialog();
 
-            var sessionService = SessionService.Instance;
-            sessionService.Session.BookstoreService.EditBook(selectedBook.BookId, vm.BookName, int.Parse(vm.PublicationYear), vm.SelectedAuthor.AuthorId, sessionService.Token);
+            if(result == true)
+            {
+                var sessionService = SessionService.Instance;
+                sessionService.Session.BookstoreService.EditBook(selectedBook.BookId, vm.BookName, int.Parse(vm.PublicationYear), vm.SelectedAuthor.AuthorId, sessionService.Token);
+            }
 
             //if (Classes.Session.Current.LibraryProxy.EditBook(selectedBook, token))
             //ClientLogger.Log($"Book {vm.BookName} successfully edited.", LogLevel.INFO);
@@ -159,12 +156,31 @@ namespace WpfClient.ViewModels
 
         private bool CanDuplicate()
         {
-            return SelectedBook != null;
+            return SelectedBook != null && IsAdmin();
         }
 
         private void RefreshList()
         {
-            books.Clear();
+            using (var c = new Classes.WaitCursor())
+            {
+                Dictionary<int, Book> booksDictionary = Classes.Session.Current.LibraryProxy.GetBooks();
+                books = booksDictionary.Values.ToList();
+
+                AuthorList = Classes.Session.Current.LibraryProxy.GetAuthors();
+
+                CollectionViewSource itemSourceList = new CollectionViewSource() { Source = books };
+                BookList = itemSourceList.View;
+
+                bool AdminStatus = SessionService.Instance.Session.BookstoreService.GetMemberInfo(SessionService.Instance.Token).IsAdmin;
+                isAdmin = AdminStatus;
+                NewAuthorCommand.RaiseCanExecuteChanged();
+                NewBookCommand.RaiseCanExecuteChanged();
+                EditBookCommand.RaiseCanExecuteChanged();
+                DuplicateCommand.RaiseCanExecuteChanged();
+                DeleteCommand.RaiseCanExecuteChanged();
+
+                OnPropertyChanged(nameof(BookList));
+            }
         }
 
  
@@ -175,6 +191,7 @@ namespace WpfClient.ViewModels
             {
                 RefreshList();
                 LeaseCommand.RaiseCanExecuteChanged();
+                ReturnCommand.RaiseCanExecuteChanged();
             }
 
             /*Action redo = () =>
@@ -206,6 +223,11 @@ namespace WpfClient.ViewModels
             return selectedBook != null && selectedBook.Username == null;
         }
 
+        private bool IsAdmin()
+        {
+            return isAdmin;
+        }
+
         private void ReturnBook()
         {
             var sessionService = SessionService.Instance;
@@ -213,6 +235,7 @@ namespace WpfClient.ViewModels
             {
                 RefreshList();
                 LeaseCommand.RaiseCanExecuteChanged();
+                ReturnCommand.RaiseCanExecuteChanged();
             }
             
         }
@@ -220,11 +243,8 @@ namespace WpfClient.ViewModels
         private bool CanReturn()
         {
             var sessionService = SessionService.Instance;
-            if(selectedBook.Username != null)
-            {
-                return selectedBook != null && selectedBook.Username.Equals(sessionService.Session.BookstoreService.GetMemberInfo(sessionService.Token).Username);
-            }
-            return false;
+            var bookUsername = sessionService.Session.BookstoreService.GetMemberInfo(sessionService.Token).Username;
+            return selectedBook != null && selectedBook.Username != null && selectedBook.Username == bookUsername;
         }
 
         private void FilterBooks()

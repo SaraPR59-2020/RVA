@@ -7,7 +7,8 @@
         xmlns:views="clr-namespace:WpfClient.Views"
         mc:Ignorable="d"
         Title="Bookstore" Height="450" Width="800"
-        FontFamily="{StaticResource OpenSans}">
+        FontFamily="{StaticResource OpenSans}"
+        Closing="Window_Closing">
     <Grid >
         <Grid.Background>
             <ImageBrush ImageSource="pack://application:,,,/Accessories/background.jpg" Stretch="UniformToFill" Opacity=".6"/>
