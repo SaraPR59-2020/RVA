@@ -87,7 +87,7 @@ namespace WpfClient.ViewModels
             if (result == true)
             {
                 var sessionService = SessionService.Instance;
-                if(sessionService.Session.BookstoreService.CreateAuthor(vm.FirstName, vm.LastName, vm.ShortDesc, sessionService.Token) != null)
+                if (sessionService.Session.BookstoreService.CreateAuthor(vm.FirstName, vm.LastName, vm.ShortDesc, sessionService.Token) != null)
                 {
                     ClientLogger.Log($"Author {vm.FirstName} {vm.LastName} successfully created.", LogLevel.INFO, sessionService.Session.BookstoreService.GetMemberInfo(sessionService.Token).Username);
                 }
@@ -104,10 +104,17 @@ namespace WpfClient.ViewModels
             NewBookViewModel vm = (NewBookViewModel)win.DataContext;
 
             bool? result = win.ShowDialog();
-            if(result == true)
+            if (result == true)
             {
                 var sessionService = SessionService.Instance;
-                if(sessionService.Session.BookstoreService.CreateBook(vm.BookName, int.Parse(vm.PublicationYear), vm.SelectedAuthor.AuthorId, sessionService.Session.BookstoreService.GetMemberInfo(sessionService.Token).Username))
+                var newBook = new Book
+                {
+                    Title = vm.BookName,
+                    PublishYear = int.Parse(vm.PublicationYear),
+                    AuthorId = vm.SelectedAuthor.AuthorId
+                };
+
+                if (sessionService.Session.BookstoreService.CreateBook(newBook.Title, newBook.PublishYear, newBook.AuthorId, sessionService.Token))
                 {
                     ClientLogger.Log($"Book {vm.BookName} successfully created.", LogLevel.INFO, sessionService.Session.BookstoreService.GetMemberInfo(sessionService.Token).Username);
                 }
@@ -115,6 +122,28 @@ namespace WpfClient.ViewModels
                 {
                     ClientLogger.Log($"Book {vm.BookName} could not be created.", LogLevel.ERROR, sessionService.Session.BookstoreService.GetMemberInfo(sessionService.Token).Username);
                 }
+
+                RefreshList();
+                var bookToDelete = books.Last();
+
+                Action undo = () =>
+                {
+                    sessionService.Session.BookstoreService.DeleteBook(bookToDelete, sessionService.Token);
+                    RefreshList();
+                };
+
+                Action redo = () =>
+                {
+                    sessionService.Session.BookstoreService.CreateBook(newBook.Title, newBook.PublishYear, newBook.AuthorId, sessionService.Token);
+                    RefreshList();
+                    bookToDelete = books.Last();
+                };
+
+                redo();
+
+                history.AddAndExecute(new RevertableCommand(redo, undo));
+                UndoCommand.RaiseCanExecuteChanged();
+                RedoCommand.RaiseCanExecuteChanged();
             }
 
             RefreshList();
@@ -122,15 +151,28 @@ namespace WpfClient.ViewModels
 
         private void EditBook()
         {
+            var sessionService = SessionService.Instance;
+
+            var originalBook = new Book
+            {
+                BookId = selectedBook.BookId,
+                Title = selectedBook.Title,
+                PublishYear = selectedBook.PublishYear,
+                Author = new Author
+                {
+                    AuthorId = selectedBook.Author.AuthorId,
+                    FirstName = selectedBook.Author.FirstName,
+                    LastName = selectedBook.Author.LastName
+                }
+            };
+
             var win = new NewBookWindow(AuthorList);
             NewBookViewModel vm = (NewBookViewModel)win.DataContext;
 
             bool? result = win.ShowDialog();
-
-            if(result == true)
+            if (result == true)
             {
-                var sessionService = SessionService.Instance;
-                if(sessionService.Session.BookstoreService.EditBook(selectedBook.BookId, vm.BookName, int.Parse(vm.PublicationYear), vm.SelectedAuthor.AuthorId, sessionService.Token))
+                if (sessionService.Session.BookstoreService.EditBook(selectedBook.BookId, vm.BookName, int.Parse(vm.PublicationYear), vm.SelectedAuthor.AuthorId, sessionService.Token))
                 {
                     ClientLogger.Log($"Book {vm.BookName} successfully edited.", LogLevel.INFO, sessionService.Session.BookstoreService.GetMemberInfo(sessionService.Token).Username);
                 }
@@ -138,6 +180,42 @@ namespace WpfClient.ViewModels
                 {
                     ClientLogger.Log($"Book {vm.BookName} could not be edited.", LogLevel.ERROR, sessionService.Session.BookstoreService.GetMemberInfo(sessionService.Token).Username);
                 }
+
+                var editedBook = new Book
+                {
+                    BookId = selectedBook.BookId,
+                    Title = vm.BookName,
+                    PublishYear = int.Parse(vm.PublicationYear),
+                    Author = vm.SelectedAuthor
+                };
+
+                Action undo = () =>
+                {
+                    sessionService.Session.BookstoreService.EditBook(
+                        originalBook.BookId, originalBook.Title, originalBook.PublishYear, originalBook.Author.AuthorId, sessionService.Token);
+                    selectedBook.Title = originalBook.Title;
+                    selectedBook.PublishYear = originalBook.PublishYear;
+                    selectedBook.Author = originalBook.Author;
+                    OnPropertyChanged(nameof(SelectedBook));
+                    RefreshList();
+                };
+
+                Action redo = () =>
+                {
+                    sessionService.Session.BookstoreService.EditBook(
+                        editedBook.BookId, editedBook.Title, editedBook.PublishYear, editedBook.Author.AuthorId, sessionService.Token);
+                    selectedBook.Title = editedBook.Title;
+                    selectedBook.PublishYear = editedBook.PublishYear;
+                    selectedBook.Author = editedBook.Author;
+                    OnPropertyChanged(nameof(SelectedBook));
+                    RefreshList();
+                };
+
+                redo();
+
+                history.AddAndExecute(new RevertableCommand(redo, undo));
+                UndoCommand.RaiseCanExecuteChanged();
+                RedoCommand.RaiseCanExecuteChanged();
             }
 
             RefreshList();
@@ -146,26 +224,68 @@ namespace WpfClient.ViewModels
         private void DuplicateBook()
         {
             var sessionService = SessionService.Instance;
-            sessionService.Session.BookstoreService.CloneBook(SelectedBook, sessionService.Token);
-            ClientLogger.Log($"Book {selectedBook.Title} duplicated.", LogLevel.INFO, sessionService.Session.BookstoreService.GetMemberInfo(sessionService.Token).Username);
-            
-            RefreshList();
+            var originalBook = new Book
+            {
+                BookId = selectedBook.BookId,
+                Title = selectedBook.Title,
+                PublishYear = selectedBook.PublishYear,
+                AuthorId = selectedBook.Author.AuthorId
+            };
+
+            Action undo = () =>
+            {
+                sessionService.Session.BookstoreService.DeleteBook(books.Last(), sessionService.Token);
+                RefreshList(); ;
+            };
+
+            Action redo = () =>
+            {
+                sessionService.Session.BookstoreService.CloneBook(originalBook, sessionService.Token);
+                ClientLogger.Log($"Book {selectedBook.Title} duplicated.", LogLevel.INFO, sessionService.Session.BookstoreService.GetMemberInfo(sessionService.Token).Username);
+
+                RefreshList();
+            };
+
+            history.AddAndExecute(new RevertableCommand(redo, undo));
+            UndoCommand.RaiseCanExecuteChanged();
+            RedoCommand.RaiseCanExecuteChanged();
         }
 
         private void DeleteBook()
         {
             var sessionService = SessionService.Instance;
-            string token = sessionService.Token;
-            if(sessionService.Session.BookstoreService.DeleteBook(SelectedBook, sessionService.Token))
-            {
-                ClientLogger.Log($"Book {selectedBook.Title} deleted successfully.", LogLevel.INFO, sessionService.Session.BookstoreService.GetMemberInfo(sessionService.Token).Username);
-            }
-            else
-            {
-                ClientLogger.Log($"Book {selectedBook.Title} could not be deleted.", LogLevel.ERROR, sessionService.Session.BookstoreService.GetMemberInfo(sessionService.Token).Username);
-            }
 
-            RefreshList();
+            var originalBook = new Book
+            {
+                BookId = selectedBook.BookId,
+                Title = selectedBook.Title,
+                PublishYear = selectedBook.PublishYear,
+                AuthorId = selectedBook.Author.AuthorId
+            };
+
+            Action undo = () =>
+            {
+                sessionService.Session.BookstoreService.CreateBook(originalBook.Title, originalBook.PublishYear, originalBook.AuthorId, sessionService.Token);
+                RefreshList();
+            };
+
+            Action redo = () =>
+            {
+                RefreshList();
+                if (sessionService.Session.BookstoreService.DeleteBook(books.Last(), sessionService.Token))
+                {
+                    ClientLogger.Log($"Book {selectedBook.Title} deleted successfully.", LogLevel.INFO, sessionService.Session.BookstoreService.GetMemberInfo(sessionService.Token).Username);
+                }
+                else
+                {
+                    ClientLogger.Log($"Book {selectedBook.Title} could not be deleted.", LogLevel.ERROR, sessionService.Session.BookstoreService.GetMemberInfo(sessionService.Token).Username);
+                }
+                RefreshList();
+            };
+
+            history.AddAndExecute(new RevertableCommand(redo, undo));
+            UndoCommand.RaiseCanExecuteChanged();
+            RedoCommand.RaiseCanExecuteChanged();
         }
 
         private bool CanDuplicate()
@@ -177,6 +297,7 @@ namespace WpfClient.ViewModels
         {
             using (var c = new WaitCursor())
             {
+                var book = SelectedBook;
                 var session = SessionService.Instance.Session;
                 Dictionary<int, Book> booksDictionary = session.BookstoreService.GetBooks();
                 books = booksDictionary.Values.ToList();
@@ -198,35 +319,43 @@ namespace WpfClient.ViewModels
             }
         }
 
- 
+
         private void LeaseBook()
         {
             var sessionService = SessionService.Instance;
-            if(sessionService.Session.BookstoreService.LeaseBook(selectedBook, sessionService.Token))
+            var originalBook = new Book
             {
-                RefreshList();
+                BookId = selectedBook.BookId,
+                Title = selectedBook.Title,
+                PublishYear = selectedBook.PublishYear,
+                Author = new Author
+                {
+                    AuthorId = selectedBook.Author.AuthorId,
+                    FirstName = selectedBook.Author.FirstName,
+                    LastName = selectedBook.Author.LastName
+                },
+                Username = selectedBook.Username
+            };
+
+            Action undo = () =>
+            {
+                sessionService.Session.BookstoreService.ReturnBook(originalBook, sessionService.Token);
+                selectedBook.Username = null;
+                OnPropertyChanged(nameof(SelectedBook));
                 LeaseCommand.RaiseCanExecuteChanged();
                 ReturnCommand.RaiseCanExecuteChanged();
-            }
+            };
 
             Action redo = () =>
             {
-                sessionService.Session.BookstoreService.ReturnBook(SelectedBook, sessionService.Token);
-
+                sessionService.Session.BookstoreService.LeaseBook(selectedBook, sessionService.Token);
+                selectedBook.Username = sessionService.Session.BookstoreService.GetMemberInfo(sessionService.Token).Username;
+                OnPropertyChanged(nameof(SelectedBook));
                 LeaseCommand.RaiseCanExecuteChanged();
                 ReturnCommand.RaiseCanExecuteChanged();
-                OnPropertyChanged("SelectedBook");
-                RefreshList();
             };
-            Action undo = () =>
-            {
-                sessionService.Session.BookstoreService.LeaseBook(SelectedBook, sessionService.Token);
 
-                LeaseCommand.RaiseCanExecuteChanged();
-                ReturnCommand.RaiseCanExecuteChanged();
-                OnPropertyChanged("SelectedBook");
-                RefreshList();
-            };
+            redo();
 
             history.AddAndExecute(new RevertableCommand(redo, undo));
             UndoCommand.RaiseCanExecuteChanged();
@@ -248,12 +377,43 @@ namespace WpfClient.ViewModels
         private void ReturnBook()
         {
             var sessionService = SessionService.Instance;
-            if(sessionService.Session.BookstoreService.ReturnBook(selectedBook, sessionService.Token))
+            var originalBook = new Book
             {
-                RefreshList();
+                BookId = selectedBook.BookId,
+                Title = selectedBook.Title,
+                PublishYear = selectedBook.PublishYear,
+                Author = new Author
+                {
+                    AuthorId = selectedBook.Author.AuthorId,
+                    FirstName = selectedBook.Author.FirstName,
+                    LastName = selectedBook.Author.LastName
+                },
+                Username = selectedBook.Username
+            };
+
+            Action undo = () =>
+            {
+                sessionService.Session.BookstoreService.LeaseBook(originalBook, sessionService.Token);
+                selectedBook.Username = sessionService.Session.BookstoreService.GetMemberInfo(sessionService.Token).Username;
+                OnPropertyChanged(nameof(SelectedBook));
                 LeaseCommand.RaiseCanExecuteChanged();
                 ReturnCommand.RaiseCanExecuteChanged();
-            }
+            };
+
+            Action redo = () =>
+            {
+                sessionService.Session.BookstoreService.ReturnBook(selectedBook, sessionService.Token);
+                selectedBook.Username = null;
+                OnPropertyChanged(nameof(SelectedBook));
+                LeaseCommand.RaiseCanExecuteChanged();
+                ReturnCommand.RaiseCanExecuteChanged();
+            };
+
+            redo();
+
+            history.AddAndExecute(new RevertableCommand(redo, undo));
+            UndoCommand.RaiseCanExecuteChanged();
+            RedoCommand.RaiseCanExecuteChanged();
 
             ClientLogger.Log($"{sessionService.Session.BookstoreService.GetMemberInfo(sessionService.Token).Username} returned book {selectedBook.Title}", LogLevel.INFO, sessionService.Session.BookstoreService.GetMemberInfo(sessionService.Token).Username);
 

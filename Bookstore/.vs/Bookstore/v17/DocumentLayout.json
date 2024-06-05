@@ -7,15 +7,15 @@
       "RelativeMoniker": "D:0:0:{5BFA52CB-73C1-443C-9EBF-A19A54E4CC23}|WpfClient\\WpfClient.csproj|solutionrelative:wpfclient\\viewmodels\\bookviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5BFA52CB-73C1-443C-9EBF-A19A54E4CC23}|WpfClient\\WpfClient.csproj|d:\\rva\\rva\\bookstore\\wpfclient\\viewmodels\\accountviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5BFA52CB-73C1-443C-9EBF-A19A54E4CC23}|WpfClient\\WpfClient.csproj|solutionrelative:wpfclient\\viewmodels\\accountviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5BFA52CB-73C1-443C-9EBF-A19A54E4CC23}|WpfClient\\WpfClient.csproj|d:\\rva\\rva\\bookstore\\wpfclient\\viewmodels\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5BFA52CB-73C1-443C-9EBF-A19A54E4CC23}|WpfClient\\WpfClient.csproj|D:\\rva\\RVA\\Bookstore\\wpfclient\\viewmodels\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5BFA52CB-73C1-443C-9EBF-A19A54E4CC23}|WpfClient\\WpfClient.csproj|solutionrelative:wpfclient\\viewmodels\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5BFA52CB-73C1-443C-9EBF-A19A54E4CC23}|WpfClient\\WpfClient.csproj|d:\\rva\\rva\\bookstore\\wpfclient\\viewmodels\\adminviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5BFA52CB-73C1-443C-9EBF-A19A54E4CC23}|WpfClient\\WpfClient.csproj|D:\\rva\\RVA\\Bookstore\\wpfclient\\viewmodels\\accountviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5BFA52CB-73C1-443C-9EBF-A19A54E4CC23}|WpfClient\\WpfClient.csproj|solutionrelative:wpfclient\\viewmodels\\accountviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5BFA52CB-73C1-443C-9EBF-A19A54E4CC23}|WpfClient\\WpfClient.csproj|D:\\rva\\RVA\\Bookstore\\wpfclient\\viewmodels\\adminviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5BFA52CB-73C1-443C-9EBF-A19A54E4CC23}|WpfClient\\WpfClient.csproj|solutionrelative:wpfclient\\viewmodels\\adminviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -50,7 +50,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "LoginViewModel.cs",
               "DocumentMoniker": "D:\\rva\\RVA\\Bookstore\\WpfClient\\ViewModels\\LoginViewModel.cs",
               "RelativeDocumentMoniker": "WpfClient\\ViewModels\\LoginViewModel.cs",
@@ -71,12 +71,11 @@
               "RelativeToolTip": "WpfClient\\ViewModels\\AdminViewModel.cs",
               "ViewState": "AQIAACoAAAAAAAAAAAAuwDYAAACdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-05T19:28:14.388Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-05T19:28:14.388Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "AccountViewModel.cs",
               "DocumentMoniker": "D:\\rva\\RVA\\Bookstore\\WpfClient\\ViewModels\\AccountViewModel.cs",
               "RelativeDocumentMoniker": "WpfClient\\ViewModels\\AccountViewModel.cs",
@@ -84,8 +83,7 @@
               "RelativeToolTip": "WpfClient\\ViewModels\\AccountViewModel.cs",
               "ViewState": "AQIAAB4AAAAAAAAAAAASwCoAAACiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-05T19:25:33.744Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-05T19:25:33.744Z"
             },
             {
               "$type": "Document",
@@ -106,7 +104,7 @@
               "RelativeDocumentMoniker": "WpfClient\\ViewModels\\BookViewModel.cs",
               "ToolTip": "D:\\rva\\RVA\\Bookstore\\WpfClient\\ViewModels\\BookViewModel.cs",
               "RelativeToolTip": "WpfClient\\ViewModels\\BookViewModel.cs",
-              "ViewState": "AQIAAEIAAAAAAAAAAAAAAOoAAAAMAAAA",
+              "ViewState": "AQIAAKkBAAAAAAAAAAAqwMMBAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-05T18:01:04.7Z",
               "EditorCaption": ""
