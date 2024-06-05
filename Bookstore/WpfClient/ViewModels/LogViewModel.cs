@@ -43,7 +43,7 @@ namespace WpfClient.ViewModels
 
             foreach (string line in lines)
             {
-                Match regex = Regex.Match(user.Username, @"\((.*?)\)");
+                Match regex = Regex.Match(line, @"(?<=\().*?(?=\))");
                 if (!user.Username.Equals(regex.Value))
                     continue;
 

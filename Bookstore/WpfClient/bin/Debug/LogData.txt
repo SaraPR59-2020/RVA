@@ -1,2 +1,7 @@
 
 5.6.2024. 20:46:00 [INFO]: admin returned book For whom the bell talls (admin)
+5.6.2024. 20:56:15 [INFO]: admin leased book For whom the bell talls (admin)
+5.6.2024. 20:56:20 [INFO]: admin leased book For whom the bell talls (admin)
+5.6.2024. 20:56:22 [INFO]: admin leased book For whom the bell talls (admin)
+5.6.2024. 20:58:09 [INFO]: admin leased book For whom the bell talls (admin)
+5.6.2024. 21:08:40 [INFO]: admin leased book For whom the bell talls (admin)
