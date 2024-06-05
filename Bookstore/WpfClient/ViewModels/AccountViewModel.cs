@@ -34,7 +34,14 @@ namespace WpfClient.ViewModels
             var sessionService = SessionService.Instance;
             string token = sessionService.Token;
             Session session = new Session();
-            session.BookstoreService.EditMemberInfo(FirstNameTextBox, LastNameTextBox, token);
+            if(session.BookstoreService.EditMemberInfo(FirstNameTextBox, LastNameTextBox, token))
+            {
+                ClientLogger.Log($"Account {sessionService.Session.BookstoreService.GetMemberInfo(token).Username} successfully edited.", Common.Log.LogLevel.INFO, sessionService.Session.BookstoreService.GetMemberInfo(token).Username);
+            }
+            else
+            {
+                ClientLogger.Log($"Account {sessionService.Session.BookstoreService.GetMemberInfo(token).Username} couldn't be edited.", Common.Log.LogLevel.ERROR, sessionService.Session.BookstoreService.GetMemberInfo(token).Username);
+            }
         }
     }
 }

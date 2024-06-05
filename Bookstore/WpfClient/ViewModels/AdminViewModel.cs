@@ -46,18 +46,23 @@ namespace WpfClient.ViewModels
         {
             PasswordBox pw = param as PasswordBox;
 
-            if (!ValidateUserData(pw.Password == null ? string.Empty : pw.Password))
-                return;
-
             var sessionService = SessionService.Instance;
             string token = sessionService.Token;
             Session session = new Session();
 
+            if (!ValidateUserData(pw.Password == null ? string.Empty : pw.Password))
+            {
+                ClientLogger.Log($"Failed to create user.", Common.Log.LogLevel.WARN, sessionService.Session.BookstoreService.GetMemberInfo(token).Username);
+                return;
+            }
+
             if (!session.BookstoreService.CreateUser(FirstNameTextBox, LastNameTextBox, UsernameTextBox, pw.Password, IsAdminCheckBox, token))
             {
                 ErrorText = "User already exists.";
+                ClientLogger.Log($"Failed to create user.", Common.Log.LogLevel.WARN, sessionService.Session.BookstoreService.GetMemberInfo(token).Username);
                 return;
             }
+            ClientLogger.Log($"User created successfully.", Common.Log.LogLevel.INFO, sessionService.Session.BookstoreService.GetMemberInfo(token).Username);
 
             UsernameTextBox = string.Empty;
             FirstNameTextBox = string.Empty;

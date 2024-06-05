@@ -55,6 +55,8 @@ namespace WpfClient.ViewModels
 
                 Application.Current.MainWindow.Close();
                 Application.Current.MainWindow = bookstore;
+
+                ClientLogger.Log($"Successfull.", Common.Log.LogLevel.INFO, sessionService.Session.BookstoreService.GetMemberInfo(token).Username);
             }
             else
             {
