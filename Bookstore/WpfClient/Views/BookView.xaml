@@ -61,10 +61,20 @@
 				Header="Book name"
 				Binding="{Binding Title}"
 				Width="1*"/>
-                <DataGridTextColumn
-				Header="Author"
-				Binding="{Binding Author.FirstName}"
-				Width="1*"/>
+                <DataGridTemplateColumn Header="Author" Width="1*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock>
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0} {1}">
+                                        <Binding Path="Author.FirstName"/>
+                                        <Binding Path="Author.LastName"/>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
                 <DataGridTextColumn
 				Header="Publication year"
 				Binding="{Binding PublishYear}"
@@ -83,16 +93,21 @@
             <ScrollViewer>
                 <StackPanel>
                     <Label Content="Author info:" FontWeight="Bold"/>
+                    <TextBlock Margin="10, 0, 0, 0">
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat="Author name: {0} {1}">
+                                <Binding Path="SelectedBook.Author.FirstName"/>
+                                <Binding Path="SelectedBook.Author.LastName"/>
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
                     <TextBlock 
-					Text="{Binding SelectedBook.Author, StringFormat='Author name: {0}'}"
-					Margin="10, 0, 0, 0"/>
-                    <TextBlock 
-					Text="{Binding SelectedBook.Author, StringFormat='Author summary: {0}'}"
+					Text="{Binding SelectedBook.Author.ShortDesc, StringFormat='Author summary: {0}'}"
 					Margin="10, 0, 0, 0"
 					TextWrapping="Wrap"/>
                     <Label Content="Leased to:" FontWeight="Bold"/>
                     <TextBlock 
-					Text="{Binding SelectedBook.Member.Username}"
+					Text="{Binding SelectedBook.Username}"
 					Margin="10, 0, 0, 0"/>
                     <Button 
 					Content="Lease" 

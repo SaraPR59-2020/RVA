@@ -20,14 +20,23 @@ namespace WpfClient
     /// </summary>
     public partial class BookstoreWindow : Window
     {
+
         public BookstoreWindow()
         {
+
             InitializeComponent();
+            SetAdminTabVisibility();
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             SessionService.Instance.Session.BookstoreService.LogOut(SessionService.Instance.Token);
+        }
+
+        private void SetAdminTabVisibility()
+        {
+            bool isAdmin = SessionService.Instance.Session.BookstoreService.GetMemberInfo(SessionService.Instance.Token).IsAdmin;
+            AdminTab.Visibility = isAdmin ? Visibility.Visible : Visibility.Collapsed;
         }
     }
 }

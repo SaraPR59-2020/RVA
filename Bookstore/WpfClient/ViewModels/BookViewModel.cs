@@ -12,10 +12,11 @@ using System.Web.UI.WebControls;
 using System.Windows;
 using System.Windows.Data;
 using WpfClient.Misc;
-using System.Windows;
 using System.Windows.Controls;
 using WpfClient.Properties;
 using System.Windows.Input;
+using WpfClient.Misc;
+using WpfClient.Classes;
 
 namespace WpfClient.ViewModels
 {
@@ -43,7 +44,7 @@ namespace WpfClient.ViewModels
         private Classes.ActionHistory history;
 
         private Book selectedBook;
-        private List<Book> books; // for display
+        private List<Book> books;
         private bool isAdmin = false;
 
         public BookViewModel()
@@ -161,12 +162,13 @@ namespace WpfClient.ViewModels
 
         private void RefreshList()
         {
-            using (var c = new Classes.WaitCursor())
+            using (var c = new WaitCursor())
             {
-                Dictionary<int, Book> booksDictionary = Classes.Session.Current.LibraryProxy.GetBooks();
+                var session = SessionService.Instance.Session;
+                Dictionary<int, Book> booksDictionary = session.BookstoreService.GetBooks();
                 books = booksDictionary.Values.ToList();
 
-                AuthorList = Classes.Session.Current.LibraryProxy.GetAuthors();
+                AuthorList = session.BookstoreService.GetAuthors();
 
                 CollectionViewSource itemSourceList = new CollectionViewSource() { Source = books };
                 BookList = itemSourceList.View;
@@ -194,26 +196,28 @@ namespace WpfClient.ViewModels
                 ReturnCommand.RaiseCanExecuteChanged();
             }
 
-            /*Action redo = () =>
+            Action redo = () =>
             {
-                //SelectedBook.LeasedTo = Session.Current.LoggedInUser;
+                sessionService.Session.BookstoreService.ReturnBook(SelectedBook, sessionService.Token);
 
                 LeaseCommand.RaiseCanExecuteChanged();
+                ReturnCommand.RaiseCanExecuteChanged();
                 OnPropertyChanged("SelectedBook");
-                BookList.Refresh();
+                RefreshList();
             };
             Action undo = () =>
             {
-                //SelectedBook.LeasedTo = string.Empty;
+                sessionService.Session.BookstoreService.LeaseBook(SelectedBook, sessionService.Token);
 
                 LeaseCommand.RaiseCanExecuteChanged();
+                ReturnCommand.RaiseCanExecuteChanged();
                 OnPropertyChanged("SelectedBook");
-                BookList.Refresh();
+                RefreshList();
             };
 
-            history.AddAndExecute(new Classes.RevertableCommand(redo, undo));
+            history.AddAndExecute(new RevertableCommand(redo, undo));
             UndoCommand.RaiseCanExecuteChanged();
-            RedoCommand.RaiseCanExecuteChanged();*/
+            RedoCommand.RaiseCanExecuteChanged();
 
             //ClientLogger.Log($"{Classes.Session.Current.LoggedInUser} leased book {selectedBook.Title}", Common.LogLevel.INFO);
         }

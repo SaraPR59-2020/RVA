@@ -23,7 +23,7 @@
             <TabItem Header="Log">
                 <views:LogView/>
             </TabItem>
-            <TabItem Header="Admin">
+            <TabItem Header="Admin" Name="AdminTab">
                 <views:AdminView/>
             </TabItem>
         </TabControl>

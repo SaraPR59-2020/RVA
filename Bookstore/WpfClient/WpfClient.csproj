@@ -60,14 +60,12 @@
     <Compile Include="BookstoreWindow.xaml.cs">
       <DependentUpon>BookstoreWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Classes\ActionHistory.cs" />
-    <Compile Include="Classes\Command.cs" />
-    <Compile Include="Classes\Session.cs" />
-    <Compile Include="Classes\WaitCursor.cs" />
+    <Compile Include="Misc\ActionHistory.cs" />
     <Compile Include="Misc\Command.cs" />
     <Compile Include="Misc\RevertableCommand.cs" />
     <Compile Include="Misc\Session.cs" />
     <Compile Include="Misc\SessionService.cs" />
+    <Compile Include="Misc\WaitCursor.cs" />
     <Compile Include="NewAuthorWindow.xaml.cs">
       <DependentUpon>NewAuthorWindow.xaml</DependentUpon>
     </Compile>
