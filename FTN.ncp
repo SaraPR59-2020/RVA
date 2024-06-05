@@ -232,6 +232,7 @@
         <Member type="Field">protected static Logger ClientLogger</Member>
         <Member type="Constructor">public ViewModelBase()</Member>
         <Member type="Method">protected virtual void OnPropertyChanged(string propertName)</Member>
+        <Member type="Event">public event PropertyChangedEventHandler PropertyChanged</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Interface">
@@ -413,7 +414,7 @@
         <Name>NewBookViewModel</Name>
         <Access>Public</Access>
         <Location left="374" top="1491" />
-        <Size width="162" height="298" />
+        <Size width="162" height="332" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private string bookName</Member>
         <Member type="Field">private string publicationYear</Member>
@@ -427,7 +428,9 @@
         <Member type="Property">public Author SelectedAuthor { get; set; }</Member>
         <Member type="Property">public Command&lt;Window&gt; NewBookCommand { get; set; }</Member>
         <Member type="Constructor">public NewBookViewModel()</Member>
-        <Member type="Constructor">public NewBookViewModel()</Member>
+        <Member type="Constructor">public NewBookViewModel(ICollectionView authors)</Member>
+        <Member type="Method">private void NewBook(Window window)</Member>
+        <Member type="Method">private bool ValidateBook()</Member>
         <Modifier>None</Modifier>
       </Entity>
     </Entities>
