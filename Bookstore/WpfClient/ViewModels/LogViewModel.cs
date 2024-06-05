@@ -28,9 +28,7 @@ namespace WpfClient.ViewModels
         public LogViewModel()
         {
             var sessionService = SessionService.Instance;
-            string token = sessionService.Token;
-            Session session = new Session();
-            user = session.BookstoreService.GetMemberInfo(token);
+             user = sessionService.Session.BookstoreService.GetMemberInfo(sessionService.Token);
 
             Entries = new ObservableCollection<LogEntry>();
 
@@ -41,7 +39,7 @@ namespace WpfClient.ViewModels
         private void RefreshTable()
         {
             Entries.Clear();
-            string[] lines = File.ReadAllLines("ClientActionsLog.txt");
+            string[] lines = File.ReadAllLines("LogData.txt");
 
             foreach (string line in lines)
             {

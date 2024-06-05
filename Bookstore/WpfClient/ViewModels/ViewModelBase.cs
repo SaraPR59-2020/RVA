@@ -16,7 +16,7 @@ namespace WpfClient.ViewModels
         {
             if (ClientLogger == null)
             {
-                ClientLogger = new Logger("ClientActionsLog.txt");
+                ClientLogger = new Logger("LogData.txt");
             }
         }
 

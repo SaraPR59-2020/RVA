@@ -87,7 +87,14 @@ namespace WpfClient.ViewModels
             if (result == true)
             {
                 var sessionService = SessionService.Instance;
-                sessionService.Session.BookstoreService.CreateAuthor(vm.FirstName, vm.LastName, vm.ShortDesc, sessionService.Token);
+                if(sessionService.Session.BookstoreService.CreateAuthor(vm.FirstName, vm.LastName, vm.ShortDesc, sessionService.Token) != null)
+                {
+                    ClientLogger.Log($"Author {vm.FirstName} {vm.LastName} successfully created.", LogLevel.INFO, sessionService.Session.BookstoreService.GetMemberInfo(sessionService.Token).Username);
+                }
+                else
+                {
+                    ClientLogger.Log($"Author {vm.FirstName} {vm.LastName} could not be created.", LogLevel.ERROR, sessionService.Session.BookstoreService.GetMemberInfo(sessionService.Token).Username);
+                }
             }
         }
 
@@ -100,13 +107,15 @@ namespace WpfClient.ViewModels
             if(result == true)
             {
                 var sessionService = SessionService.Instance;
-                sessionService.Session.BookstoreService.CreateBook(vm.BookName, int.Parse(vm.PublicationYear), vm.SelectedAuthor.AuthorId, sessionService.Token);
+                if(sessionService.Session.BookstoreService.CreateBook(vm.BookName, int.Parse(vm.PublicationYear), vm.SelectedAuthor.AuthorId, sessionService.Session.BookstoreService.GetMemberInfo(sessionService.Token).Username))
+                {
+                    ClientLogger.Log($"Book {vm.BookName} successfully created.", LogLevel.INFO, sessionService.Session.BookstoreService.GetMemberInfo(sessionService.Token).Username);
+                }
+                else
+                {
+                    ClientLogger.Log($"Book {vm.BookName} could not be created.", LogLevel.ERROR, sessionService.Session.BookstoreService.GetMemberInfo(sessionService.Token).Username);
+                }
             }
-
-            //if (Classes.Session.Current.LibraryProxy.CreateBook(vm.BookName, vm.Author, int.Parse(vm.PublicationYear)))
-            //    ClientLogger.Log($"Book {vm.BookName} successfully created.", LogLevel.INFO);
-            //else
-            //    ClientLogger.Log($"Book {vm.BookName} could not be created.", LogLevel.ERROR);
 
             RefreshList();
         }
@@ -121,13 +130,15 @@ namespace WpfClient.ViewModels
             if(result == true)
             {
                 var sessionService = SessionService.Instance;
-                sessionService.Session.BookstoreService.EditBook(selectedBook.BookId, vm.BookName, int.Parse(vm.PublicationYear), vm.SelectedAuthor.AuthorId, sessionService.Token);
+                if(sessionService.Session.BookstoreService.EditBook(selectedBook.BookId, vm.BookName, int.Parse(vm.PublicationYear), vm.SelectedAuthor.AuthorId, sessionService.Token))
+                {
+                    ClientLogger.Log($"Book {vm.BookName} successfully edited.", LogLevel.INFO, sessionService.Session.BookstoreService.GetMemberInfo(sessionService.Token).Username);
+                }
+                else
+                {
+                    ClientLogger.Log($"Book {vm.BookName} could not be edited.", LogLevel.ERROR, sessionService.Session.BookstoreService.GetMemberInfo(sessionService.Token).Username);
+                }
             }
-
-            //if (Classes.Session.Current.LibraryProxy.EditBook(selectedBook, token))
-            //ClientLogger.Log($"Book {vm.BookName} successfully edited.", LogLevel.INFO);
-            //else
-            //ClientLogger.Log($"Book {vm.BookName} could not be edited.", LogLevel.ERROR);
 
             RefreshList();
         }
@@ -136,9 +147,8 @@ namespace WpfClient.ViewModels
         {
             var sessionService = SessionService.Instance;
             sessionService.Session.BookstoreService.CloneBook(SelectedBook, sessionService.Token);
-            //                                                              izvuci username iz sesije
-            //ClientLogger.Log($"Book {b.Title} duplicated.", LogLevel.INFO, );
-            //Classes.Session.Current.LibraryProxy.DuplicateBook(b);
+            ClientLogger.Log($"Book {selectedBook.Title} duplicated.", LogLevel.INFO, sessionService.Session.BookstoreService.GetMemberInfo(sessionService.Token).Username);
+            
             RefreshList();
         }
 
@@ -146,11 +156,14 @@ namespace WpfClient.ViewModels
         {
             var sessionService = SessionService.Instance;
             string token = sessionService.Token;
-            sessionService.Session.BookstoreService.DeleteBook(SelectedBook, sessionService.Token);
-            //if (Classes.Session.Current.LibraryProxy.DeleteBook(selectedBook, token))
-            //ClientLogger.Log($"Book {selectedBook.Title} deleted successfully.", Common.LogLevel.INFO);
-            //else
-            //ClientLogger.Log($"Book {selectedBook.BookName} could not be deleted.", Common.LogLevel.ERROR);
+            if(sessionService.Session.BookstoreService.DeleteBook(SelectedBook, sessionService.Token))
+            {
+                ClientLogger.Log($"Book {selectedBook.Title} deleted successfully.", LogLevel.INFO, sessionService.Session.BookstoreService.GetMemberInfo(sessionService.Token).Username);
+            }
+            else
+            {
+                ClientLogger.Log($"Book {selectedBook.Title} could not be deleted.", LogLevel.ERROR, sessionService.Session.BookstoreService.GetMemberInfo(sessionService.Token).Username);
+            }
 
             RefreshList();
         }
@@ -219,7 +232,7 @@ namespace WpfClient.ViewModels
             UndoCommand.RaiseCanExecuteChanged();
             RedoCommand.RaiseCanExecuteChanged();
 
-            //ClientLogger.Log($"{Classes.Session.Current.LoggedInUser} leased book {selectedBook.Title}", Common.LogLevel.INFO);
+            ClientLogger.Log($"{sessionService.Session.BookstoreService.GetMemberInfo(sessionService.Token).Username} leased book {selectedBook.Title}", LogLevel.INFO, sessionService.Session.BookstoreService.GetMemberInfo(sessionService.Token).Username);
         }
 
         private bool CanLease()
@@ -241,7 +254,9 @@ namespace WpfClient.ViewModels
                 LeaseCommand.RaiseCanExecuteChanged();
                 ReturnCommand.RaiseCanExecuteChanged();
             }
-            
+
+            ClientLogger.Log($"{sessionService.Session.BookstoreService.GetMemberInfo(sessionService.Token).Username} returned book {selectedBook.Title}", LogLevel.INFO, sessionService.Session.BookstoreService.GetMemberInfo(sessionService.Token).Username);
+
         }
 
         private bool CanReturn()

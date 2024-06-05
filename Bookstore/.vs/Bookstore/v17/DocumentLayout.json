@@ -3,8 +3,24 @@
   "WorkspaceRootPath": "D:\\rva\\RVA\\Bookstore\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A6BCF32A-1A0E-4F92-AAA8-AF5113BF49AD}|BookstoreBackend\\BookstoreBackend.csproj|d:\\rva\\rva\\bookstore\\bookstorebackend\\bookstoreservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5BFA52CB-73C1-443C-9EBF-A19A54E4CC23}|WpfClient\\WpfClient.csproj|d:\\rva\\rva\\bookstore\\wpfclient\\viewmodels\\logviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5BFA52CB-73C1-443C-9EBF-A19A54E4CC23}|WpfClient\\WpfClient.csproj|solutionrelative:wpfclient\\viewmodels\\logviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5BFA52CB-73C1-443C-9EBF-A19A54E4CC23}|WpfClient\\WpfClient.csproj|D:\\rva\\RVA\\Bookstore\\wpfclient\\viewmodels\\bookviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5BFA52CB-73C1-443C-9EBF-A19A54E4CC23}|WpfClient\\WpfClient.csproj|solutionrelative:wpfclient\\viewmodels\\bookviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9C0A3D21-D5DB-45B4-B8AC-734BE82B53BE}|Common\\Common.csproj|D:\\rva\\RVA\\Bookstore\\common\\log\\logger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9C0A3D21-D5DB-45B4-B8AC-734BE82B53BE}|Common\\Common.csproj|solutionrelative:common\\log\\logger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A6BCF32A-1A0E-4F92-AAA8-AF5113BF49AD}|BookstoreBackend\\BookstoreBackend.csproj|D:\\rva\\RVA\\Bookstore\\bookstorebackend\\bookstoreservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A6BCF32A-1A0E-4F92-AAA8-AF5113BF49AD}|BookstoreBackend\\BookstoreBackend.csproj|solutionrelative:bookstorebackend\\bookstoreservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5BFA52CB-73C1-443C-9EBF-A19A54E4CC23}|WpfClient\\WpfClient.csproj|D:\\rva\\RVA\\Bookstore\\wpfclient\\viewmodels\\viewmodelbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5BFA52CB-73C1-443C-9EBF-A19A54E4CC23}|WpfClient\\WpfClient.csproj|solutionrelative:wpfclient\\viewmodels\\viewmodelbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,20 +30,68 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "BookViewModel.cs",
+              "DocumentMoniker": "D:\\rva\\RVA\\Bookstore\\WpfClient\\ViewModels\\BookViewModel.cs",
+              "RelativeDocumentMoniker": "WpfClient\\ViewModels\\BookViewModel.cs",
+              "ToolTip": "D:\\rva\\RVA\\Bookstore\\WpfClient\\ViewModels\\BookViewModel.cs",
+              "RelativeToolTip": "WpfClient\\ViewModels\\BookViewModel.cs",
+              "ViewState": "AQIAAOsAAAAAAAAAAAAuwAEBAAD+AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-05T18:01:04.7Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ViewModelBase.cs",
+              "DocumentMoniker": "D:\\rva\\RVA\\Bookstore\\WpfClient\\ViewModels\\ViewModelBase.cs",
+              "RelativeDocumentMoniker": "WpfClient\\ViewModels\\ViewModelBase.cs",
+              "ToolTip": "D:\\rva\\RVA\\Bookstore\\WpfClient\\ViewModels\\ViewModelBase.cs",
+              "RelativeToolTip": "WpfClient\\ViewModels\\ViewModelBase.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABIAAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-05T17:57:20.31Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Logger.cs",
+              "DocumentMoniker": "D:\\rva\\RVA\\Bookstore\\Common\\Log\\Logger.cs",
+              "RelativeDocumentMoniker": "Common\\Log\\Logger.cs",
+              "ToolTip": "D:\\rva\\RVA\\Bookstore\\Common\\Log\\Logger.cs",
+              "RelativeToolTip": "Common\\Log\\Logger.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAowBQAAAA7AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-05T17:56:53.877Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "LogViewModel.cs",
+              "DocumentMoniker": "D:\\rva\\RVA\\Bookstore\\WpfClient\\ViewModels\\LogViewModel.cs",
+              "RelativeDocumentMoniker": "WpfClient\\ViewModels\\LogViewModel.cs",
+              "ToolTip": "D:\\rva\\RVA\\Bookstore\\WpfClient\\ViewModels\\LogViewModel.cs",
+              "RelativeToolTip": "WpfClient\\ViewModels\\LogViewModel.cs",
+              "ViewState": "AQIAABcAAAAAAAAAAAAowCkAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-05T17:56:18.872Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "BookstoreService.cs",
               "DocumentMoniker": "D:\\rva\\RVA\\Bookstore\\BookstoreBackend\\BookstoreService.cs",
               "RelativeDocumentMoniker": "BookstoreBackend\\BookstoreService.cs",
               "ToolTip": "D:\\rva\\RVA\\Bookstore\\BookstoreBackend\\BookstoreService.cs",
               "RelativeToolTip": "BookstoreBackend\\BookstoreService.cs",
-              "ViewState": "AQIAALUAAAAAAAAAAAAqwKEAAABGAAAA",
+              "ViewState": "AQIAAAQBAAAAAAAAAAAAAAUBAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-05T17:11:36.875Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-05T17:11:36.875Z"
             }
           ]
         }
