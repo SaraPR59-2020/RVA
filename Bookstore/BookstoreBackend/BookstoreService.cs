@@ -23,6 +23,7 @@ namespace BookstoreBackend
         {
             using (var db = new BookstoreDbContext())
             {
+                logger.Log("Book data querried.", LogLevel.DEBUG, "");
                 return db.Books.Include("Author").ToDictionary(b => b.BookId); //.Include("Member");
             }
         }
@@ -30,19 +31,29 @@ namespace BookstoreBackend
         public bool CreateBook(string title, int publishmentYear, int authorId, string token)
         {
             Member member = userService.GetLoggedInUser(token);
-            if (member == null) return false;
-            if (!member.IsAdmin) return false;
+            if (member == null)
+            {
+                logger.Log("Failed to create book.", LogLevel.WARN, "");
+                return false;
+            }
+            if (!member.IsAdmin)
+            {
+                logger.Log("Failed to create book.", LogLevel.WARN, member.Username);
+                return false;
+            }
 
             using (var db = new BookstoreDbContext())
             {
                 if (db.Books.FirstOrDefault(b => b.Title == title && b.AuthorId == authorId) != null)
                 {
+                    logger.Log("Failed to create book.", LogLevel.WARN, member.Username);
                     return false;
                 }
 
                 db.Books.Add(new Book() { Title = title, AuthorId = authorId, PublishYear = publishmentYear }); // When you assign an ID it automatically connects it to the existing author
                 db.SaveChanges();
 
+                logger.Log(member.Username + " successfully added book.", LogLevel.INFO, member.Username);
                 return true;
             }
         }
@@ -50,8 +61,16 @@ namespace BookstoreBackend
         public bool DeleteBook(Book book, string token)
         {
             Member member = userService.GetLoggedInUser(token);
-            if (member == null) return false;
-            if (!member.IsAdmin) return false;
+            if (member == null)
+            {
+                logger.Log("Failed to delete book.", LogLevel.WARN, "");
+                return false;
+            }
+            if (!member.IsAdmin)
+            {
+                logger.Log("Failed to delete book.", LogLevel.WARN, member.Username);
+                return false;
+            }
 
             using (var db = new BookstoreDbContext())
             {
@@ -59,12 +78,14 @@ namespace BookstoreBackend
 
                 if (b == null || b.Member != null)
                 {
+                    logger.Log("Failed to delete book.", LogLevel.WARN, member.Username);
                     return false;
                 }
 
                 db.Books.Remove(b);
                 db.SaveChanges();
 
+                logger.Log(member.Username + " successfully deleted book.", LogLevel.INFO, member.Username);
                 return true;
             }
         }
@@ -72,8 +93,16 @@ namespace BookstoreBackend
         public void CloneBook(Book book, string token)
         {
             Member member = userService.GetLoggedInUser(token);
-            if (member == null) return;
-            if (!member.IsAdmin) return;
+            if (member == null)
+            {
+                logger.Log("Failed to duplicate book.", LogLevel.WARN, "");
+                return;
+            }
+            if (!member.IsAdmin)
+            {
+                logger.Log("Failed to duplicate book.", LogLevel.WARN, member.Username);
+                return;
+            }
 
             using (var db = new BookstoreDbContext())
             {
@@ -81,19 +110,29 @@ namespace BookstoreBackend
 
                 if (books.Values.FirstOrDefault(b => b.BookId == book.BookId) == null)
                 {
+                    logger.Log("Failed to duplicate book.", LogLevel.WARN, member.Username);
                     return;
                 }
 
                 db.Books.Add(new Book() { Title = book.Title, AuthorId = book.AuthorId, PublishYear = book.PublishYear }); // When you assign an ID it automatically connects it to the existing author
                 db.SaveChanges();
+                logger.Log(member.Username + " successfully duplicated a book.", LogLevel.INFO, member.Username);
             }
         }
 
         public bool EditBook(int bookId, string title, int publishYear, int authorId, string token)
         {
             Member member = userService.GetLoggedInUser(token);
-            if (member == null) return false;
-            if (!member.IsAdmin) return false;
+            if (member == null)
+            {
+                logger.Log("Failed to edit book.", LogLevel.WARN, "");
+                return false;
+            }
+            if (!member.IsAdmin)
+            {
+                logger.Log("Failed to edit book.", LogLevel.WARN, member.Username);
+                return false;
+            }
 
             using (var db = new BookstoreDbContext())
             {
@@ -101,6 +140,7 @@ namespace BookstoreBackend
 
                 if (b == null)
                 {
+                    logger.Log("Failed to edit book.", LogLevel.WARN, member.Username);
                     return false;
                 }
 
@@ -109,16 +149,24 @@ namespace BookstoreBackend
                 b.AuthorId = authorId;
                 db.SaveChanges();
 
+                logger.Log(member.Username + " successfully edited a book.", LogLevel.INFO, member.Username);
                 return true;
             }
         }
 
         public bool LeaseBook(Book book, string token)
         {
-            if(book.Member != null) return false;
-
             Member member = userService.GetLoggedInUser(token);
-            if (member == null) return false;
+            if (member == null)
+            {
+                logger.Log("Failed to lease a book.", LogLevel.WARN, "");
+                return false;
+            }
+            if (book.Member != null)
+            {
+                logger.Log("Failed to lease a book.", LogLevel.WARN, member.Username);
+                return false;
+            }
 
             using (var db = new BookstoreDbContext())
             {
@@ -126,12 +174,14 @@ namespace BookstoreBackend
 
                 if (b == null)
                 {
+                    logger.Log("Failed to lease a book.", LogLevel.WARN, member.Username);
                     return false;
                 }
 
                 b.Username = member.Username;
                 db.SaveChanges();
 
+                logger.Log(member.Username + " successfully leased a book.", LogLevel.INFO, member.Username);
                 return true;
             }
         }
@@ -139,7 +189,11 @@ namespace BookstoreBackend
         public bool ReturnBook(Book book, string token)
         {
             Member member = userService.GetLoggedInUser(token);
-            if (member == null) return false;
+            if (member == null)
+            {
+                logger.Log("Failed to return a book.", LogLevel.WARN, "");
+                return false;
+            }
 
             using (var db = new BookstoreDbContext())
             {
@@ -147,12 +201,14 @@ namespace BookstoreBackend
 
                 if (b == null)
                 {
+                    logger.Log("Failed to return a book.", LogLevel.WARN, member.Username);
                     return false;
                 }
 
                 b.Username = null;
                 db.SaveChanges();
 
+                logger.Log(member.Username + " successfully returned a book.", LogLevel.INFO, member.Username);
                 return true;
             }
         }
@@ -163,13 +219,22 @@ namespace BookstoreBackend
         public Author CreateAuthor(string firstName, string lastName, string shortDesc, string token)
         {
             Member member = userService.GetLoggedInUser(token);
-            if (member == null) return null;
-            if (!member.IsAdmin) return null;
+            if (member == null)
+            {
+                logger.Log("Failed to create author.", LogLevel.WARN, "");
+                return null;
+            }
+            if (!member.IsAdmin)
+            {
+                logger.Log("Failed to create author.", LogLevel.WARN, member.Username);
+                return null;
+            }
 
             using (var db = new BookstoreDbContext())
             {
                 if (db.Authors.FirstOrDefault(a => a.FirstName == firstName && a.LastName == lastName) != null)
                 {
+                    logger.Log("Failed to create author.", LogLevel.WARN, member.Username);
                     return null;
                 }
 
@@ -178,6 +243,7 @@ namespace BookstoreBackend
                 db.Authors.Add(author);
                 db.SaveChanges();
 
+                logger.Log(member.Username + " successfully created author.", LogLevel.INFO, member.Username);
                 return author;
             }
         }
@@ -186,6 +252,7 @@ namespace BookstoreBackend
         {
             using (var db = new BookstoreDbContext())
             {
+                logger.Log("Author data querried.", LogLevel.DEBUG, "");
                 return db.Authors.ToList();
             }
         }
@@ -223,13 +290,22 @@ namespace BookstoreBackend
         public bool CreateUser(string firstName, string lastName, string username, string password, bool admin, string token)
         {
             Member member = userService.GetLoggedInUser(token);
-            if (member == null) return false;
-            if (!member.IsAdmin) return false;
+            if (member == null)
+            {
+                logger.Log("Failed to create user " + username + ".", LogLevel.WARN, username);
+                return false;
+            }
+            if (!member.IsAdmin)
+            {
+                logger.Log("Failed to create user " + username + ".", LogLevel.WARN, username);
+                return false;
+            }
 
             using (var db = new BookstoreDbContext())
             {
                 if (db.Members.Find(username) != null)
                 {
+                    logger.Log("Failed to create user " + username + ".", LogLevel.WARN, username);
                     return false;
                 }
 
@@ -246,13 +322,18 @@ namespace BookstoreBackend
         public bool EditMemberInfo(string firstName, string lastName, string token)
         {
             var member = userService.GetLoggedInUser(token);
-            if (member == null) return false;
+            if (member == null)
+            {
+                logger.Log("Failed to edit member info.", LogLevel.WARN, "");
+                return false;
+            }
 
             using (var db = new BookstoreDbContext())
             {
                 Member user = db.Members.FirstOrDefault(m => m.Username == member.Username);
                 if (user == null)
                 {
+                    logger.Log("Failed to edit member info.", LogLevel.WARN, member.Username);
                     return false;
                 }
 
@@ -260,6 +341,7 @@ namespace BookstoreBackend
                 user.LastName = lastName;
                 db.SaveChanges();
 
+                logger.Log(member.Username + " info edited.", LogLevel.DEBUG, member.Username);
                 return true;
             }
         }
@@ -267,11 +349,16 @@ namespace BookstoreBackend
         public Member GetMemberInfo(string token)
         {
             var member = userService.GetLoggedInUser(token);
-            if (member == null) return null;
+            if (member == null)
+            {
+                logger.Log("Failed to get member info.", LogLevel.WARN, "");
+                return null;
+            }
 
             using (var db = new BookstoreDbContext())
             {
                 Member user = db.Members.FirstOrDefault(m => m.Username == member.Username);
+                logger.Log("Retrieved info of " + member.Username + ".", LogLevel.DEBUG, member.Username);
                 return user;
             }
         }
