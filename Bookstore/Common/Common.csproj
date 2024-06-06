@@ -43,9 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IAuthor.cs" />
+    <Compile Include="IBooks.cs" />
     <Compile Include="ICloneable.cs" />
     <Compile Include="IBookstoreService.cs" />
     <Compile Include="INotificationService.cs" />
+    <Compile Include="IUser.cs" />
     <Compile Include="Log\Logger.cs" />
     <Compile Include="Log\LogLevel.cs" />
     <Compile Include="Model\Author.cs" />
