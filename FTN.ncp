@@ -48,7 +48,7 @@
       <Entity type="Class">
         <Name>BookstoreService</Name>
         <Access>Public</Access>
-        <Location left="1879" top="564" />
+        <Location left="2057" top="564" />
         <Size width="316" height="366" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private static UserService userService</Member>
@@ -94,7 +94,7 @@
       <Entity type="Class">
         <Name>DbContext</Name>
         <Access>Public</Access>
-        <Location left="2093" top="275" />
+        <Location left="2271" top="275" />
         <Size width="162" height="78" />
         <Collapsed>False</Collapsed>
         <Modifier>None</Modifier>
@@ -102,7 +102,7 @@
       <Entity type="Class">
         <Name>BookstoreDbContext</Name>
         <Access>Public</Access>
-        <Location left="1879" top="275" />
+        <Location left="2057" top="275" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Property">public DbSet&lt;Author&gt; Authors { get; set; }</Member>
@@ -114,7 +114,7 @@
       <Entity type="Class">
         <Name>UserService</Name>
         <Access>Public</Access>
-        <Location left="2239" top="564" />
+        <Location left="2417" top="564" />
         <Size width="162" height="230" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private static UserService instance</Member>
@@ -214,7 +214,7 @@
       <Entity type="Class">
         <Name>Logger</Name>
         <Access>Public</Access>
-        <Location left="1344" top="912" />
+        <Location left="1344" top="940" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private string path</Member>
@@ -442,6 +442,42 @@
         <Collapsed>False</Collapsed>
         <Member type="Method">ICloneable Clone()</Member>
       </Entity>
+      <Entity type="Interface">
+        <Name>IBooks</Name>
+        <Access>Public</Access>
+        <Location left="1798" top="425" />
+        <Size width="162" height="188" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">Dictionary&lt;int, Book&gt; GetBooks()</Member>
+        <Member type="Method">bool CreateBook(string title, int publishmentYear, int authorId, string token)</Member>
+        <Member type="Method">bool DeleteBook(Book book, string token)</Member>
+        <Member type="Method">void CloneBook(Book book, string token)</Member>
+        <Member type="Method">bool EditBook(Book book, string token)</Member>
+        <Member type="Method">bool LeaseBook(Book book, string token)</Member>
+        <Member type="Method">bool ReturnBook(Book book, string token)</Member>
+      </Entity>
+      <Entity type="Interface">
+        <Name>IAuthor</Name>
+        <Access>Public</Access>
+        <Location left="1798" top="638" />
+        <Size width="162" height="126" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">void NewMethod()</Member>
+        <Member type="Method">Author CreateAuthor(string firstName, string lastName, string shortDesc, string token)</Member>
+        <Member type="Method">List&lt;Author&gt; GetAuthors()</Member>
+      </Entity>
+      <Entity type="Interface">
+        <Name>IUser</Name>
+        <Access>Public</Access>
+        <Location left="1798" top="791" />
+        <Size width="162" height="146" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">string LogIn(string username, string password)</Member>
+        <Member type="Method">void LogOut(string token)</Member>
+        <Member type="Method">bool CreateUser(string firstName, string lastName, string username, string password, bool admin, string token)</Member>
+        <Member type="Method">bool EditMemberInfo(string firstName, string lastName, string token)</Member>
+        <Member type="Method">Member GetMemberInfo(string token)</Member>
+      </Entity>
     </Entities>
     <Relationships>
       <Relationship type="Association" first="1" second="0">
@@ -468,10 +504,6 @@
       </Relationship>
       <Relationship type="Generalization" first="6" second="5">
         <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
-      </Relationship>
-      <Relationship type="Realization" first="3" second="4">
-        <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
       </Relationship>
       <Relationship type="Association" first="3" second="7">
@@ -519,8 +551,12 @@
         <EndMultiplicity>0..1</EndMultiplicity>
       </Relationship>
       <Relationship type="Association" first="3" second="15">
-        <StartOrientation>Horizontal</StartOrientation>
+        <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>2214</X>
+          <Y>1042</Y>
+        </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
@@ -620,6 +656,38 @@
       <Relationship type="Realization" first="0" second="29">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Realization" first="3" second="30">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+      </Relationship>
+      <Relationship type="Generalization" first="4" second="30">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+      </Relationship>
+      <Relationship type="Realization" first="3" second="31">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+      </Relationship>
+      <Relationship type="Generalization" first="4" second="31">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+      </Relationship>
+      <Relationship type="Realization" first="3" second="32">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+      </Relationship>
+      <Relationship type="Generalization" first="4" second="32">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+      </Relationship>
+      <Relationship type="Realization" first="3" second="4">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>2171</X>
+          <Y>1001</Y>
+        </BendPoint>
       </Relationship>
     </Relationships>
   </ProjectItem>
