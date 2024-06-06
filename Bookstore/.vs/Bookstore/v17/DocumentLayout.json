@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "D:\\rva\\RVA\\Bookstore\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{9C0A3D21-D5DB-45B4-B8AC-734BE82B53BE}|Common\\Common.csproj|d:\\rva\\rva\\bookstore\\common\\model\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9C0A3D21-D5DB-45B4-B8AC-734BE82B53BE}|Common\\Common.csproj|solutionrelative:common\\model\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9C0A3D21-D5DB-45B4-B8AC-734BE82B53BE}|Common\\Common.csproj|d:\\rva\\rva\\bookstore\\common\\icloneable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9C0A3D21-D5DB-45B4-B8AC-734BE82B53BE}|Common\\Common.csproj|solutionrelative:common\\icloneable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A6BCF32A-1A0E-4F92-AAA8-AF5113BF49AD}|BookstoreBackend\\BookstoreBackend.csproj|D:\\rva\\RVA\\Bookstore\\bookstorebackend\\bookstoreservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A6BCF32A-1A0E-4F92-AAA8-AF5113BF49AD}|BookstoreBackend\\BookstoreBackend.csproj|solutionrelative:bookstorebackend\\bookstoreservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{5BFA52CB-73C1-443C-9EBF-A19A54E4CC23}|WpfClient\\WpfClient.csproj|d:\\rva\\rva\\bookstore\\wpfclient\\viewmodels\\bookviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5BFA52CB-73C1-443C-9EBF-A19A54E4CC23}|WpfClient\\WpfClient.csproj|solutionrelative:wpfclient\\viewmodels\\bookviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -33,10 +45,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{9C0A3D21-D5DB-45B4-B8AC-734BE82B53BE}|Common\\Common.csproj|D:\\rva\\RVA\\Bookstore\\common\\log\\logger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9C0A3D21-D5DB-45B4-B8AC-734BE82B53BE}|Common\\Common.csproj|solutionrelative:common\\log\\logger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A6BCF32A-1A0E-4F92-AAA8-AF5113BF49AD}|BookstoreBackend\\BookstoreBackend.csproj|D:\\rva\\RVA\\Bookstore\\bookstorebackend\\bookstoreservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A6BCF32A-1A0E-4F92-AAA8-AF5113BF49AD}|BookstoreBackend\\BookstoreBackend.csproj|solutionrelative:bookstorebackend\\bookstoreservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,11 +54,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "ICloneable.cs",
+              "DocumentMoniker": "D:\\rva\\RVA\\Bookstore\\Common\\ICloneable.cs",
+              "RelativeDocumentMoniker": "Common\\ICloneable.cs",
+              "ToolTip": "D:\\rva\\RVA\\Bookstore\\Common\\ICloneable.cs",
+              "RelativeToolTip": "Common\\ICloneable.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-06T09:06:19.951Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Book.cs",
+              "DocumentMoniker": "D:\\rva\\RVA\\Bookstore\\Common\\Model\\Book.cs",
+              "RelativeDocumentMoniker": "Common\\Model\\Book.cs",
+              "ToolTip": "D:\\rva\\RVA\\Bookstore\\Common\\Model\\Book.cs",
+              "RelativeToolTip": "Common\\Model\\Book.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAA1wBoAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-06T08:24:50.757Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "LoginViewModel.cs",
               "DocumentMoniker": "D:\\rva\\RVA\\Bookstore\\WpfClient\\ViewModels\\LoginViewModel.cs",
               "RelativeDocumentMoniker": "WpfClient\\ViewModels\\LoginViewModel.cs",
@@ -58,12 +92,11 @@
               "RelativeToolTip": "WpfClient\\ViewModels\\LoginViewModel.cs",
               "ViewState": "AQIAACcAAAAAAAAAAAAQwDoAAABKAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-05T19:32:58.601Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-05T19:32:58.601Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "AdminViewModel.cs",
               "DocumentMoniker": "D:\\rva\\RVA\\Bookstore\\WpfClient\\ViewModels\\AdminViewModel.cs",
               "RelativeDocumentMoniker": "WpfClient\\ViewModels\\AdminViewModel.cs",
@@ -75,7 +108,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "AccountViewModel.cs",
               "DocumentMoniker": "D:\\rva\\RVA\\Bookstore\\WpfClient\\ViewModels\\AccountViewModel.cs",
               "RelativeDocumentMoniker": "WpfClient\\ViewModels\\AccountViewModel.cs",
@@ -87,7 +120,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "LogView.xaml",
               "DocumentMoniker": "D:\\rva\\RVA\\Bookstore\\WpfClient\\Views\\LogView.xaml",
               "RelativeDocumentMoniker": "WpfClient\\Views\\LogView.xaml",
@@ -98,7 +131,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "BookViewModel.cs",
               "DocumentMoniker": "D:\\rva\\RVA\\Bookstore\\WpfClient\\ViewModels\\BookViewModel.cs",
               "RelativeDocumentMoniker": "WpfClient\\ViewModels\\BookViewModel.cs",
@@ -111,7 +144,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 9,
               "Title": "ViewModelBase.cs",
               "DocumentMoniker": "D:\\rva\\RVA\\Bookstore\\WpfClient\\ViewModels\\ViewModelBase.cs",
               "RelativeDocumentMoniker": "WpfClient\\ViewModels\\ViewModelBase.cs",
@@ -123,7 +156,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 10,
               "Title": "Logger.cs",
               "DocumentMoniker": "D:\\rva\\RVA\\Bookstore\\Common\\Log\\Logger.cs",
               "RelativeDocumentMoniker": "Common\\Log\\Logger.cs",
@@ -135,7 +168,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "LogViewModel.cs",
               "DocumentMoniker": "D:\\rva\\RVA\\Bookstore\\WpfClient\\ViewModels\\LogViewModel.cs",
               "RelativeDocumentMoniker": "WpfClient\\ViewModels\\LogViewModel.cs",
@@ -147,15 +180,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 2,
               "Title": "BookstoreService.cs",
               "DocumentMoniker": "D:\\rva\\RVA\\Bookstore\\BookstoreBackend\\BookstoreService.cs",
               "RelativeDocumentMoniker": "BookstoreBackend\\BookstoreService.cs",
               "ToolTip": "D:\\rva\\RVA\\Bookstore\\BookstoreBackend\\BookstoreService.cs",
               "RelativeToolTip": "BookstoreBackend\\BookstoreService.cs",
-              "ViewState": "AQIAAAQBAAAAAAAAAAAAAAUBAAAMAAAA",
+              "ViewState": "AQIAAGAAAAAAAAAAAAAowAUBAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-05T17:11:36.875Z"
+              "WhenOpened": "2024-06-05T17:11:36.875Z",
+              "EditorCaption": ""
             }
           ]
         }
