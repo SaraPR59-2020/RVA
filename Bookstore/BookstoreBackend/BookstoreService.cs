@@ -8,7 +8,7 @@ using System.Linq;
 namespace BookstoreBackend
 {
     // verovatno treba izmeniti neke metode i dodati logger
-    class BookstoreService : IBookstoreService
+    class BookstoreService : IBooks, IAuthor, IUser, IBookstoreService
     {
         private static UserService userService = UserService.GetInstance();
         private Logger logger;

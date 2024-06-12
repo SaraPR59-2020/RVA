@@ -6,7 +6,7 @@ using System.ServiceModel;
 namespace Common
 {
     [ServiceContract]
-    public interface IBookstoreService
+    public interface IBookstoreService : IUser, IAuthor, IBooks
     {
         //[OperationContract]
         /// <summary>
